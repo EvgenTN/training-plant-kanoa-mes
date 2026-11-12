@@ -1,0 +1,84 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 16,
+      "width": 16
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root",
+      "visible": false
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "showToast",
+          "params": [
+            "payload",
+            "toastType"
+          ],
+          "script": "\t\"\"\"\n\tRelays a legacy show*Toast message to system.kanoa.toast.show.\n\tpayload is either a message string or a dict with 'message' plus any\n\tsystem.kanoa.toast.show keys (title, id, position, autoClose, ...).\n\tLegacy styling keys (bgColor, fgColor, icon) are ignored.\n\t\"\"\"\n\tif not isinstance(payload, dict):\n\t\tpayload = {'message': payload}\n\t\n\tmessage = payload.get('message')\n\tif not message:\n\t\treturn\n\t\n\tparams = {'message': message, 'type': payload.get('type') or toastType}\n\tfor key in ('id', 'title', 'position', 'autoClose', 'closeButton', 'pauseOnHover', 'draggable', 'loading', 'animate'):\n\t\tif payload.get(key) is not None:\n\t\t\tparams[key] = payload[key]\n\t\n\ttry:\n\t\tsystem.kanoa.toast.show(params)\n\texcept:\n\t\tsystem.util.getLogger('kanoa.toast').warn('Failed to show toast: %s' % (params,))"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "showToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'default')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "showSuccessfulToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'success')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "showFailerToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'error')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "showBugToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'error')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "showWarningToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'warning')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "showInfoToast",
+          "pageScope": true,
+          "script": "\tself.showToast(payload, 'info')",
+          "sessionScope": true,
+          "viewScope": true
+        },
+        {
+          "messageType": "closeToast",
+          "pageScope": true,
+          "script": "\t\"\"\"\n\tDismisses every toast on this page.\n\t\"\"\"\n\ttry:\n\t\tsystem.kanoa.toast.dismiss({})\n\texcept:\n\t\tsystem.util.getLogger('kanoa.toast').warn('Failed to dismiss toasts')",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

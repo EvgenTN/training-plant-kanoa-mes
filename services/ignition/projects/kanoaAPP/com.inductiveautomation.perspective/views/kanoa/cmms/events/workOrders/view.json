@@ -1,0 +1,707 @@
+{
+  "custom": {
+    "selection": {},
+    "states": {
+      "Approved": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 70,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGreen-20",
+        "workOrderEventStatusId": 7,
+        "workOrderEventStatusName": "Approved"
+      },
+      "Assigned": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 20,
+        "workOrderEventStatusCategoryId": 3,
+        "workOrderEventStatusCategoryName": "Open",
+        "workOrderEventStatusColor": "--kcGreen-50",
+        "workOrderEventStatusId": 2,
+        "workOrderEventStatusName": "Assigned"
+      },
+      "Cancelled": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 60,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGray-30",
+        "workOrderEventStatusId": 6,
+        "workOrderEventStatusName": "Cancelled"
+      },
+      "Completed": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 50,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGreen-10",
+        "workOrderEventStatusId": 5,
+        "workOrderEventStatusName": "Completed"
+      },
+      "In Progress": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 30,
+        "workOrderEventStatusCategoryId": 2,
+        "workOrderEventStatusCategoryName": "In Progress",
+        "workOrderEventStatusColor": "--kcPurple-50",
+        "workOrderEventStatusId": 3,
+        "workOrderEventStatusName": "In Progress"
+      },
+      "Missed": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1789237958260
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-12",
+        "reservedBySystem": true,
+        "sortOrder": 80,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcRed-50",
+        "workOrderEventStatusId": 1003,
+        "workOrderEventStatusName": "Missed"
+      },
+      "On Hold": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 40,
+        "workOrderEventStatusCategoryId": 4,
+        "workOrderEventStatusCategoryName": "Waiting",
+        "workOrderEventStatusColor": "--kcGray-20",
+        "workOrderEventStatusId": 4,
+        "workOrderEventStatusName": "On Hold"
+      },
+      "Open": {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007077
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 10,
+        "workOrderEventStatusCategoryId": 3,
+        "workOrderEventStatusCategoryName": "Open",
+        "workOrderEventStatusColor": "--kcBlue-50",
+        "workOrderEventStatusId": 1,
+        "workOrderEventStatusName": "Open"
+      }
+    },
+    "workOrderStatus": [
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 10,
+        "workOrderEventStatusCategoryId": 3,
+        "workOrderEventStatusCategoryName": "Open",
+        "workOrderEventStatusColor": "--kcBlue-50",
+        "workOrderEventStatusId": 1,
+        "workOrderEventStatusName": "Open"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 20,
+        "workOrderEventStatusCategoryId": 3,
+        "workOrderEventStatusCategoryName": "Open",
+        "workOrderEventStatusColor": "--kcGreen-50",
+        "workOrderEventStatusId": 2,
+        "workOrderEventStatusName": "Assigned"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 30,
+        "workOrderEventStatusCategoryId": 2,
+        "workOrderEventStatusCategoryName": "In Progress",
+        "workOrderEventStatusColor": "--kcPurple-50",
+        "workOrderEventStatusId": 3,
+        "workOrderEventStatusName": "In Progress"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": true,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": false,
+        "sortOrder": 40,
+        "workOrderEventStatusCategoryId": 4,
+        "workOrderEventStatusCategoryName": "Waiting",
+        "workOrderEventStatusColor": "--kcGray-20",
+        "workOrderEventStatusId": 4,
+        "workOrderEventStatusName": "On Hold"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 50,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGreen-10",
+        "workOrderEventStatusId": 5,
+        "workOrderEventStatusName": "Completed"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 60,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGray-30",
+        "workOrderEventStatusId": 6,
+        "workOrderEventStatusName": "Cancelled"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1788881924250
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-08",
+        "reservedBySystem": true,
+        "sortOrder": 70,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcGreen-20",
+        "workOrderEventStatusId": 7,
+        "workOrderEventStatusName": "Approved"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1789259007078
+          ],
+          "$ts": 1789237958260
+        },
+        "enabled": true,
+        "isActive": false,
+        "lastUpdatedBy": "SYSTEM on 2026-09-12",
+        "reservedBySystem": true,
+        "sortOrder": 80,
+        "workOrderEventStatusCategoryId": 1,
+        "workOrderEventStatusCategoryName": "Closed",
+        "workOrderEventStatusColor": "--kcRed-50",
+        "workOrderEventStatusId": 1003,
+        "workOrderEventStatusName": "Missed"
+      }
+    ],
+    "workOrders": []
+  },
+  "params": {
+    "values": {
+      "filter": {
+        "assetPath": null,
+        "assignedTo": null,
+        "dueDate": null,
+        "endDate": {
+          "$": [
+            "ts",
+            0,
+            1774736800097
+          ],
+          "$ts": 1773817200000
+        },
+        "maintenanceTypeId": null,
+        "requestedBy": null,
+        "startDate": {
+          "$": [
+            "ts",
+            0,
+            1774736800097
+          ],
+          "$ts": 1773730800000
+        },
+        "workOrderNameTitle": "",
+        "workOrderPriorityId": null
+      }
+    }
+  },
+  "propConfig": {
+    "custom.selection": {
+      "persistent": true
+    },
+    "custom.selection.selectedState": {
+      "binding": {
+        "config": {
+          "struct": {
+            "idx": "{view.custom.selection.tabIndex}",
+            "tabs": "{view.custom.selection.tabs}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tif value[\u0027idx\u0027] \u003d\u003d -1: return None\n\timport re\n\tstate \u003d value[\u0027tabs\u0027][value[\u0027idx\u0027]]\t\n\treturn re.sub(r\u0027\\s*\\(.*\\)$\u0027, \u0027\u0027, state)\n\t\n",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    },
+    "custom.selection.tabIndex": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\treturn 0",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.selection.tabs": {
+      "binding": {
+        "config": {
+          "path": "view.params.values.filter"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tdata \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getWorkOrderEventCount(value), \u0027workOrderEventStatusName\u0027, \u0027count\u0027)\n\treturn [\"%s (%s)\"%(k,v) for k,v in data.items()]\n",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.states": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\treturn system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getWorkOrderEventStatus({\u0027enabled\u0027: True}), \u0027workOrderEventStatusName\u0027, None)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.workOrderStatus": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getWorkOrderEventStatus({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.workOrders": {
+      "binding": {
+        "config": {
+          "struct": {
+            "filters": "{view.params.values.filter}",
+            "state": "{view.custom.selection.selectedState}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tfilters \u003d dict(value[\u0027filters\u0027])\n\tfilters[\u0027workOrderEventStatusName\u0027] \u003d value[\u0027state\u0027]\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getWorkOrderEvents(filters))",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.values": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 786
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "tabStatus"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.tabColor": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "state": "{view.custom.selection.selectedState}",
+                  "states": "{view.custom.states}"
+                },
+                "waitOnAll": true
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\t\n\treturn value[\u0027states\u0027][value[\u0027state\u0027]][\u0027workOrderEventStatusColor\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.currentTabIndex": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.selection.tabIndex"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          },
+          "props.tabStyle.active.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "this.custom.tabColor"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          },
+          "props.tabs": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selection.tabs"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "menuType": "modern",
+          "tabSize": {
+            "width": 120
+          },
+          "tabStyle": {
+            "active": {
+              "border": "1px none #1d4ed8",
+              "borderRadius": "999px",
+              "color": "#ffffff",
+              "fontWeight": "600",
+              "margin": "4px",
+              "padding": "6px 14px"
+            },
+            "inactive": {
+              "backgroundColor": "#e5e7eb",
+              "border": "1px solid #d1d5db",
+              "borderRadius": "999px",
+              "color": "#374151",
+              "margin": "4px",
+              "padding": "6px 14px"
+            }
+          }
+        },
+        "type": "ia.container.tab"
+      },
+      {
+        "meta": {
+          "name": "flxWorkOrders"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "workOrders": "{view.custom.workOrders}"
+                },
+                "waitOnAll": true
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\n\treturn [{\u0027values\u0027: workOrder} for workOrder in value[\u0027workOrders\u0027]]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "classes": "kanoa/border"
+          },
+          "path": "kanoa/cmms/events/workOrderEvent",
+          "style": {
+            "gap": "5px",
+            "padding": "5px"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refreshWorkOrders",
+          "pageScope": true,
+          "script": "\n\tsystem.perspective.print(\"workOrders view refreshWorkOrders() msg rcvd with %s\"%payload)\n\t\n\tself.view.refreshBinding(\"custom.selection.tabs\")\n\t\n\t#We\u0027ll set the tab to the state that the work order just changed to\n\tname \u003d payload.get(\u0027workOrderEventStatusName\u0027)\n\tif name:\n\t\tstatuses \u003d self.view.custom.selection.tabs\n\t\ttabIdx \u003d next((i for i, s in enumerate(statuses) if s.split(\" (\")[0] \u003d\u003d name), -1)\n\t#\tsystem.perspective.print(\"Setting tabIndex to %s\"%tabIdx)\n\t\tif tabIdx !\u003d -1: self.view.custom.selection.tabIndex \u003d tabIdx\n\t\n\tself.view.refreshBinding(\"custom.workOrders\")\n\t\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

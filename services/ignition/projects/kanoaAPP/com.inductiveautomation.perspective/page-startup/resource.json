@@ -1,0 +1,17 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onPageStartup.py"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "external",
+      "timestamp": "2026-10-07T22:20:46Z"
+    },
+    "lastModificationSignature": "ed1b2b3896c129ac0598c35ef097b01b2424f6fb5001e5126697755054c4f32a",
+    "enabled": true
+  }
+}

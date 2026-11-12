@@ -1,0 +1,352 @@
+{
+  "custom": {
+    "display": {
+      "location": "",
+      "screenName": "",
+      "siteCode": ""
+    },
+    "url": "https://kanoa-dev.localtest.me/data/perspective/client/kanoaMarquee/marquee/display///"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.display": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\treturn {\"siteCode\": \"\", \"location\": \"\", \"screenName\": \"\"}",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.url": {
+      "binding": {
+        "config": {
+          "path": "view.custom.display"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tgatewayAddress \u003d self.session.props.gateway.address[:-1]\n\treturn \"{}/data/perspective/client/kanoaMarquee/marquee/display/{}/{}/{}\".format(gatewayAddress, value[\u0027siteCode\u0027], value[\u0027location\u0027], value[\u0027screenName\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 180,
+      "width": 657
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lbl",
+              "name": "lbl"
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Site Code"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "txt",
+              "name": "txt"
+            },
+            "position": {
+              "basis": "250px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.display.siteCode"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "domId": "flxSiteCode",
+          "name": "flxSiteCode"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lbl-1",
+              "name": "lbl"
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Location"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "txt-1",
+              "name": "txt"
+            },
+            "position": {
+              "basis": "250px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.display.location"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "domId": "flxLocation",
+          "name": "flxLocation"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lbl-2",
+              "name": "lbl"
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Screen Name"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "txt-2",
+              "name": "txt"
+            },
+            "position": {
+              "basis": "250px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.display.screenName"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "domId": "flxScreenName",
+          "name": "flxScreenName"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lbl-3",
+              "name": "lbl"
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "URL"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "lblURL",
+              "name": "lblURL"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.url"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "domId": "flxURL",
+          "name": "flxURL"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t\n\tparams \u003d {}\n\tsystem.perspective.navigate(url\u003dself.view.custom.url, params\u003dparams, newTab\u003dTrue)\n\tsystem.perspective.sendMessage(\u0027refreshMarqueeDisplays\u0027, {})\n\tsystem.perspective.closePopup(\u0027\u0027)\n\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnOK",
+              "name": "btnOK"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\treturn value[\u0027siteCode\u0027] !\u003d \u0027\u0027 and value[\u0027location\u0027] !\u003d \u0027\u0027 and value[\u0027screenName\u0027] !\u003d \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/button/filled"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t\n\tsystem.perspective.closePopup(\u0027\u0027)\n\t\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnClose",
+              "name": "btnClose"
+            },
+            "position": {
+              "basis": "80px"
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/button/outlined"
+              },
+              "text": "Close"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "flxAction",
+          "name": "flxAction"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "gap": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "domId": "root",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "kanoa/font/default",
+        "gap": "5px",
+        "padding": "5px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,1462 @@
+{
+  "custom": {
+    "info": {
+      "showBar": false,
+      "text": "",
+      "type": "INFO"
+    },
+    "procedures": {
+      "col": null,
+      "row": null,
+      "selectedData": []
+    },
+    "security": {
+      "config": {
+        "allowGuest": "1",
+        "userSource": "default",
+        "userSources": "[\"default\"]"
+      },
+      "userCRUD": {
+        "approveQualityCheck": {
+          "assets": [],
+          "enabled": false
+        },
+        "approveWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureAssets": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureItems": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureLots": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureQuality": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureSecurity": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "editOperations": {
+          "assets": [],
+          "enabled": false
+        },
+        "enterQualityCheck": {
+          "assets": [],
+          "enabled": false
+        },
+        "enterWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "isGatewayAdmin": true,
+        "operateAssets": {
+          "assets": [],
+          "enabled": false
+        },
+        "scheduleOperations": {
+          "assets": [],
+          "enabled": false
+        },
+        "scheduleShifts": {
+          "assets": [],
+          "enabled": false
+        }
+      },
+      "userId": 5
+    },
+    "userAction": {
+      "canCreate": true,
+      "canDelete": false,
+      "canRead": true,
+      "canUpdate": false
+    }
+  },
+  "params": {
+    "values": {
+      "assetIdList": []
+    }
+  },
+  "propConfig": {
+    "custom.procedures": {
+      "persistent": true
+    },
+    "custom.procedures.data": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\treturn system.kanoa.cmms.getProcedures({})",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.procedures.selection": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn {\"procedureCategoryPaths\": [], \"procedureIds\": []}",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.security": {
+      "binding": {
+        "config": {
+          "path": "session.custom.kanoa.security"
+        },
+        "overlayOptOut": true,
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.userAction": {
+      "binding": {
+        "config": {
+          "struct": {
+            "security": "{session.custom.kanoa.security}",
+            "selection": "{view.custom.procedures.selection}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tsecurity = value['security']\n\tcanCreate = False\n\tcanEdit = False\n\tif security['userCRUD'] is not None and security['userId'] is not None:\n\t\tif security['userCRUD']['isGatewayAdmin'] or security['userCRUD']['configureProcedures']['enabled']: \n\t\t\tcanCreate = True\n\t\t\tif len(value['selection']['procedureIds']) > 0 or len(value['selection']['procedureCategoryPaths']) > 0: canEdit = True\n\t\n\treturn {\"canCreate\": canCreate, \"canDelete\": canEdit, \"canRead\": True, \"canUpdate\": canEdit}",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.values": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 673,
+      "width": 1118
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tself.view.refreshBinding(\"custom.procedures.data\")\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnGetData-1",
+                  "name": "btnGetData",
+                  "tooltip": {
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Get data"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/motion_photos_on"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "custom": {
+                  "gettingData": false
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tself.view.custom.procedures.data = system.dataset.clearDataset(self.view.custom.procedures.data)\n\t\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnClear-1",
+                  "name": "btnClear",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Clear table"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/not_interested"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tself.view.getChild(\"root\").openProcedureCategoryEditor(True)\n\t\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnAdd-1",
+                  "name": "btnAddCategory",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Add Category"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.userAction.canCreate}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/create_new_folder"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tself.view.getChild(\"root\").openProcedureCategoryEditor(False)\n\t\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnAdd-1",
+                  "name": "btnEditCategory",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Edit Category"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "selection": "{view.custom.procedures.selection}",
+                          "userAction": "{view.custom.userAction}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\treturn (len(value['selection']['procedureCategoryPaths']) == 1) and value['userAction']['canCreate']",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/edit"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\n\tmsg = \"Are you sure you want to delete the selected Procedures/categories?\"\n\tsystem.perspective.openPopup(\"UserConfirmPopup\", \"kanoa/core/templates/inputs/confirm\",  {'text':msg, 'messageHandler':'deleteProcedures'}, title='Delete Procedures', modal=True, overlayDismiss=True, draggable=True)\n#\tself.view.getChild(\"root\").deleteProcedures()\n\t\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnDelete-1",
+                  "name": "btnDelete",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "tail": false,
+                    "text": "Delete Procedures"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "selection": "{view.custom.procedures.selection}",
+                          "userAction": "{view.custom.userAction}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\treturn (len(value['selection']['procedureCategoryPaths']) > 0 or len(value['selection']['procedureIds']) > 0) and value['userAction']['canCreate']",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "--kcRed-60",
+                      "path": "material/delete_forever"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\n\texportData = self.view.getChild(\"root\").exportProcedures()\n\t\n\tlabel = exportData.get('label')\n\ttimeNow = system.date.format(system.date.now(), 'yyyy-MM-dd HH:mm:ss')\n\tfileName = '{} ({}).json'.format(label, timeNow)\n\t\n\tdata = exportData.get('data')\n\tif not data:\n\t\tsystem.kanoa.toast.show({'type': 'error', 'message': 'No procedures selected to export'})\n\t\treturn\n\t\n\tdocument = system.util.jsonEncode({'exportType': 'procedureData', 'data': system.util.jsonDecode(system.util.jsonEncode(data))})\n\tsystem.perspective.download(fileName, document)\n\t\n\tsystem.kanoa.toast.show({'type': 'success', 'message': 'Procedures exported'})\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnExportProcedures-1",
+                  "name": "btnExportProcedures",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Export Procedures"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.procedures.selection"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\treturn len(value['procedureIds']) > 0 or len(value['procedureCategoryPaths']) > 0",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "--kcBlue-30",
+                      "path": "material/publish"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "meta": {
+                  "domId": "evImportProcedures",
+                  "name": "evImportProcedures",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Import Procedures"
+                  }
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.userAction.canCreate}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.params.data": {
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\n\tdata = self.props.params.data or None\n\t\n\tif data is None: return\n\tself.props.params.data = None\n\t\n\tdata = system.util.jsonDecode(system.util.jsonEncode(data))\n\t\n\tself.saveImport(data)\n\t\n\treturn"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "clear": false,
+                    "data": null,
+                    "options": {
+                      "exportType": "procedureData",
+                      "importerName": "Import Procedures",
+                      "supportedFileTypes": [
+                        "json"
+                      ]
+                    }
+                  },
+                  "path": "kanoa/core/templates/file/importButton"
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "saveImport",
+                      "params": [
+                        "data"
+                      ],
+                      "script": "\n\tif data is None: return\n\t\n\tuserId = self.view.custom.security.userId\n\tif userId is None: return\n\t\n\tresult = self.view.getChild(\"root\").importProcedures(data, int(userId))\n\t\n\tself.view.refreshBinding(\"custom.procedures.data\")\n\tsystem.kanoa.toast.show({'type': 'success' if result['passed'] else 'error', 'message': '\\n - '.join([result['message']] + result['errorLog'])})\n\t\n\treturn"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "domId": "flxActions-3",
+              "name": "flxActions"
+            },
+            "position": {
+              "basis": "35px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "5px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "evAssetTree",
+                  "name": "evProcedureTree"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.params.values.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.procedures.data"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\theaders = [\"procedureId\",\"procedureName\",\"procedurePath\",\"procedureCategoryId\",\"procedureCategoryName\",\"procedureCategoryPath\",\"enabled\", 'iconPath']\n\t\n\trows = []\n\ticonPath = 'material/fact_check'\n\tfor row in system.kanoa.utilities.convertDatasetToJSON(value):\n\n\t\trows.append([row[\"procedureId\"], row[\"procedureName\"], row[\"procedurePath\"], row[\"procedureCategoryId\"], row[\"procedureCategoryName\"], row[\"procedureCategoryPath\"], row[\"enabled\"], iconPath])\n\t\n\ticonPath = 'material/folder_open'\n\tfor row in system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedureCategory({})):\n\t\trows.append([None, None, row[\"procedureCategoryPath\"], row[\"procedureCategoryId\"], row[\"procedureCategoryName\"], row[\"procedureCategoryPath\"], row[\"enabled\"], iconPath])\n\t\n\treturn system.dataset.toDataSet(headers, rows)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "refresh": false,
+                    "values": {
+                      "msgHandler": "procedureSelected",
+                      "options": {
+                        "dragDrop": {
+                          "enabled": true,
+                          "msgHandler": "procedureDropped"
+                        },
+                        "multiSelect": true,
+                        "selectable": []
+                      },
+                      "selection": [],
+                      "style": {
+                        "backgroundColor": "",
+                        "icoPath": null,
+                        "iconColor": ""
+                      },
+                      "treePath": "procedurePath"
+                    }
+                  },
+                  "path": "kanoa/core/templates/selectors/tree/treeSelector"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "domId": "lblTitle",
+                      "name": "lblTitle"
+                    },
+                    "position": {
+                      "display": false,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "fontWeight": "bold",
+                        "padding": 5,
+                        "textAlign": "center"
+                      },
+                      "text": "Procedures"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onEditCellCommit": {
+                          "config": {
+                            "script": "\n\tif view.custom.action.canUpdate:\n\t\tif event.column == 'Enabled':\n\t\t\tprocedureId = self.props.data.getValueAt(event.row, 'procedureId')\n\t\t\tsystem.kanoa.cmms..updateprocedureField(procedureId, 'enabled', event.value, self.view.custom.security.userId)\n\t\t\tself.view.refreshBinding(\"custom.procedures.data\")\n\t\t\tself.props.selection.selectedRow = None\n\t\telse:\n\t\t\tsystem.kanoa.toast.show({'type': 'error', 'message': 'Column is not enabled for editing.'})\n\telse:\n\t\tsystem.kanoa.toast.show({'type': 'error', 'message': 'No permissions to update procedures.'})\n\t\t\n\treturn"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onRowDoubleClick": {
+                          "config": {
+                            "script": "\t\n\tself.view.getChild(\"root\").openProcedureEditor(self.props.data[event.row]['ProcedureId'])\n\t\n\treturn"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "tblProcedure",
+                      "name": "tblProcedure"
+                    },
+                    "position": {
+                      "display": false,
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.columns[1].header.title": {
+                        "binding": {
+                          "config": {
+                            "expression": "translate('Procedure')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.columns[2].header.title": {
+                        "binding": {
+                          "config": {
+                            "expression": "translate('Procedure Type')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.columns[3].header.title": {
+                        "binding": {
+                          "config": {
+                            "expression": "translate('Category')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.columns[4].header.title": {
+                        "binding": {
+                          "config": {
+                            "expression": "translate('Asset Group')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.columns[5].header.title": {
+                        "binding": {
+                          "config": {
+                            "expression": "translate('Enabled')"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.data": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.procedures.data"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\n\tdata = system.kanoa.utilities.convertDatasetToJSON(value)\n\tfor item in data:\n\t\tfor k, v in item.items():\n\t\t\tif k == 'procedureTypeName': item[k] = {\"value\": v, \"style\":{\"backgroundColor\": item['procedureTypeColor'] or '#FFFFFF', \"color\": system.kanoa.utilities.getContrastingColor(item['procedureTypeColor']), \"borderBottomRightRadius\": '5px', \"borderTopLeftRadius\": '5px', \"borderTopRightRadius\": '5px', \"borderBottomLeftRadius\": '5px', \"padding\": '4px'}}\n\t\t\telif k == 'procedureName': item[k] = {\"value\": v, \"style\":{\"backgroundColor\": item['procedureColor'] or '#FFFFFF', \"color\": system.kanoa.utilities.getContrastingColor(item['procedureColor'] or '#FFFFFF'), \"borderBottomRightRadius\": '5px', \"borderTopLeftRadius\": '5px', \"borderTopRightRadius\": '5px', \"borderBottomLeftRadius\": '5px', \"padding\": '4px'}}\n\treturn data",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.selection.data": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.procedures.selectedData"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      },
+                      "props.selection.selectedColumn": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.procedures.col"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      },
+                      "props.selection.selectedRow": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.procedures.row"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "bodyStyle": {
+                        "classes": "kanoa/font/default"
+                      },
+                      "columns": [
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "procedureId",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": "Procedure Id"
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": false,
+                          "strictWidth": true,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": 80
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "stateName",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            }
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": true,
+                          "strictWidth": false,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": ""
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "stateTypeName",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            }
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": true,
+                          "strictWidth": false,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": ""
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "stateCategoryPath",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            }
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": true,
+                          "strictWidth": false,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": ""
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "assetGroupName",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            }
+                          },
+                          "justify": "auto",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": true,
+                          "strictWidth": false,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": ""
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "enabled",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            }
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": false,
+                          "strictWidth": true,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": 60
+                        },
+                        {
+                          "align": "center",
+                          "boolean": "checkbox",
+                          "dateFormat": "MM/DD/YYYY",
+                          "editable": false,
+                          "field": "reservedBySystem",
+                          "footer": {
+                            "align": "center",
+                            "justify": "left",
+                            "style": {
+                              "classes": ""
+                            },
+                            "title": ""
+                          },
+                          "header": {
+                            "align": "center",
+                            "justify": "center",
+                            "style": {
+                              "classes": "kanoa/font/default"
+                            },
+                            "title": "Reserved"
+                          },
+                          "justify": "center",
+                          "number": "value",
+                          "numberFormat": "0,0.##",
+                          "progressBar": {
+                            "bar": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "track": {
+                              "color": "",
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "value": {
+                              "enabled": true,
+                              "format": "0,0.##",
+                              "justify": "center",
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "render": "auto",
+                          "resizable": true,
+                          "sort": "none",
+                          "sortable": false,
+                          "strictWidth": true,
+                          "style": {
+                            "classes": ""
+                          },
+                          "toggleSwitch": {
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            }
+                          },
+                          "viewParams": {},
+                          "viewPath": "",
+                          "visible": true,
+                          "width": 60
+                        }
+                      ],
+                      "filter": {
+                        "enabled": true
+                      },
+                      "headerStyle": {
+                        "classes": "kanoa/font/default",
+                        "fontWeight": "bold"
+                      },
+                      "nullFormat": {
+                        "includeNullStrings": true
+                      },
+                      "pager": {
+                        "bottom": false
+                      },
+                      "rows": {
+                        "striped": {
+                          "enabled": false
+                        },
+                        "style": {
+                          "gap": "2px",
+                          "margin": "2px"
+                        }
+                      },
+                      "selection": {
+                        "mode": "multiple interval"
+                      },
+                      "style": {
+                        "borderStyle": "none"
+                      }
+                    },
+                    "type": "ia.display.table"
+                  }
+                ],
+                "meta": {
+                  "domId": "flxTable-1",
+                  "name": "flxTable"
+                },
+                "position": {
+                  "display": false,
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "backgroundColor": "--kcSurface",
+                    "classes": "kanoa/border",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "evProcedureEditor"
+                    },
+                    "propConfig": {
+                      "props.params.values": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.procedures.selection"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\tpaths = value['procedureCategoryPaths']\n\tprocedureIds = value['procedureIds']\n\t\n\treturn {\n\t\t\t\t\"procedureCategoryPath\": paths[0] if len(paths) > 0 else None,\n\t\t\t\t\"procedureId\": procedureIds[0] if len(procedureIds) > 0 else None\n\t\t\t}",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "kanoa/cmms/config/procedures/procedureEditor"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "tbProcedureEditor"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.tabs": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.values.assetIdList"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\ttabs = [\"Procedure Editor\"]\n\tif len(value) > 0: tabs.append(\"Asset Links\")\n\treturn tabs",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "contentStyle": {
+                    "borderStyle": "none"
+                  },
+                  "menuType": "modern",
+                  "tabSize": {
+                    "width": 150
+                  },
+                  "tabStyle": {
+                    "active": {
+                      "classes": "kanoa/font/default"
+                    },
+                    "inactive": {
+                      "classes": "kanoa/font/default"
+                    }
+                  }
+                },
+                "type": "ia.container.tab"
+              }
+            ],
+            "meta": {
+              "name": "flxProcedureEditor"
+            },
+            "position": {
+              "grow": 1
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "domId": "flxProcedures-1",
+          "name": "flxProcedures"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "gap": "3px",
+            "overflow": "hidden",
+            "padding": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "procedureSelected",
+          "params": [
+            "payload"
+          ],
+          "script": "\n\tsystem.perspective.print(\"procedureSelected() called with  %s\"%(payload))\n\tprocedureIds = []\n\tprocedureCategoryPaths = []\n\t\n\tfor item in payload['selection']:\n\t\tif item['value'].has_key('procedureId') and item['value']['procedureId']: procedureIds.append(item['value']['procedureId'])\n\t\telif item['value'].has_key('procedureCategoryId') and item['value']['procedureCategoryId']: procedureCategoryPaths.append(item['value']['procedureCategoryPath'])\n\t\telse: procedureCategoryPaths.append(item['value']['path'])\n\n\tself.view.custom.procedures.selection = {'procedureIds': procedureIds, 'procedureCategoryPaths': procedureCategoryPaths}\n\treturn"
+        },
+        {
+          "name": "openProcedureCategoryEditor",
+          "params": [
+            "addMode"
+          ],
+          "script": "\n\tsystem.perspective.print(\"openProcedureCategoryEditor() called with %s\"%(addMode))\n\n\tselection = self.view.custom.procedures.selection['procedureCategoryPaths']\n\tprocedureCategoryId = system.kanoa.utilities.getFieldValue('procedureCategoryId', system.kanoa.cmms.getProcedureCategory({'procedureCategoryPath': selection[0]})) if len(selection) > 0 else None\n\t\n\tparams = {'values': {'procedureCategoryId': procedureCategoryId, 'add': addMode}}\n\tsystem.perspective.openPopup('Procedure Category Editor', 'kanoa/cmms/config/procedures/procedureCategoryEditor', params)\n\t\n\treturn"
+        },
+        {
+          "name": "deleteSelected",
+          "params": [],
+          "script": "\n\tuserId = self.view.custom.security.userId\n\tselection = self.view.custom.procedures.selection\n\tmsgs = []\n\t\n\t#We'll start off by deleting any selected procedures\n\t\n\tfor procedureId in selection['procedureIds']:\n\t\tretVal, msg = system.kanoa.cmms.deleteProcedure(procedureId, userId)\n\t\tsystem.perspective.print('deleteProcedure() returned %s %s'%(retVal, msg))\n\t\tif msg: msgs.append('Procedure %s has not been deleted. \\n%s'%(procedureId, msg))\n\t\telse: msgs.append('Procedure %s has been deleted.'%(procedureId))\n\n\t#Now we'll delete any selected procedure categories\n\tselection['procedureCategoryPaths']\n\tif len(selection) > 0:\n\t\tprocedureCategories = system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getProcedureCategory({}), 'procedureCategoryPath', 'procedureCategoryId')\n\t\n\t\tfor procedureCategoryPath in selection['procedureCategoryPaths']:\n\t\t\tretVal, msg = system.kanoa.cmms.deleteProcedureCategory(procedureCategories[procedureCategoryPath], userId)\n\t\t\tif msg: msgs.append('%s category has not been deleted. \\n%s'%(procedureCategoryPath, msg))\n\t\t\telse: msgs.append('%s category has been deleted.'%procedureCategoryPath)\n\t\t\t\n\tif len(msgs) > 0: system.kanoa.toast.show({'type': 'info', 'message': '%s'%'\\n'.join(msgs)})\n\n#\tself.view.refreshBinding(\"custom.procedures.data\")\n\tsystem.perspective.sendMessage('updateProcedures', {})\n\tself.view.refreshbinding(\"custom.procedures.selection\")\n\n\treturn"
+        },
+        {
+          "name": "updateProcedureParent",
+          "params": [
+            "draggedItem",
+            "droppedItem"
+          ],
+          "script": "\t\n\tnewParentId = droppedItem['procedureCategoryId']\n\t\n\tif draggedItem['procedureId'] is not None: # means we've dragged a procedure as opposed to a procedure category\n\t\tsystem.kanoa.cmms.updateProcedureField(draggedItem['procedureId'], 'procedureCategoryId', newParentId, self.view.custom.security.userId)\n\t\tsystem.kanoa.toast.show({'type': 'success', 'message': 'procedure: %s has been moved to a procedure category: %s'%(draggedItem['procedureName'], droppedItem['procedureCategoryName'])})\n\telse: # means we've dragged a procedure category as opposed to a procedure\n\t\tprocedureCategoryInfo = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedureCategory({'procedureCategoryId': draggedItem['procedureCategoryId']}))[0]\n\t\tprocedureCategoryInfo['parentId'] = newParentId\n\t\tsystem.kanoa.cmms.updateProcedureCategory(procedureCategoryInfo, self.view.custom.security.userId)\n\t\tsystem.kanoa.toast.show({'type': 'success', 'message': 'procedure category: %s has been moved under procedure category: %s'%(draggedItem['procedureCategoryName'], droppedItem['procedureCategoryName'])})\n\t\n\treturn"
+        },
+        {
+          "name": "exportProcedures",
+          "params": [],
+          "script": "\n\tselection = self.view.custom.procedures.selection\n\tprocedureIdSet = set(selection.procedureIds)\n\tcategoryPaths = selection.procedureCategoryPaths\n\t\n\tif len(categoryPaths) > 0:\n\t\t# a category is selected - pull in every procedure nested under it (recursively)\n\t\tallProcedures = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedures({}))\n\t\tfor procedure in allProcedures:\n\t\t\tprocedurePath = procedure['procedureCategoryPath']\n\t\t\tif procedurePath is None: continue\n\t\t\tfor categoryPath in categoryPaths:\n\t\t\t\tif procedurePath == categoryPath or procedurePath.startswith(categoryPath + '\\\\'):\n\t\t\t\t\tprocedureIdSet.add(procedure['procedureId'])\n\t\t\t\t\tbreak\n\t\n\trecords = []\n\tfor procedureId in procedureIdSet:\n\t\tprocedure = system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getProcedures({'procedureId': procedureId}), 0)\n\t\tif procedure is None or procedure['procedureId'] is None: continue\n\t\t\n\t\tsteps = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedureSteps({'procedureId': procedureId}))\n\t\tfor step in steps:\n\t\t\tstep['checks'] = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedureStepChecks({'procedureStepId': step['procedureStepId']}))\n\t\t\n\t\trecords.append({'procedure': procedure, 'steps': steps})\n\t\n\tif len(records) == 0: label = 'No Data'\n\telif len(records) == 1: label = records[0]['procedure']['procedureName']\n\telif len(records) <= 3: label = ', '.join([x['procedure']['procedureName'] for x in records])\n\telse: label = '%s et al.'%records[0]['procedure']['procedureName']\n\t\n\t# dataType/engUnit reference-table dumps, so importProcedures() can resolve\n\t# stepConfig/checkConfig's embedded dataTypeId/engUnitId by name on the target system\n\tdataTypes = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.quality.config.getDataTypes({})) if records else []\n\tengUnits = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.quality.config.getUnits({})) if records else []\n\tpickLists = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.quality.config.getPickList({})) if records else []\n\t\n\t# dict-shaped payload (not a bare list) so the shared importer popup's\n\t# dict(data)/except heuristic doesn't misparse our 2-key records\n\treturn {'data': {'procedures': records, 'dataTypes': dataTypes, 'engUnits': engUnits, 'pickLists': pickLists} if records else None, 'label': label}"
+        },
+        {
+          "name": "importProcedures",
+          "params": [
+            "data",
+            "userId"
+          ],
+          "script": "\n\timport java.lang\n\t\n\tlog = system.util.getLogger('kanoa_cmms')\n\tlog.info('Calling importProcedures()')\n\t\n\terrorLog = []\n\t\n\t# round-trip through JSON to normalize Java/PyDictionary types to plain python dict/list\n\tdata = system.util.jsonDecode(system.util.jsonEncode(data))\n\t\n\trecords = data.get('procedures', []) if data else []\n\t\n\tif not records: return {'passed': False, 'message': 'No procedures to import', 'errorLog': errorLog}\n\t\n\tdef toInt(value):\n\t\tif value is None: return None\n\t\ttry: return int(value)\n\t\texcept: return None\n\t\n\t# index the exported dataType/engUnit dumps by their old id, and cache\n\t# old-id -> resolved-new-id lookups as they're worked out below\n\tdataTypeRows = data.get('dataTypes', []) if data else []\n\tengUnitRows = data.get('engUnits', []) if data else []\n\tpickListRows = data.get('pickLists', []) if data else []\n\t\n\tdataTypeById = {}\n\tfor row in dataTypeRows:\n\t\trowId = toInt(row.get('dataTypeId'))\n\t\tif rowId is not None: dataTypeById[rowId] = row\n\t\n\tengUnitById = {}\n\tfor row in engUnitRows:\n\t\trowId = toInt(row.get('engUnitId'))\n\t\tif rowId is not None: engUnitById[rowId] = row\n\t\n\tpickListById = {}\n\tfor row in pickListRows:\n\t\trowId = toInt(row.get('pickListId'))\n\t\tif rowId is not None: pickListById[rowId] = row\n\t\n\tresolvedDataTypeIds = {}\n\tresolvedEngUnitIds = {}\n\tresolvedPickListIds = {}\n\t\n\tdef resolveDataTypeId(oldId):\n\t\toldId = toInt(oldId)\n\t\tif oldId is None: return None\n\t\tif oldId in resolvedDataTypeIds: return resolvedDataTypeIds[oldId]\n\t\t\n\t\toldRow = dataTypeById.get(oldId)\n\t\tname = oldRow.get('dataTypeName') if oldRow else None\n\t\tif not name: return None\n\t\t\n\t\tnewId = system.kanoa.utilities.getFieldValue('dataTypeId', system.kanoa.quality.config.getDataTypes({'dataTypeName': name}))\n\t\tif newId is None:\n\t\t\tnewDataTypeInfo = {\n\t\t\t\t'dataTypeName': name,\n\t\t\t\t'enabled': oldRow.get('enabled', True),\n\t\t\t\t'isNumeric': oldRow.get('isNumeric', False),\n\t\t\t\t'pickListEnabled': oldRow.get('pickListEnabled', False)\n\t\t\t}\n\t\t\tnewId = system.kanoa.quality.config.addDataType(newDataTypeInfo, userId)\n\t\t\n\t\tresolvedDataTypeIds[oldId] = newId\n\t\treturn newId\n\t\n\tdef resolveEngUnitId(oldId):\n\t\toldId = toInt(oldId)\n\t\tif oldId is None: return None\n\t\tif oldId in resolvedEngUnitIds: return resolvedEngUnitIds[oldId]\n\t\t\n\t\toldRow = engUnitById.get(oldId)\n\t\tname = oldRow.get('engUnitName') if oldRow else None\n\t\tif not name: return None\n\t\t\n\t\tnewId = system.kanoa.utilities.getFieldValue('engUnitId', system.kanoa.quality.config.getUnits({'engUnitName': name}))\n\t\tif newId is None:\n\t\t\tnewUnitInfo = {'engUnitName': name, 'enabled': oldRow.get('enabled', True)}\n\t\t\tnewId, msg = system.kanoa.quality.config.addUnit(newUnitInfo, userId)\n\t\t\tif msg: return None\n\t\t\n\t\tresolvedEngUnitIds[oldId] = newId\n\t\treturn newId\n\t\n\tdef resolvePickListId(oldId):\n\t\toldId = toInt(oldId)\n\t\tif oldId is None: return None\n\t\tif oldId in resolvedPickListIds: return resolvedPickListIds[oldId]\n\t\t\n\t\toldRow = pickListById.get(oldId)\n\t\tname = oldRow.get('pickListName') if oldRow else None\n\t\tif not name: return None\n\t\t\n\t\tnewId = system.kanoa.utilities.getFieldValue('pickListId', system.kanoa.quality.config.getPickList({'pickListName': name}))\n\t\tif newId is None:\n\t\t\tnewPickListInfo = {\n\t\t\t\t'pickListName': name,\n\t\t\t\t'description': oldRow.get('description'),\n\t\t\t\t'enabled': oldRow.get('enabled', True),\n\t\t\t\t'isNumeric': oldRow.get('isNumeric', False),\n\t\t\t\t'dataTypeId': resolveDataTypeId(oldRow.get('dataTypeId')),\n\t\t\t\t'example': oldRow.get('example')\n\t\t\t}\n\t\t\tnewId, msg = system.kanoa.quality.config.addPickList(newPickListInfo, userId)\n\t\t\tif msg: return None\n\t\t\n\t\tresolvedPickListIds[oldId] = newId\n\t\treturn newId\n\t\n\tdef remapConfig(configStr):\n\t\t# rewrites dataTypeId/engUnitId/pickListInfo.pickListId to the target system's equivalent\n\t\t# record, resolved by name (created if missing)\n\t\tif not configStr: return configStr\n\t\tconfig = system.util.jsonDecode(configStr)\n\t\tif config is None: return configStr\n\t\tif 'dataTypeId' in config: config['dataTypeId'] = resolveDataTypeId(config.get('dataTypeId'))\n\t\tif 'engUnitId' in config: config['engUnitId'] = resolveEngUnitId(config.get('engUnitId'))\n\t\tpickListInfo = config.get('pickListInfo')\n\t\tif pickListInfo is not None and 'pickListId' in pickListInfo: pickListInfo['pickListId'] = resolvePickListId(pickListInfo.get('pickListId'))\n\t\treturn system.util.jsonEncode(config)\n\t\n\tcategoryIdByPath = system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getProcedureCategory({}), 'procedureCategoryPath', 'procedureCategoryId')\n\t\n\timportedCount = 0\n\t\n\tfor record in records:\n\t\tprocedureInfo = record['procedure'] if 'procedure' in record else None\n\t\tsteps = record['steps'] if 'steps' in record else []\n\t\t\n\t\tif procedureInfo is None:\n\t\t\terrorLog.append('A record had no procedure info and was skipped.')\n\t\t\tcontinue\n\t\t\n\t\t# resolve/create the procedure category chain from procedureCategoryPath\n\t\tcategoryPath = procedureInfo.get('procedureCategoryPath')\n\t\tprocedureCategoryId = None\n\t\tcategoryFailed = False\n\t\t\n\t\tif categoryPath:\n\t\t\tpathSections = [section.strip() for section in categoryPath.split('\\\\')]\n\t\t\tbuiltPath = None\n\t\t\tfor section in pathSections:\n\t\t\t\tbuiltPath = '%s\\\\%s'%(builtPath, section) if builtPath else section\n\t\t\t\tif builtPath in categoryIdByPath:\n\t\t\t\t\tprocedureCategoryId = categoryIdByPath[builtPath]\n\t\t\t\t\tcontinue\n\t\t\t\tnewCategoryInfo = {'procedureCategoryName': section, 'parentId': procedureCategoryId, 'enabled': True}\n\t\t\t\tprocedureCategoryId, msg = system.kanoa.cmms.addProcedureCategory(newCategoryInfo, userId)\n\t\t\t\tif msg:\n\t\t\t\t\terrorLog.append('Unable to create procedure category \"%s\". %s'%(builtPath, msg))\n\t\t\t\t\tcategoryFailed = True\n\t\t\t\t\tbreak\n\t\t\t\tcategoryIdByPath[builtPath] = procedureCategoryId\n\t\t\n\t\tif categoryFailed:\n\t\t\terrorLog.append('Procedure \"%s\" was not imported - could not resolve its category.'%procedureInfo.get('procedureName'))\n\t\t\tcontinue\n\t\t\n\t\t# de-dupe on name collision within the same category\n\t\tprocedureName = procedureInfo.get('procedureName')\n\t\texistingProcedures = system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedures({'procedureName': procedureName}))\n\t\texistingProcedureId = None\n\t\tfor existingProcedure in existingProcedures:\n\t\t\tif existingProcedure['procedureCategoryId'] == procedureCategoryId:\n\t\t\t\texistingProcedureId = existingProcedure['procedureId']\n\t\t\t\tbreak\n\t\tif existingProcedureId is not None:\n\t\t\tprocedureName = '%s (%s)'%(procedureName, system.date.format(system.date.now(), 'yyyy-MM-dd HH.mm.ss'))\n\t\t\n\t\tnewProcedureInfo = {\n\t\t\t'procedureName': procedureName,\n\t\t\t'procedureDescription': procedureInfo.get('procedureDescription'),\n\t\t\t'procedureCategoryId': procedureCategoryId,\n\t\t\t'enabled': procedureInfo.get('enabled', True)\n\t\t}\n\t\t\n\t\tprocedureId, msg = system.kanoa.cmms.addProcedure(newProcedureInfo, userId)\n\t\tif msg:\n\t\t\terrorLog.append('Procedure \"%s\" could not be imported. %s'%(procedureName, msg))\n\t\t\tcontinue\n\t\t\n\t\tfor step in sorted(steps, key=lambda x: x['sortOrder']):\n\t\t\tchecks = step['checks'] if 'checks' in step else []\n\t\t\t\n\t\t\ttry:\n\t\t\t\tnewStepInfo = {\n\t\t\t\t\t'procedureId': procedureId,\n\t\t\t\t\t'stepName': step['stepName'],\n\t\t\t\t\t'stepDescription': step['stepDescription'],\n\t\t\t\t\t'estimatedMinutes': step['estimatedMinutes'],\n\t\t\t\t\t'sortOrder': step['sortOrder'],\n\t\t\t\t\t'enabled': step['enabled'],\n\t\t\t\t\t'required': step['required'],\n\t\t\t\t\t'stepConfig': remapConfig(step['stepConfig'])\n\t\t\t\t}\n\t\t\texcept java.lang.Exception, e:\n\t\t\t\terrorLog.append('Step \"%s\" for procedure \"%s\" could not resolve its data type/engineering unit references. %s'%(step['stepName'], procedureName, e.cause if e.cause else str(e)))\n\t\t\t\tcontinue\n\t\t\texcept Exception, e:\n\t\t\t\terrorLog.append('Step \"%s\" for procedure \"%s\" could not resolve its data type/engineering unit references. %s'%(step['stepName'], procedureName, str(e)))\n\t\t\t\tcontinue\n\t\t\t\n\t\t\tprocedureStepId, msg = system.kanoa.cmms.addProcedureStep(newStepInfo, userId)\n\t\t\tif msg:\n\t\t\t\terrorLog.append('Step \"%s\" for procedure \"%s\" could not be imported. %s'%(step['stepName'], procedureName, msg))\n\t\t\t\tcontinue\n\t\t\t\n\t\t\tfor check in sorted(checks, key=lambda x: x['sortOrder']):\n\t\t\t\ttry:\n\t\t\t\t\tnewCheckInfo = {\n\t\t\t\t\t\t'procedureStepId': procedureStepId,\n\t\t\t\t\t\t'checkName': check['checkName'],\n\t\t\t\t\t\t'checkDescription': check['checkDescription'],\n\t\t\t\t\t\t'checkConfig': remapConfig(check['checkConfig']),\n\t\t\t\t\t\t'enabled': check['enabled'],\n\t\t\t\t\t\t'required': check['required'],\n\t\t\t\t\t\t'sortOrder': check['sortOrder']\n\t\t\t\t\t}\n\t\t\t\texcept java.lang.Exception, e:\n\t\t\t\t\terrorLog.append('Check \"%s\" for step \"%s\" could not resolve its data type/engineering unit references. %s'%(check['checkName'], step['stepName'], e.cause if e.cause else str(e)))\n\t\t\t\t\tcontinue\n\t\t\t\texcept Exception, e:\n\t\t\t\t\terrorLog.append('Check \"%s\" for step \"%s\" could not resolve its data type/engineering unit references. %s'%(check['checkName'], step['stepName'], str(e)))\n\t\t\t\t\tcontinue\n\t\t\t\t\n\t\t\t\tprocedureStepCheckId, msg = system.kanoa.cmms.addProcedureStepCheck(newCheckInfo, userId)\n\t\t\t\tif msg: errorLog.append('Check \"%s\" for step \"%s\" could not be imported. %s'%(check['checkName'], step['stepName'], msg))\n\t\t\n\t\timportedCount += 1\n\t\n\tif importedCount == 0: return {'passed': False, 'message': 'No procedures were imported', 'errorLog': errorLog}\n\t\n\treturn {'passed': True, 'message': '%s procedure(s) imported'%importedCount, 'errorLog': errorLog}"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "updatePopupSelection",
+          "pageScope": true,
+          "script": "\t\n\tsystem.perspective.print(\"updatePopupSelection() message rcvd with %s\"%payload)\n\t\n\tif payload.has_key('msgHandler') and payload['msgHandler'] == 'procedureSelected': \tself.procedureSelected(payload)\n\n\tsystem.perspective.print(\"updatePopupSelection complete\")\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "deleteProcedures",
+          "pageScope": true,
+          "script": "\t\n\tsystem.perspective.print(\"deleteProcedures msg rcvd with payload %s\"%(payload))\n\t\n\tif payload.has_key('userInput') and payload['userInput'] == 'OK': self.deleteSelected()\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "updateProcedures",
+          "pageScope": true,
+          "script": "\n\tsystem.perspective.print(\"updateProcedures msg rcvd\")\n\tself.view.refreshBinding(\"custom.procedures.data\")\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "procedureDropped",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tsystem.perspective.print('procedureDropped() called with payload: %s'%payload)\n\n#\tsystem.perspective.print(\"assetDropped() msg rcvd with draggedItem %s | droppedItem %s\"%(payload['draggedItem']['assetPath'], payload['droppedItem']['assetPath']))\n\tprocedurePath = payload['draggedItem']['procedurePath']\n\tif procedurePath is None: return\n\t\n\tif not self.view.custom.userAction.canCreate:\n\t\tsystem.perspective.print(\"User action not allowed. sending refreshTreeSelector() msg\")\n\t\tself.view.refreshBinding('custom.procedures.data')\t\t\n\t\tsystem.kanoa.toast.show({'type': 'success', 'message': 'User action not allowed'})\n\t\treturn\n\t\t\t\n\tdraggedItem = payload['draggedItem']\n\tdroppedItem = payload['droppedItem'] if payload['droppedItem'] is not None else {'parentId': None, 'assetId': None, 'assetPath': 'root level'}\n\n\tsystem.perspective.print(\"draggedItem['procedureCategoryId'] - %sdraggedItem['procedureId'] - %s droppedItem['procedureCategoryId'] - %s\"%(draggedItem['procedureCategoryId'], draggedItem['procedureId'], droppedItem['procedureCategoryId']))\n\t\n\t# First handle disallowed drag and drops\n\tif droppedItem['procedureId'] is not None:\n\t\tsystem.kanoa.toast.show({'type': 'error', 'message': 'Cannot drop a procedure/procedure category onto a procedure.'})\n\telse:\n\t\tself.updateProcedureParent(draggedItem, droppedItem)\n\tself.view.refreshBinding('custom.procedures.data')\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "confirmMoveProcedure",
+          "pageScope": true,
+          "script": "\t\n\tsystem.perspective.print(\"confirmMoveProcedure() msg rcvd with %s\"%payload)\n\t\n\tdraggedItem = payload['inputPayload']['draggedItem']\n\tdroppedItem = payload['inputPayload']['droppedItem']\n\t\n\tif payload['userInput'] == 'OK':\n\n\t\tassetInfo = system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getAssets({'assetId': draggedItem['assetId']}),0)\n\t\tassetInfo['parentId'] = droppedItem['assetId'] if droppedItem is not None else None\n\t\t\n\t\tsystem.perspective.print(\"Moving %s to parentId %s\"%(assetInfo['assetPath'],  assetInfo['parentId']))\n\t\t\n\t\tretVal, msg = system.kanoa.cmms.updateAsset(assetInfo, self.view.custom.security.userId)\n\t\tif msg: system.kanoa.toast.show({'type': 'error', 'message': 'Asset was not moved. %s'%msg})\n\t\telse: system.kanoa.toast.show({'type': 'success', 'message': 'Asset has been moved'})\n\telse:\n\t\tsystem.perspective.sendMessage(\"refreshTreeSelector\", {'search': ''})\n\n\tself.selectAsset(None)\n\tself.view.custom.assets.refreshTree = True\n\tsystem.perspective.sendMessage('clearTreeSelection', {})\n\n\tself.view.refreshBinding('custom.assets.data')\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "DateTime",
+    "name": "lastUpdated",
+    "formatString": "yyyy-MM-dd h:mm:ss aa",
+    "tagType": "AtomicTag"
+  }
+]

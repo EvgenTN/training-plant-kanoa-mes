@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "variables.css",
+    "kanoa-light-orange.css"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "Kanoa MES",
+      "timestamp": "2026-09-29T17:55:38Z"
+    },
+    "uuid": "739c8761-9f78-47c3-b9a1-f8b3df047425",
+    "lastModificationSignature": "19cb440f88f1045680cdec54874bf2e01a87d577a4a683a2616d0ce94c348f7b"
+  }
+}

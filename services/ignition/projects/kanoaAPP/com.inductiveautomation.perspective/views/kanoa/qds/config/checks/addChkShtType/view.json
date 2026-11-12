@@ -1,0 +1,583 @@
+{
+  "custom": {
+    "canAdd": true,
+    "clearSelection": true,
+    "values": {
+      "changedBy": null,
+      "changedDate": null,
+      "chkShtTypeId": null,
+      "chkShtTypeName": "",
+      "createdBy": null,
+      "createdDate": null,
+      "description": null,
+      "enabled": true,
+      "parentId": null,
+      "path": null
+    }
+  },
+  "params": {
+    "value": {
+      "action": "add",
+      "chkShtTypeId": null
+    }
+  },
+  "propConfig": {
+    "custom.values": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\tif value[\u0027action\u0027] \u003d\u003d \u0027edit\u0027:\n\t\tchkShtTypeInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.quality.sheet.getSheetTypes({\u0027chkShtTypeId\u0027: value[\u0027chkShtTypeId\u0027] or -1}), 0)\n\n\telif value[\u0027action\u0027] \u003d\u003d \u0027add\u0027:\n\t\tparentInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.quality.sheet.getSheetTypes({\u0027chkShtTypeId\u0027: value[\u0027chkShtTypeId\u0027] or -1}), 0)\n\t\tchkShtTypeInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.quality.sheet.getSheetTypes({\u0027chkShtTypeId\u0027: -1}), 0)\n\t\t\n\t\tchkShtTypeInfo[\u0027path\u0027] \u003d parentInfo[\u0027path\u0027]\n\t\tchkShtTypeInfo[\u0027parentId\u0027] \u003d value[\u0027chkShtTypeId\u0027]\n\t\n\telse: return {}\n\t\n\tif chkShtTypeInfo[\u0027enabled\u0027] is None: chkShtTypeInfo[\u0027enabled\u0027] \u003d True\n\t\n\treturn chkShtTypeInfo\n\t\t\n\t",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.equipId": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "onChange": {
+        "enabled": null,
+        "script": "\t\n\tself.custom.canAdd \u003d True\n\tif not self.params.value.chkShtTypeId: self.custom.clearSelection \u003d True\n\t\n\treturn"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 161,
+      "width": 412
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "label",
+                  "name": "label"
+                },
+                "position": {
+                  "basis": "80px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "right"
+                  },
+                  "text": "Parent"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "lblPath",
+                  "name": "lblPath"
+                },
+                "position": {
+                  "basis": "80px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.values"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\tpath \u003d value[\u0027path\u0027] or \u0027\u0027\n\tname \u003d value[\u0027chkShtTypeName\u0027] or \u0027\u0027\n\treturn \u0027 \u003e \u0027.join(path.split(\"\\\\\"))",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxCntParentPath",
+              "name": "flxCntParentPath"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": 12,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "label-1",
+                  "name": "label"
+                },
+                "position": {
+                  "basis": "80px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "right"
+                  },
+                  "text": "Name"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "txtField",
+                  "name": "txtField"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.values.chkShtTypeName"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\t\n\tif currentValue.value is None: self.props.text \u003d \u0027\u0027"
+                    }
+                  }
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "style": {
+                    "classes": "kanoa/border kanoa/font/default"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "domId": "flxName",
+              "name": "flxName"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": 5,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lblActive",
+                  "name": "lblActive"
+                },
+                "position": {
+                  "basis": "80px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "right"
+                  },
+                  "text": "Enabled"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "chkEnabled",
+                  "name": "chkEnabled"
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.values.enabled"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "checkedIcon": {
+                    "color": {
+                      "enabled": "--kcGray-60"
+                    }
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.checkbox"
+              }
+            ],
+            "meta": {
+              "domId": "flxCntEnabled",
+              "name": "flxCntEnabled"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": 5,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "label-2",
+                  "name": "label"
+                },
+                "position": {
+                  "basis": "80px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "right"
+                  },
+                  "text": "Icon"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "evIconPicker",
+                  "name": "evIconPicker"
+                },
+                "propConfig": {
+                  "props.params.icon.path": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.values.iconPath"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "default": {
+                      "color": "",
+                      "path": "material/view_carousel"
+                    },
+                    "icon": {
+                      "color": null
+                    }
+                  },
+                  "path": "kanoa/core/templates/selectors/icons/iconPickerButton"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "domId": "flxIcon",
+              "name": "flxIcon"
+            },
+            "position": {
+              "basis": "30px",
+              "display": false,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": 5,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lbl",
+                  "name": "lbl"
+                },
+                "position": {
+                  "basis": "80px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/font/default",
+                    "textAlign": "right"
+                  },
+                  "text": "Color"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t\n\tsystem.perspective.openPopup(\"Color Picker\", \"kanoa/core/templates/colorPicker/main\", {}, overlayDismiss\u003dTrue)\n\t\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "lblColor",
+                  "name": "lblColor"
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.values.itemClassColor"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\treturn value or \u0027#D5D5D5\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "classes": "kanoa/inputs"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxCntColor",
+              "name": "flxCntColor"
+            },
+            "position": {
+              "basis": "25px",
+              "display": false,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": 5,
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "domId": "flxInfo",
+          "name": "flxInfo"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": 5,
+            "padding": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t\n\tself.view.getChild(\"root\").save()\n\tsystem.perspective.closePopup(\u0027\u0027)\n\t\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnSave",
+              "name": "btnSave",
+              "tooltip": {
+                "enabled": true,
+                "location": "top-left",
+                "text": "Save"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.values"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\treturn value[\u0027chkShtTypeName\u0027] !\u003d \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/save"
+                }
+              },
+              "style": {
+                "classes": "kanoa/button/filled",
+                "height": "30px"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\n\tsystem.perspective.closePopup(\u0027\u0027)\n\t\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnClose",
+              "name": "btnClose",
+              "tooltip": {
+                "enabled": true,
+                "location": "top-left",
+                "text": "Close"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/exit_to_app"
+                }
+              },
+              "style": {
+                "classes": "kanoa/button/outlined",
+                "height": "30px"
+              },
+              "text": "Close"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "flxCntActions",
+          "name": "flxCntActions"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "center",
+          "style": {
+            "gap": "5px",
+            "overflow": "hidden",
+            "padding": "5px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "domId": "root",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "gap": "5px",
+        "overflow": "hidden",
+        "padding": "5px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "save",
+          "params": [],
+          "script": "\n\tsystem.perspective.print(\"save() called\")\n\tinfo \u003d dict(self.view.custom.values)\n\tchkShtTypeId \u003d info[\u0027chkShtTypeId\u0027]\n\tuserId \u003d system.kanoa.security.getIDPUserId(self.session.props.auth.user)\n\t\n\tif self.view.params.value.action \u003d\u003d \u0027add\u0027:\n\t\tbasePath \u003d info[\u0027path\u0027]\n\t\tfullPath \u003d info[\u0027chkShtTypeName\u0027] if basePath is None else \u0027%s\\%s\u0027%(basePath, info[\u0027chkShtTypeName\u0027])\n\t\tif system.kanoa.quality.sheet.getSheetTypes({\u0027path\u0027: fullPath}).rowCount \u003e 0:\n\t\t\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027warning\u0027, \u0027message\u0027: \u0027This Type already exists\u0027})\n\t\t\treturn\n\t\n\t\tchkShtTypeId \u003d system.kanoa.quality.sheet.addSheetType(info, userId)\n\telif self.view.params.value.action \u003d\u003d \u0027edit\u0027:\n\t\tsystem.kanoa.quality.sheet.updateSheetType(info, userId)\n\telse:\n\t\treturn\n\t\t\n\tself.view.params.value.chkShtTypeId \u003d chkShtTypeId\n\t\n\tsystem.perspective.sendMessage(\"refreshChkShtTypes\", {})\n\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027success\u0027, \u0027message\u0027: \u0027Check Sheet Type saved\u0027})\n\t\n\treturn"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

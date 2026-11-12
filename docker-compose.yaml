@@ -1,0 +1,115 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "${SA_PASSWORD:?SA_PASSWORD must be set in .env}"
+      MSSQL_PID: Developer
+    # Uncomment to expose SQL Server directly on the host (e.g. for local tooling).
+    ports:
+      - 1433:1433
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      # Marks the container healthy once SQL Server can answer a query.
+      # NOTE: the macOS override uses Azure SQL Edge, which has no sqlcmd, so it
+      # replaces this healthcheck — see .local/docker-compose.override.yaml.
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$SA_PASSWORD\" -Q 'SELECT 1' || exit 1",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - default
+
+  # One-shot init: creates the application database if it doesn't already exist,
+  # then exits. Uses the standalone mssql-tools image so it works regardless of
+  # which image the db service uses (full SQL Server or Azure SQL Edge on macOS).
+  db-init:
+    image: mcr.microsoft.com/mssql-tools:latest
+    # mssql-tools only publishes an amd64 image; pin the platform so it also runs
+    # (via emulation) on Apple Silicon.
+    platform: linux/amd64
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD:?SA_PASSWORD must be set in .env}"
+      DB_NAME: "${DB_NAME:-kanoa}"
+    # Idempotent: CREATE DATABASE only runs when the database is missing.
+    command:
+      - /bin/bash
+      - -c
+      - >
+        /opt/mssql-tools/bin/sqlcmd -S db -U sa -P "$$SA_PASSWORD" -b -Q
+        "IF DB_ID(N'$$DB_NAME') IS NULL BEGIN CREATE DATABASE [$$DB_NAME];
+        PRINT 'Created database ' + '$$DB_NAME'; END
+        ELSE PRINT 'Database ' + '$$DB_NAME' + ' already exists';"
+    restart: "no"
+    networks:
+      - default
+
+  kanoa:
+    image: inductiveautomation/ignition:8.3.10
+    user: "0:0"
+    depends_on:
+      db:
+        condition: service_healthy
+      db-init:
+        condition: service_completed_successfully
+    volumes:
+      - ./services/ignition/config:/usr/local/bin/ignition/data/config:Z
+      - ./services/ignition/projects:/usr/local/bin/ignition/data/projects:Z
+      - ./services/third-party-modules/Embr-Charts-6.0.1.modl:/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition.modl:Z
+      - ./services/third-party-modules/KanoaMES_1.15.11.modl:/usr/local/bin/ignition/user-lib/modules/KanoaMES.modl:Z
+
+      # Temporary volume to avoid commissioning
+      - ./services/ignition/commissioning.json:/usr/local/bin/ignition/data/commissioning.json:Z
+    command: ["-n", "kanoa-local-dev", "--", "-Dperspective.websocket.max-message-size=4096"]
+    environment:
+      IGNITION_EDITION: "standard"
+      DISABLE_QUICKSTART: "true"
+      ACCEPT_IGNITION_EULA: "Y"
+      GATEWAY_MODULES_ENABLED: |
+        com.inductiveautomation.opcua,
+        com.inductiveautomation.perspective,
+        com.inductiveautomation.webdev,
+        com.mussonindustrial.embr.charts,
+        com.kanoacon.mes.kanoaMES,
+      ACCEPT_MODULE_LICENSES: com.mussonindustrial.embr.charts,com.kanoacon.mes.kanoaMES
+      ACCEPT_MODULE_CERTS: com.mussonindustrial.embr.charts,com.kanoacon.mes.kanoaMES
+      IGNITION_UID: 0
+      IGNITION_GID: 0
+    # ---------------------------------------------------------------------------
+    # Access option A: external Traefik proxy (default).
+    # Requires the external "proxy" network defined at the bottom of this file.
+    # Comment this block out if you are NOT using Traefik.
+    labels:
+      traefik.enable: "true"
+      traefik.hostname: "kanoa-dev"
+    # ---------------------------------------------------------------------------
+    # Access option B: direct host port mapping (no Traefik).
+    # Uncomment to reach the Ignition gateway at http://localhost:8088
+    ports:
+      - 8088:8088
+    # ---------------------------------------------------------------------------
+    networks:
+      - default
+      # Remove "proxy" below if you are not using the external Traefik proxy.
+      #- proxy
+
+volumes:
+  sqldata:
+
+networks:
+  default:
+  # Only needed for the Traefik proxy (access option A). If you are not using
+  # Traefik, remove this and the "- proxy" entry under the kanoa service above.
+  # The network must already exist: `docker network create proxy`
+  #proxy:
+   # external: true
+    #name: proxy

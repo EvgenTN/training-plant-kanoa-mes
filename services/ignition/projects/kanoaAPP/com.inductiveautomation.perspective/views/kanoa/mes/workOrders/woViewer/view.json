@@ -1,0 +1,1899 @@
+{
+  "custom": {
+    "display": {},
+    "metaDataInfo": {},
+    "scheduledWorkOrders": {
+      "$": [
+        "ds",
+        192,
+        1789069830414
+      ],
+      "$columns": [
+        {
+          "data": [],
+          "name": "scheduleBlockId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "scheduleBlockName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "assetId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "assetName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "assetPath",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "timezone",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "itemId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "itemName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "itemDescription",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "itemColor",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "itemPath",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "workOrderId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "workOrderName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "workOrderTitle",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "workOrderStatusId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "workOrderStatusName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "statusColor",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "isActive",
+          "type": "Boolean"
+        },
+        {
+          "data": [],
+          "name": "canSchedule",
+          "type": "Boolean"
+        },
+        {
+          "data": [],
+          "name": "canExecute",
+          "type": "Boolean"
+        },
+        {
+          "data": [],
+          "name": "dueDate",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "scheduledQty",
+          "type": "Double"
+        },
+        {
+          "data": [],
+          "name": "outfeedUnits",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "itemUnitId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "itemUnitName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "modeId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "modeName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "modeColor",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "modeTypeId",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "modeTypeName",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "startDate",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "endDate",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "start",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "end",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "notes",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "rruleStr",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "color",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "createdBy",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "createdByUser",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "createdDate",
+          "type": "Date"
+        },
+        {
+          "data": [],
+          "name": "changedBy",
+          "type": "Integer"
+        },
+        {
+          "data": [],
+          "name": "changedByUser",
+          "type": "String"
+        },
+        {
+          "data": [],
+          "name": "changedDate",
+          "type": "Date"
+        }
+      ]
+    },
+    "security": {
+      "config": {
+        "allowGuest": "1",
+        "userSource": "default",
+        "userSources": "[\"default\"]"
+      },
+      "userCRUD": {
+        "approveQualityCheck": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "configureAssets": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "configureItems": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "configureLots": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "configureQuality": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "configureSecurity": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "editOperations": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "enterQualityCheck": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "isGatewayAdmin": true,
+        "operateAssets": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "scheduleOperations": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        },
+        "scheduleShifts": {
+          "assets": [
+            "Chewters Chocolates",
+            "E4",
+            "Enterprise 1",
+            "Enterprise 2",
+            "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+            "Kanoa Box Co\\Box Plant\\Processing\\L2",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 1",
+            "Kanoa Box Co\\Box Plant\\Processing\\Line 1\\cell 2",
+            "Kanoa Box Co\\Resin Plant",
+            "Kanoa Safety Inc",
+            "Link Snacks Inc"
+          ],
+          "enabled": true
+        }
+      },
+      "userId": 5
+    },
+    "selectedTab": "Production Runs",
+    "tabInfo": {
+      "idx": 2
+    },
+    "userAction": {
+      "canCreate": true,
+      "canDelete": false,
+      "canRead": true,
+      "canUpdate": false
+    }
+  },
+  "params": {
+    "value": {
+      "actualQty": null,
+      "assetPath": "Widget Co\\Tempe\\Packaging\\Line 1",
+      "changedByUser": null,
+      "changedDate": null,
+      "createdByUser": "SYSTEM",
+      "createdDate": "Sat Jan 10 2026 16:51:12 GMT-0700 (Mountain Standard Time)",
+      "dueDate": "Thu Jan 08 2026 17:00:00 GMT-0700 (Mountain Standard Time)",
+      "itemColor": null,
+      "itemName": "104439",
+      "itemUnitName": "cas",
+      "lastUpdated": "Sat Jan 10 2026 16:51:12 GMT-0700 (Mountain Standard Time)",
+      "modeName": "Production",
+      "note": "",
+      "reqdQty": 720,
+      "schedQty": null,
+      "workOrderId": 1143,
+      "workOrderName": "0100013419",
+      "workOrderSourceImagePath": null,
+      "workOrderSourceName": null,
+      "workOrderStatusName": "Released"
+    }
+  },
+  "propConfig": {
+    "custom.display": {
+      "persistent": true
+    },
+    "custom.display.showRaw": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.metaDataInfo": {
+      "persistent": true
+    },
+    "custom.metaDataInfo.metaData": {
+      "binding": {
+        "config": {
+          "path": "view.params.value"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tif value['workOrderId'] is None: return []\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.order.getProductionOrderMetaData({'workOrderId': value['workOrderId']}))",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.metaDataInfo.metaDataDict": {
+      "binding": {
+        "config": {
+          "path": "view.custom.metaDataInfo.metaData"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tdataDict = {}\n\tfor row in value:\n\t\trow = dict(row)\n\t\tmetaDataValue = row['metaDataValue']\n\t\trow.pop('metaDataValue')\n\t\tinfo = system.util.jsonEncode(row)\n\t\tdataDict[row['metaDataName']] = {'info': info, 'value': metaDataValue}\n\n\treturn dataDict",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.scheduledWorkOrders": {
+      "binding": {
+        "config": {
+          "path": "view.params.value.workOrderId"
+        },
+        "transforms": [
+          {
+            "code": "\treturn system.kanoa.schedule.getScheduleBlocks({'workOrderId': value or -1})",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.security": {
+      "binding": {
+        "config": {
+          "struct": {
+            "user": "{session.props.auth.user}"
+          },
+          "waitOnAll": false
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tsecConfig = system.kanoa.utilities.convertDatasetToDict(system.kanoa.security.getConfig({}), 'configName', 'configValue')\n\tuserId = system.kanoa.security.getIDPUserId(value['user'])\t\n\tuserCRUD = system.kanoa.security.getUserAssetCRUD(userId)\n\t\n\treturn {\"userId\": userId, \"config\": secConfig, \"userCRUD\": userCRUD}",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.selectedTab": {
+      "binding": {
+        "config": {
+          "path": "view.custom.tabInfo"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\treturn value['tabs'][value['idx']]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.tabInfo": {
+      "persistent": true
+    },
+    "custom.tabInfo.tabs": {
+      "binding": {
+        "config": {
+          "path": "view.custom.metaDataInfo.metaData"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\t\n\ttabs = [\"Order Info\", \"Scheduled\", 'Production Runs']\n\tif len(value) > 0: tabs += [item['metaDataName'] for item in value]\n\t\n\treturn tabs",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.userAction": {
+      "binding": {
+        "config": {
+          "struct": {
+            "metaDataId": "{view.custom.metaDataInfo.workOrderMetaDataId}",
+            "security": "{view.custom.security}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tsecurity = value['security']\n\tcanCreate = False\n\tcanEdit = False\n\tif security['userCRUD'] is not None and security['userId'] is not None:\n\t\tif security['userCRUD']['isGatewayAdmin']: \n\t\t\tcanCreate = True\n\t\t\tcanEdit = True if value['metaDataId'] else False\n\t\n\taction = {\"canCreate\": canCreate, \"canDelete\": canEdit, \"canRead\": True, \"canUpdate\": canEdit}\n\t\n\treturn action",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 455,
+      "width": 1087
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "domId": "tabCnt",
+          "name": "tabCnt"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.currentTabIndex": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.tabInfo.idx"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          },
+          "props.tabs": {
+            "binding": {
+              "config": {
+                "path": "view.custom.tabInfo.tabs"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "menuType": "modern",
+          "style": {
+            "borderStyle": "none"
+          },
+          "tabSize": {
+            "width": 105
+          },
+          "tabStyle": {
+            "active": {
+              "classes": "kanoa/font/default"
+            },
+            "inactive": {
+              "classes": "kanoa/font/default"
+            }
+          }
+        },
+        "type": "ia.container.tab"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lblUser",
+                  "name": "lblUser"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn \"Created by %s on \"%(value['createdByUser'] or 'unknown')",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "lblDate",
+                  "name": "lblDate"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value.createdDate"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "long"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxCreated",
+              "name": "flxCreated"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border",
+                "gap": "5px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lblUser-1",
+                  "name": "lblUser"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn \"Changed by %s on \"%(value['changedByUser'] or 'unknown')",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "lblDate-1",
+                  "name": "lblDate"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value.changedDate"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "long"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxChanged",
+              "name": "flxChanged"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.value"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value['changedDate'] is not None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border",
+                "gap": "5px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lbl",
+                  "name": "lbl"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\tif value['assetPath'] is None: return ''\n\treturn \"Scheduled on %s\"%(system.kanoa.utilities.formatPath(value['assetPath'], {}))",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxAsset",
+              "name": "flxAsset"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.value"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value['assetPath'] is not None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "lbl-1",
+                  "name": "lbl"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.value"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value['note'] or ''",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "overflowWrap": "break-word",
+                    "whiteSpace": "normal"
+                  },
+                  "textStyle": {
+                    "overflowWrap": "break-word",
+                    "whiteSpace": "normal"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "domId": "flxNotes",
+              "name": "flxNotes"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "domId": "flxInfo",
+          "name": "flxInfo"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selectedTab"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value == 'Order Info'",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "gap": "5px",
+            "padding": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "tblScheduledWOs",
+              "name": "tblScheduledWOs"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.columns[2].dateFormat": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.locale"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YYYY\", value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.columns[3].dateFormat": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.locale"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YYYY\", value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.scheduledWorkOrders"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "bodyStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "assetPath",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Asset Path"
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": true,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "scheduledQty",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Scheduled Qty"
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "editable": false,
+                  "field": "start",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Start Date"
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "date",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "editable": false,
+                  "field": "end",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "End Date"
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "date",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                }
+              ],
+              "footerGroupStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "footerStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "headerGroupStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "headerStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "pager": {
+                "bottom": false
+              },
+              "rows": {
+                "striped": {
+                  "enabled": false
+                },
+                "style": {
+                  "padding": "5px"
+                }
+              },
+              "style": {
+                "borderStyle": "none",
+                "classes": "kanoa/font/default"
+              }
+            },
+            "type": "ia.display.table"
+          }
+        ],
+        "meta": {
+          "domId": "flxScheduled",
+          "name": "flxScheduled"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selectedTab"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value == 'Scheduled'",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "height": "300px",
+            "padding": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tself.view.custom.metaDataInfo.metaData = []\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnClear",
+                  "name": "btnClear",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Clear Info"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "display": false,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.metaDataInfo.metaData"
+                      },
+                      "enabled": false,
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn len(value) > 0",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/not_interested"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon",
+                    "width": "30px"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tmsg = \"Are you sure you want to delete the selected metaData?\"\n\tsystem.perspective.openPopup(\"UserConfirmPopup\", \"kanoa/core/templates/inputs/confirm\",  {'text':msg, 'messageHandler':'deleteMetaDataMsg'}, title='Delete Production Order Meta Data', draggable=True, showCloseIcon = True, overlayDismiss=True)\n\n#\tself.view.getChild(\"root\").deleteEntry()\n\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnDelete",
+                  "name": "btnDelete",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Delete"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "action": "{view.custom.userAction}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\treturn value['action']['canDelete']",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "color": "--kcRed-60",
+                      "path": "material/delete_forever"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon",
+                    "width": "30px"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t\n\tmdi = self.view.custom.metaDataInfo\n\tvalue = mdi['metaDataDict'][self.view.custom.selectedTab]['value']\n\tsystem.perspective.download('%s.txt'%self.view.custom.selectedTab, value)\n\n\treturn"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "btnExport",
+                  "name": "btnExport",
+                  "tooltip": {
+                    "delay": 0,
+                    "enabled": true,
+                    "location": "center-right",
+                    "text": "Export data"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.metaDataInfo.metaData"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn len(value) > 0",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/save_alt"
+                    }
+                  },
+                  "style": {
+                    "classes": "kanoa/button/flatIcon",
+                    "width": "30px"
+                  },
+                  "text": ""
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "domId": "flxAction",
+              "name": "flxAction"
+            },
+            "position": {
+              "basis": "40px",
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "gap": "5px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "domId": "lblInfo",
+                      "name": "lblInfo"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "metaData": "{view.custom.metaDataInfo.metaDataDict}",
+                              "selectedTab": "{view.custom.selectedTab}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\n\tif len(dict(value['metaData'])) == 0: return ''\n\tvalue = value['metaData'][value['selectedTab']]['info']\n\t\n\tjson = system.util.jsonDecode(value)\n\t\n\treturn \"Last updated by %s on %s\"%(json['changedByUser'] or json['createdByUser'], json['changedDate'] or json['createdDate'])\n#\treturn system.kanoa.utilities.formatDictionary(json, {})",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "classes": "kanoa/font/labelLarge"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "chkShowRaw"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.display.showRaw"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "Show raw text"
+                    },
+                    "type": "ia.input.checkbox"
+                  }
+                ],
+                "meta": {
+                  "name": "flxHdr"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "space-between"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "domId": "mdMetaDataValue",
+                  "name": "mdMetaDataValue"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.source": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "metaData": "{view.custom.metaDataInfo.metaDataDict}",
+                          "selectedTab": "{view.custom.selectedTab}",
+                          "showRaw": "{view.custom.display.showRaw}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\tif len(dict(value['metaData'])) == 0: return ''\n\tjson = value['metaData'][value['selectedTab']]['value']\n\t\n\tjson = system.util.jsonDecode(json)\n\tif value['showRaw']: return '```json' + system.kanoa.utilities.formatDictionary(json, {})\n\telse: return system.kanoa.utilities.jsonToMarkdown(json)\n",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "userSelect": "text",
+                    "whiteSpace": "pre-wrap"
+                  }
+                },
+                "type": "ia.display.markdown"
+              }
+            ],
+            "meta": {
+              "domId": "flxInfo-1",
+              "name": "flxInfo"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "5px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "domId": "flxDisplay",
+          "name": "flxDisplay"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selectedTab"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value not in ('Order Info', 'Scheduled', 'Production Runs')",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "evOrderRuns"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selectedTab"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value == 'Production Runs'",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.params.values.workOrderId": {
+            "binding": {
+              "config": {
+                "path": "view.params.value.workOrderId"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "values": {}
+          },
+          "path": "kanoa/mes/workOrders/orderRuns"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "domId": "root",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--kcSurface0",
+        "classes": "kanoa/font/default"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "deleteEntry",
+          "params": [],
+          "script": "\n\tdef deleteProductionOrderMetaData(workOrderMetaDataId, userId):\n\t\t'''\n\t\t\tDeletes a production order meta data entry (kanoaOPS)\n\t\t\tArgs:\n\t\t\t\tworkorderMetaDataId: int\n\t\t\t\tuserId: int\n\t\t\tReturns:\n\t\t\t\t# of records modified: int\n\t\t\t\tmsg: str - None if success\n\t\t\t\n\t\t\tUpdated:\n\t\t\t\tjfc - 7/25/24 1:36pm Created\n\t\t'''\n\t\t\n\t\tlog = system.util.getLogger('kanoa_order')\n\t\tlog.warn(\"deleteProductionOrderMetaData() called for %s by %s\"%(workOrderMetaDataId, userId))\n\t\tdbName = system.kanoa.config.getDBName('core')\t\t\n\t\t\n\t\timport java.lang\n\t\ttry:\n\t\t\treturn system.db.runPrepUpdate(\"DELETE FROM mes.[workOrderMetaData] WHERE workOrderMetaDataId = ?\", [workOrderMetaDataId], dbName, getKey=0), None\n\t\texcept java.lang.Exception, e:\n\t\t\tlog.warn(\"deleteProductionOrderMetaData() returned %s\"%e.cause)\n\t\t\treturn False, e.cause\n\n\tworkOrderMetaDataId = self.view.custom.metaDataInfo.workOrderMetaDataId\n\tif (workOrderMetaDataId or None) is None:\n\t\tsystem.kanoa.toast.show({'type': 'warning', 'message': 'invalid metaDataId.'})\n\t\treturn\n\t\t\n#\tretVal, msg = system.kanoa.order.deleteProductionOrderMetaData(item['workOrderId'], self.view.custom.security.userId)\n\tretVal, msg = deleteProductionOrderMetaData(workOrderMetaDataId, self.view.custom.security.userId)\n\tif msg: system.kanoa.toast.show({'type': 'warning', 'message': 'Could not delete meta data. %s'%msg})\n\telse: system.kanoa.toast.show({'type': 'success', 'message': 'Work Order meta data has been deleted.'})\n\n\tself.view.refreshBinding(\"custom.metaDataInfo.metaData\")\n\t\n\treturn"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "deleteMetaDataMsg",
+          "pageScope": true,
+          "script": "\t\n\tsystem.perspective.print(\"deleteMetaDataMsg() msg rcvd with %s\"%payload)\n\tif payload.has_key('userInput') and payload['userInput'] == 'OK': self.deleteEntry()\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "orderUpdated",
+          "pageScope": true,
+          "script": "\n\tsystem.perspective.print(\"orderUpdated msg rcvd\")\n\t\n\tself.view.refreshBinding(\"custom.scheduledWorkOrders\")\n\tself.view.refreshBinding(\"custom.metaDataInfo.metaData\")\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

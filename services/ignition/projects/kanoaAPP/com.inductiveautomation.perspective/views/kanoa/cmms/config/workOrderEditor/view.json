@@ -1,0 +1,4001 @@
+{
+  "custom": {
+    "alertGroups": [],
+    "conditions": [
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "conditionId": 1,
+        "conditionName": "counter",
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348664
+          ],
+          "$ts": 1772064000000
+        },
+        "displayName": "Counter",
+        "enabled": true
+      },
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "conditionId": 2,
+        "conditionName": "runHour",
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348664
+          ],
+          "$ts": 1774224000000
+        },
+        "displayName": "Run Hours",
+        "enabled": true
+      }
+    ],
+    "counters": [],
+    "maintenanceSubType": [
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceSubTypeId": 3,
+        "maintenanceSubTypeName": "Forklift Damage",
+        "maintenanceTypeColor": "--kcBlue-20",
+        "maintenanceTypeId": 1,
+        "maintenanceTypeName": "Corrective"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceSubTypeId": 6,
+        "maintenanceSubTypeName": "Operator Damage",
+        "maintenanceTypeColor": "--kcBlue-20",
+        "maintenanceTypeId": 1,
+        "maintenanceTypeName": "Corrective"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321349330
+          ],
+          "$ts": 1783984706383
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceSubTypeId": 7,
+        "maintenanceSubTypeName": "Repair",
+        "maintenanceTypeColor": "--kcBlue-20",
+        "maintenanceTypeId": 1,
+        "maintenanceTypeName": "Corrective"
+      }
+    ],
+    "maintenanceType": [
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcBlue-20",
+        "maintenanceTypeId": 1,
+        "maintenanceTypeName": "Corrective",
+        "serialId": null,
+        "serialName": null
+      },
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcYellow-60",
+        "maintenanceTypeId": 2,
+        "maintenanceTypeName": "Inspection",
+        "serialId": null,
+        "serialName": null
+      },
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcBlue-30",
+        "maintenanceTypeId": 3,
+        "maintenanceTypeName": "Predictive",
+        "serialId": null,
+        "serialName": null
+      },
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcGreen-20",
+        "maintenanceTypeId": 4,
+        "maintenanceTypeName": "Preventive",
+        "serialId": null,
+        "serialName": null
+      },
+      {
+        "changedBy": 5,
+        "changedDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1786321026587
+        },
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1786321026587
+        },
+        "lastUpdatedBy": "jason",
+        "maintenanceTypeColor": "--kcGreen-50",
+        "maintenanceTypeId": 5,
+        "maintenanceTypeName": "Project",
+        "serialId": 2,
+        "serialName": "Shop Order"
+      },
+      {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348552
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcRed-20",
+        "maintenanceTypeId": 6,
+        "maintenanceTypeName": "Safety",
+        "serialId": null,
+        "serialName": null
+      }
+    ],
+    "oneTime": false,
+    "procedures": [],
+    "scheduleType": {
+      "1": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348509
+          ],
+          "$ts": 1783984706417
+        },
+        "enabled": true,
+        "scheduleTypeId": 1,
+        "scheduleTypeName": "One Time"
+      },
+      "2": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348509
+          ],
+          "$ts": 1783984706417
+        },
+        "enabled": true,
+        "scheduleTypeId": 2,
+        "scheduleTypeName": "Recurring"
+      },
+      "3": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348509
+          ],
+          "$ts": 1783984706417
+        },
+        "enabled": true,
+        "scheduleTypeId": 3,
+        "scheduleTypeName": "Condition"
+      }
+    },
+    "security": {
+      "config": {
+        "allowGuest": "1",
+        "userSource": "default",
+        "userSources": "[\"default\"]"
+      },
+      "userCRUD": {
+        "approveQualityCheck": {
+          "assets": [],
+          "enabled": false
+        },
+        "approveWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureAssets": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureItems": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureLots": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureQuality": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureSecurity": {
+          "assets": [],
+          "enabled": false
+        },
+        "configureWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "editOperations": {
+          "assets": [],
+          "enabled": false
+        },
+        "enterQualityCheck": {
+          "assets": [],
+          "enabled": false
+        },
+        "enterWorkOrders": {
+          "assets": [],
+          "enabled": false
+        },
+        "isGatewayAdmin": true,
+        "operateAssets": {
+          "assets": [],
+          "enabled": false
+        },
+        "scheduleOperations": {
+          "assets": [],
+          "enabled": false
+        },
+        "scheduleShifts": {
+          "assets": [],
+          "enabled": false
+        }
+      },
+      "userId": 5
+    },
+    "technicians": [
+      {
+        "assetEnabled": null,
+        "assetId": null,
+        "assetPath": null,
+        "email": null,
+        "firstName": "Aaron",
+        "functionId": null,
+        "functionName": null,
+        "gatewayAdmin": true,
+        "idpUserId": "489c48db-461f-46a2-b022-46f5db841d80",
+        "lastName": "Rai",
+        "roleEnabled": null,
+        "roleId": null,
+        "roleName": null,
+        "userAssetRoleId": null,
+        "userId": 6,
+        "userName": "aaron",
+        "userSource": "default"
+      },
+      {
+        "assetEnabled": true,
+        "assetId": 8,
+        "assetPath": "Kanoa Box Co\\Box Plant\\Packaging\\Box Line 2",
+        "email": null,
+        "firstName": "Jason",
+        "functionId": 1,
+        "functionName": "configureSecurity",
+        "gatewayAdmin": true,
+        "idpUserId": "d4fd1a9a-07a7-46fd-8a36-321328fbe16a",
+        "lastName": "Coope",
+        "roleEnabled": true,
+        "roleId": 1,
+        "roleName": "Administrator",
+        "userAssetRoleId": 3,
+        "userId": 5,
+        "userName": "jason",
+        "userSource": "default"
+      }
+    ],
+    "types": {
+      "1": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcBlue-20",
+        "maintenanceTypeId": 1,
+        "maintenanceTypeName": "Corrective",
+        "serialId": null,
+        "serialName": null
+      },
+      "2": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcYellow-60",
+        "maintenanceTypeId": 2,
+        "maintenanceTypeName": "Inspection",
+        "serialId": null,
+        "serialName": null
+      },
+      "3": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcBlue-30",
+        "maintenanceTypeId": 3,
+        "maintenanceTypeName": "Predictive",
+        "serialId": null,
+        "serialName": null
+      },
+      "4": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcGreen-20",
+        "maintenanceTypeId": 4,
+        "maintenanceTypeName": "Preventive",
+        "serialId": null,
+        "serialName": null
+      },
+      "5": {
+        "changedBy": 5,
+        "changedDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1786321026587
+        },
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1786321026587
+        },
+        "lastUpdatedBy": "jason",
+        "maintenanceTypeColor": "--kcGreen-50",
+        "maintenanceTypeId": 5,
+        "maintenanceTypeName": "Project",
+        "serialId": 2,
+        "serialName": "Shop Order"
+      },
+      "6": {
+        "changedBy": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "enabled": true,
+        "lastUpdated": {
+          "$": [
+            "ts",
+            192,
+            1786321348472
+          ],
+          "$ts": 1783984706270
+        },
+        "lastUpdatedBy": "SYSTEM",
+        "maintenanceTypeColor": "--kcRed-20",
+        "maintenanceTypeId": 6,
+        "maintenanceTypeName": "Safety",
+        "serialId": null,
+        "serialName": null
+      }
+    },
+    "userAction": {
+      "canCreate": true,
+      "canDelete": false,
+      "canRead": true,
+      "canUpdate": false
+    },
+    "workOrderConditions": {
+      "conditionId": null,
+      "counter": {
+        "counterId": null,
+        "valueThreshold": null
+      },
+      "lastGeneratedDate": null,
+      "lastGeneratedValue": null,
+      "runHour": {
+        "valueThreshold": null
+      },
+      "workOrderConditionId": null
+    },
+    "workOrderInfo": {
+      "assetId": null,
+      "assetName": null,
+      "assetPath": null,
+      "assignedTo": null,
+      "assignedUser": null,
+      "changedBy": null,
+      "changedDate": null,
+      "createdBy": null,
+      "createdDate": null,
+      "description": "",
+      "dueDate": {
+        "$": [
+          "ts",
+          192,
+          1786321349213
+        ],
+        "$ts": 1786321349200
+      },
+      "enabled": true,
+      "generateAheadDays": null,
+      "lastGeneratedDate": null,
+      "leadTimeDays": null,
+      "maintenanceSubTypeId": null,
+      "maintenanceSubTypeName": null,
+      "maintenanceTypeColor": "--kcBlue-20",
+      "maintenanceTypeId": 1,
+      "maintenanceTypeName": "Corrective",
+      "procedureId": null,
+      "procedureName": null,
+      "requestedBy": 5,
+      "requestedByUser": null,
+      "rruleStr": null,
+      "scheduleTypeId": 1,
+      "scheduleTypeName": "One Time",
+      "sourceType": 0,
+      "startDate": null,
+      "title": "",
+      "workOrderId": null,
+      "workOrderPath": null,
+      "workOrderPriorityColor": null,
+      "workOrderPriorityIconPath": null,
+      "workOrderPriorityId": 2,
+      "workOrderPriorityName": null,
+      "workOrderScheduleId": null,
+      "workOrderStatusColor": null,
+      "workOrderStatusId": 4,
+      "workOrderStatusName": null
+    },
+    "workOrderPriorities": [
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348761
+          ],
+          "$ts": 1783984706453
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "sortOrder": 10,
+        "workOrderPriorityColor": "--kcGray-10",
+        "workOrderPriorityIconPath": null,
+        "workOrderPriorityId": 2,
+        "workOrderPriorityName": "Low"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348761
+          ],
+          "$ts": 1783984706453
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "sortOrder": 20,
+        "workOrderPriorityColor": "--kcGreen-50",
+        "workOrderPriorityIconPath": null,
+        "workOrderPriorityId": 3,
+        "workOrderPriorityName": "Medium"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348761
+          ],
+          "$ts": 1783984706453
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "sortOrder": 30,
+        "workOrderPriorityColor": "--kcOrange-50",
+        "workOrderPriorityIconPath": "material/report_problem",
+        "workOrderPriorityId": 1,
+        "workOrderPriorityName": "High"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348761
+          ],
+          "$ts": 1783984706453
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "sortOrder": 40,
+        "workOrderPriorityColor": "--kcRed-50",
+        "workOrderPriorityIconPath": "material/report",
+        "workOrderPriorityId": 4,
+        "workOrderPriorityName": "Urgent"
+      }
+    ],
+    "workOrderSchedule": {
+      "generateAheadDays": null,
+      "rruleStr": null,
+      "startDate": null
+    },
+    "workOrderStatus": [
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348575
+          ],
+          "$ts": 1783984706567
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "reservedBySystem": true,
+        "sortOrder": 0,
+        "workOrderStatusColor": "--kcGray-30",
+        "workOrderStatusId": 2,
+        "workOrderStatusName": "Draft"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348575
+          ],
+          "$ts": 1783984706567
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "reservedBySystem": false,
+        "sortOrder": 10,
+        "workOrderStatusColor": null,
+        "workOrderStatusId": 3,
+        "workOrderStatusName": "In Progress"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348575
+          ],
+          "$ts": 1783984706567
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "reservedBySystem": true,
+        "sortOrder": 20,
+        "workOrderStatusColor": "--kcGreen-50",
+        "workOrderStatusId": 4,
+        "workOrderStatusName": "Released"
+      },
+      {
+        "changedBy": null,
+        "changedByUser": null,
+        "changedDate": null,
+        "createdBy": 1,
+        "createdByUser": "SYSTEM",
+        "createdDate": {
+          "$": [
+            "ts",
+            192,
+            1786321348575
+          ],
+          "$ts": 1783984706567
+        },
+        "enabled": true,
+        "lastUpdatedBy": "SYSTEM on 2026-07-13",
+        "reservedBySystem": true,
+        "sortOrder": 99,
+        "workOrderStatusColor": "--kcGray-10",
+        "workOrderStatusId": 1,
+        "workOrderStatusName": "Archived"
+      }
+    ]
+  },
+  "params": {
+    "values": {
+      "scheduleTypeIdList": [],
+      "workOrderId": 85
+    }
+  },
+  "propConfig": {
+    "custom.alertGroups": {
+      "binding": {
+        "config": {
+          "path": "view.custom.workOrderInfo"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\treturn [row[\u0027alertGroupId\u0027] for row in system.kanoa.cmms.getWorkOrderAlertGroups(value[\u0027workOrderId\u0027] or -1)]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tif origin \u003d\u003d \u0027BindingWriteback\u0027 and self.custom.workOrderInfo.workOrderId: \n\t\tretVal, msg \u003d system.kanoa.cmms.addWorkOrderAlertGroups(self.custom.workOrderInfo.workOrderId, self.custom.alertGroups, self.custom.security.userId)\n\t\tif msg:\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027warning\u0027, \u0027message\u0027: \u0027Unable to save Alert Groups. %s\u0027%msg})\t\n\t\telse: system.kanoa.toast.show({\u0027type\u0027: \u0027success\u0027, \u0027message\u0027: \u0027Alert Groups saved\u0027})\t\n\t\t\n\treturn"
+      },
+      "persistent": true
+    },
+    "custom.conditions": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getConditions({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.counters": {
+      "binding": {
+        "config": {
+          "path": "view.custom.workOrderInfo"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tif value[\u0027assetId\u0027] is None: return []\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.asset.getCounter({\u0027assetId\u0027: value[\u0027assetId\u0027], \u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.maintenanceSubType": {
+      "binding": {
+        "config": {
+          "path": "view.custom.workOrderInfo.maintenanceTypeId"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tif value is None: return []\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getMaintenanceSubTypes({\u0027maintenanceTypeId\u0027: value, \u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.maintenanceType": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getMaintenanceTypes({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.oneTime": {
+      "binding": {
+        "config": {
+          "struct": {
+            "params": "{view.params.values}",
+            "scheduleTypes": "{view.custom.scheduleType}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tscheduleTypeIdList \u003d value[\u0027params\u0027].get(\u0027scheduleTypeIdList\u0027) or []\n\tif len(scheduleTypeIdList) \u003d\u003d 1:\n\t\tscheduleTypeName \u003d value[\u0027scheduleTypes\u0027].get(str(scheduleTypeIdList[0]),{}).get(\u0027scheduleTypeName\u0027)\n\t\tif scheduleTypeName \u003d\u003d \u0027One Time\u0027:\n\t\t\timport time\n\t\t\ttime.sleep(0.1)\n\t\t\tself.custom.workOrderInfo.workOrderStatusId \u003d system.kanoa.utilities.getFieldValue(\u0027workOrderStatusId\u0027, system.kanoa.cmms.getWorkOrderStatus({\u0027workOrderStatusName\u0027: \u0027Released\u0027}))\n\t\t\treturn True\n\t\n\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.procedures": {
+      "binding": {
+        "config": {
+          "path": "view.params.values"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getProcedures({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.scheduleType": {
+      "binding": {
+        "config": {
+          "path": "view.params.values"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tscheduleTypeIdList \u003d value.get(\u0027scheduleTypeIdList\u0027) or []\n\treturn system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getScheduleTypes({\u0027enabled\u0027: True, \u0027scheduleTypeIdList\u0027: scheduleTypeIdList}), \u0027scheduleTypeId\u0027, None)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.security": {
+      "binding": {
+        "config": {
+          "path": "session.custom.kanoa.security"
+        },
+        "overlayOptOut": true,
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.technicians": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tusers \u003d system.kanoa.utilities.convertDatasetToJSON(system.kanoa.security.getUserAssetRoles({\u0027functionName\u0027: \u0027enterWorkOrders\u0027}))\n\t\n\toptions \u003d []\n\tentries \u003d []\n\tfor item in users:\n\t\tif item[\"lastName\"] is None or item[\u0027userName\u0027] in entries: continue\n\t\toptions.append(item)\n\t\tentries.append(item[\u0027userName\u0027])\n\t\t\n\treturn sorted(options, key\u003dlambda x: x[\"firstName\"])",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.types": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getMaintenanceTypes({\u0027enabled\u0027: True}), \u0027maintenanceTypeId\u0027, None)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.userAction": {
+      "binding": {
+        "config": {
+          "struct": {
+            "security": "{view.custom.security}",
+            "stepId": "{view.custom.steps.selectedStepId}"
+          },
+          "waitOnAll": true
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tsecurity \u003d value[\u0027security\u0027]\n\tcanCreate \u003d False\n\tcanEdit \u003d False\n\tif security[\u0027userCRUD\u0027] is not None and security[\u0027userId\u0027] is not None:\n\t\tif security[\u0027userCRUD\u0027][\u0027isGatewayAdmin\u0027] or security[\u0027userCRUD\u0027][\u0027configureWorkOrders\u0027][\u0027enabled\u0027]: \n\t\t\tcanCreate \u003d True\n\t\t\tcanEdit \u003d True if value[\u0027stepId\u0027] is not None else False\n\t\n\treturn {\"canCreate\": canCreate, \"canDelete\": canEdit, \"canRead\": True, \"canUpdate\": canEdit}",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.workOrderConditions": {
+      "binding": {
+        "config": {
+          "path": "view.params.values"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tdefault \u003d {\n\t\t\t\t\t\"workOrderConditionId\": None,\n\t\t\t\t\t\"conditionId\": None,\n\t\t\t\t\t\"runHour\": {\"valueThreshold\": None},\n\t\t\t\t\t\"counter\": {\"counterId\": None, \"valueThreshold\": None },\n\t\t\t\t\t\u0027lastGeneratedDate\u0027: None,\n\t\t\t\t\t\u0027lastGeneratedValue\u0027: None\n\t\t\t\t}\n\t\n\tif value[\u0027workOrderId\u0027] is None: return default\n\t\n\tworkOrderConditionInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getWorkOrderConditions({\u0027workOrderId\u0027: value[\u0027workOrderId\u0027]}),0)\t\n\tconditionInfo \u003d system.util.jsonDecode(workOrderConditionInfo[\u0027conditionInfo\u0027])\n\tdefault[\u0027conditionId\u0027] \u003d workOrderConditionInfo[\u0027conditionId\u0027]\n\tdefault[\u0027workOrderConditionId\u0027] \u003d workOrderConditionInfo[\u0027workOrderConditionId\u0027]\n\tdefault[\u0027lastGeneratedDate\u0027] \u003d workOrderConditionInfo[\u0027lastGeneratedDate\u0027]\n\tdefault[\u0027lastGeneratedValue\u0027] \u003d workOrderConditionInfo[\u0027lastGeneratedValue\u0027]\n\tif conditionInfo: default[workOrderConditionInfo[\u0027conditionName\u0027]] \u003d conditionInfo\n\t\t\n\treturn default",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.workOrderInfo": {
+      "binding": {
+        "config": {
+          "path": "view.params.values"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\tsystem.perspective.print(\"workOrderEditor workOrderInfo binding change. %s\"%value)\n\t\n\tworkOrderInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getWorkOrders({\u0027workOrderId\u0027: value[\u0027workOrderId\u0027] or -1}),0)\n\tworkOrderStates \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getWorkOrderStatus({}), \u0027workOrderStatusName\u0027, \u0027workOrderStatusId\u0027)\n\tscheduleTypes \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getScheduleTypes({}), \u0027scheduleTypeName\u0027, \u0027scheduleTypeId\u0027)\n\n\tif workOrderInfo[\u0027workOrderId\u0027] is None:\n\t\tworkOrderInfo[\u0027title\u0027] \u003d \u0027\u0027\n\t\tworkOrderInfo[\u0027description\u0027] \u003d \u0027\u0027\n\t\tworkOrderInfo[\u0027workOrderPriorityId\u0027] \u003d system.kanoa.utilities.getFieldValue(\u0027workOrderPriorityId\u0027, system.kanoa.cmms.getWorkOrderPriorities({\u0027workOrderPriorityName\u0027: \u0027Low\u0027}))\n\t\t\n\t\tscheduleTypeIdList \u003d value.get(\u0027scheduleTypeId\u0027) or []\n\t\tworkOrderInfo[\u0027scheduleTypeId\u0027] \u003d scheduleTypeIdList[0] if len(scheduleTypeIdList) \u003d\u003d 1 else scheduleTypes[\u0027One Time\u0027]\n\t\tworkOrderInfo[\u0027workOrderStatusId\u0027] \u003d workOrderStates[\u0027Released\u0027] if workOrderInfo[\u0027scheduleTypeId\u0027] \u003d\u003d scheduleTypes[\u0027One Time\u0027] else workOrderStates[\u0027Draft\u0027]\n\t\t\t\n\t\tmaintTypeInfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getMaintenanceTypes({\u0027maintenanceTypeName\u0027: \u0027Corrective\u0027}), 0)\n\t\tworkOrderInfo[\u0027maintenanceTypeId\u0027] \u003d maintTypeInfo[\u0027maintenanceTypeId\u0027]\n\t\tworkOrderInfo[\u0027maintenanceTypeColor\u0027] \u003d maintTypeInfo[\u0027maintenanceTypeColor\u0027]\n\t\tworkOrderInfo[\u0027maintenanceTypeName\u0027] \u003d maintTypeInfo[\u0027maintenanceTypeName\u0027]\n\t\tworkOrderInfo[\u0027requestedBy\u0027] \u003d self.session.custom.kanoa.security.userId\n\t\tworkOrderInfo[\u0027sourceType\u0027] \u003d 0\n\t\tworkOrderInfo[\u0027enabled\u0027] \u003d True\n\telse:\n\t\tworkOrderInfo[\u0027title\u0027] \u003d workOrderInfo[\u0027title\u0027] or \u0027\u0027\n\t\tworkOrderInfo[\u0027description\u0027] \u003d workOrderInfo[\u0027description\u0027] or \u0027\u0027\n\t\t\n\tworkOrderInfo[\u0027dueDate\u0027] \u003d system.date.now()\n\t\t\n\tkeys \u003d [\"generateAheadDays\", \"rruleStr\", \"startDate\"]\n\tself.custom.workOrderSchedule \u003d {k: workOrderInfo[k] for k in keys if k in workOrderInfo}\n\t\t\n\treturn workOrderInfo",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\t\n\tif origin \u003d\u003d \u0027BindingWriteback\u0027:\n\t\ttry:\n\t\t\tself.custom.workOrderInfo[\u0027maintenanceTypeColor\u0027] \u003d self.custom.types[str(self.custom.workOrderInfo[\u0027maintenanceTypeId\u0027])][\u0027maintenanceTypeColor\u0027]\n\t\t\tself.custom.workOrderInfo[\u0027scheduleTypeName\u0027] \u003d self.custom.scheduleType[str(self.custom.workOrderInfo[\u0027scheduleTypeId\u0027])][\u0027scheduleTypeName\u0027]\n\t\texcept:\n\t\t\tpass\n\t\t\n\t\n\treturn"
+      },
+      "persistent": true
+    },
+    "custom.workOrderPriorities": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getWorkOrderPriorities({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.workOrderSchedule": {
+      "binding": {
+        "config": {
+          "path": "view.params.values.workOrderId"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\n\tif value: \n\t\tkeysToKeep \u003d [\u0027generateAheadDays\u0027, \u0027rruleStr\u0027, \u0027startDate\u0027]\n\t\tinfo \u003d system.kanoa.utilities.convertDatasetRowToJSON(system.kanoa.cmms.getWorkOrderSchedule({\u0027workOrderId\u0027: value}),0)\n\t\treturn {k: info[k] for k in keysToKeep if k in info}\n\telse: return {\"generateAheadDays\": 0, \"rruleStr\": None, \"startDate\": None}",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.workOrderStatus": {
+      "binding": {
+        "config": {
+          "expression": "now(0)"
+        },
+        "overlayOptOut": true,
+        "transforms": [
+          {
+            "code": "\t\n\treturn system.kanoa.utilities.convertDatasetToJSON(system.kanoa.cmms.getWorkOrderStatus({\u0027enabled\u0027: True}))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.values": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 773,
+      "width": 854
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px",
+              "display": false
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Type",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "msiTypes"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.maintenanceTypeId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.states": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.types"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\tdef buildOption(text, value, bgColor):\n\t\t\n\t\tunselectedWashedBgColor \u003d \u0027color-mix(in srgb, var(%s) 30%%, white)\u0027%bgColor\n\t\tselectedWashedBgColor \u003d \u0027color-mix(in srgb, var(%s) 60%%, white)\u0027%bgColor\n\t\treturn {\n\t\t\t\t\"text\": text,\n\t\t\t\t\"value\": value,\n\t\t\t\t\"unselectedStyle\": {\"classes\": \"\", \"backgroundColor\": unselectedWashedBgColor, \u0027color\u0027: \u0027--kcGray-40\u0027},\n\t\t\t\t\"selectedStyle\": {\"classes\": \"\", \"backgroundColor\": selectedWashedBgColor, \u0027color\u0027: system.kanoa.utilities.getContrastingColor(bgColor), \u0027box-shadow\u0027: \u00270 10px 25px rgba(0, 0, 0, 0.15),   0 4px 10px rgba(0, 0, 0, 0.08)\u0027}\n\t\t\t}\n\t\n\toptions \u003d []\n\tfor k,v in value.items():\n\t\toptions.append(buildOption(v[\u0027maintenanceTypeName\u0027], v[\u0027maintenanceTypeId\u0027], v[\u0027maintenanceTypeColor\u0027]))\n\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultSelectedStyle": {
+                "borderStyle": "none",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "defaultUnselectedStyle": {
+                "backgroundColor": "--kcSurface",
+                "borderColor": "--kcGray-10",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "orientation": "row",
+              "style": {
+                "classes": "kanoa/font/default"
+              }
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "flxMaintenanceType"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.custom.workOrderInfo.maintenanceTypeColor"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value or \u0027\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderStyle": "none",
+            "classes": "kanoa/border",
+            "overflow": "visible",
+            "padding": "8px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "msiSchedule"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.scheduleTypeId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.states": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.scheduleType"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\tdef buildOption(text, value, bgColor):\n\t\t\n\t\tunselectedWashedBgColor \u003d \u0027color-mix(in srgb, var(%s) 30%%, white)\u0027%bgColor\n\t\tselectedWashedBgColor \u003d \u0027color-mix(in srgb, var(%s) 60%%, white)\u0027%bgColor\n\t\treturn {\n\t\t\t\t\"text\": text,\n\t\t\t\t\"value\": value,\n\t\t\t\t\"unselectedStyle\": {\"classes\": \"\", \"backgroundColor\": unselectedWashedBgColor, \u0027color\u0027: \u0027--kcGray-40\u0027},\n\t\t\t\t\"selectedStyle\": {\"classes\": \"\", \"backgroundColor\": selectedWashedBgColor, \u0027color\u0027: system.kanoa.utilities.getContrastingColor(bgColor), \u0027box-shadow\u0027: \u00270 10px 25px rgba(0, 0, 0, 0.15),   0 4px 10px rgba(0, 0, 0, 0.08)\u0027}\n\t\t\t}\n\t\n\toptions \u003d []\n\tfor k,v in value.items():\n\t\toptions.append(buildOption(v[\u0027scheduleTypeName\u0027], v[\u0027scheduleTypeId\u0027], None))\n\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultSelectedStyle": {
+                "borderStyle": "none",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "defaultUnselectedStyle": {
+                "backgroundColor": "--kcSurface",
+                "borderColor": "--kcGray-10",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "orientation": "row",
+              "style": {
+                "classes": "kanoa/font/default",
+                "width": "300px"
+              }
+            },
+            "type": "ia.input.multi-state-button"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "chkEnabled"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderInfo.enabled"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "text": "Enabled"
+                },
+                "type": "ia.input.checkbox"
+              }
+            ],
+            "meta": {
+              "name": "flxEnabled"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "flxScheduleType"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "overflow": "visible",
+            "padding": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Title",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblWorkOrderName"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.workOrderName"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value is not None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.workOrderName"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn \"%s - \"%value if value else \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/font/headlineMedium"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "txtTitle"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.title"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false,
+              "style": {
+                "classes": "kanoa/border"
+              }
+            },
+            "type": "ia.input.text-field"
+          },
+          {
+            "meta": {
+              "name": "lblWorkOrderId",
+              "tooltip": {
+                "enabled": true,
+                "location": "bottom",
+                "text": "Work Order Id"
+              }
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.workOrderId"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value or \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border kanoa/font/default",
+                "height": "30px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxOrderName"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "style": {
+            "classes": "kanoa/border",
+            "gap": "5px",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "8px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lblTitle"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--kcSurface",
+                    "color": "--kcOnPrimaryContainer",
+                    "marginLeft": "3px",
+                    "paddingLeft": "5px",
+                    "paddingRight": "5px",
+                    "position": "absolute",
+                    "textAlign": "center",
+                    "top": -8,
+                    "width": "auto"
+                  },
+                  "text": "Assigned To",
+                  "textStyle": {
+                    "fontSize": 10
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ddAssignedTo"
+                },
+                "position": {
+                  "basis": "256px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.technicians"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\treturn [{\"value\": user[\u0027userId\u0027], \"label\": \"%s %s\"%(user[\u0027firstName\u0027], user[\u0027lastName\u0027])} for user in value]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderInfo.assignedTo"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "dropdownOptionStyle": {
+                    "classes": "kanoa/font/default"
+                  },
+                  "placeholder": {
+                    "text": "Select Tech..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "classes": "kanoa/font/default"
+                  }
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "flxAssignedTo"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border",
+                "marginTop": "5px",
+                "overflow": "visible",
+                "padding": "12px 5px 5px 5px",
+                "position": "relative"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lblTitle"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "--kcSurface",
+                    "color": "--kcOnPrimaryContainer",
+                    "marginLeft": "3px",
+                    "paddingLeft": "5px",
+                    "paddingRight": "5px",
+                    "position": "absolute",
+                    "textAlign": "center",
+                    "top": -8,
+                    "width": "auto"
+                  },
+                  "text": "Requested By",
+                  "textStyle": {
+                    "fontSize": 10
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ddRequestedBy"
+                },
+                "position": {
+                  "basis": "256px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\tusers \u003d system.kanoa.utilities.convertDatasetToJSON(system.kanoa.security.getUsers({}))\n\treturn [{\"value\": user[\u0027userId\u0027], \"label\": \"%s %s\"%(user[\u0027firstName\u0027], user[\u0027lastName\u0027])} for user in users if user[\u0027firstName\u0027] and user[\u0027lastName\u0027]]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderInfo.requestedBy"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "dropdownOptionStyle": {
+                    "classes": "kanoa/font/default"
+                  },
+                  "placeholder": {
+                    "text": "Select Requestor..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "classes": "kanoa/border kanoa/font/default"
+                  }
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "flxRequestedBy"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border",
+                "marginTop": "5px",
+                "overflow": "visible",
+                "padding": "12px 5px 5px 5px",
+                "position": "relative"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "flxUsers"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Work Type",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ddMaintenanceSubType"
+            },
+            "position": {
+              "basis": "256px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.maintenanceSubType"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\treturn [{\"value\": item[\u0027maintenanceSubTypeId\u0027], \"label\": item[\u0027maintenanceSubTypeName\u0027],} for item in value]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.maintenanceSubTypeId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "dropdownOptionStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "placeholder": {
+                "text": "Select Work Type..."
+              },
+              "showClearIcon": true,
+              "style": {
+                "classes": "kanoa/font/default"
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "flxMaintenanceSubType"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.maintenanceSubType"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value is not None and len(value) \u003e 0",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Description",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "txtDescription"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.description"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false,
+              "resize": "vertical",
+              "style": {
+                "borderColor": "--kcGray-20",
+                "classes": "kanoa/font/default"
+              }
+            },
+            "type": "ia.input.text-area"
+          }
+        ],
+        "meta": {
+          "name": "flxDescription"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Procedure",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ddProcedure"
+            },
+            "position": {
+              "basis": "500px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.procedures"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\treturn [{\"value\": item[\u0027procedureId\u0027], \"label\": item[\u0027procedureName\u0027],} for item in value]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.procedureId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "dropdownOptionStyle": {
+                "classes": "kanoa/font/default"
+              },
+              "showClearIcon": true,
+              "style": {
+                "classes": "kanoa/font/default"
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "flxProcedure"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Asset",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "evAssetSelector"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.params.assetInfo.assetId": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.assetId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.params.value.assetPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.assetPath"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "assetInfo": {
+                  "assetGroupColor": null,
+                  "assetGroupId": null,
+                  "assetGroupName": null,
+                  "assetName": null,
+                  "assetPath": null,
+                  "assetTypeId": null,
+                  "assetTypeName": null,
+                  "assetTypePath": null,
+                  "displayPath": null,
+                  "enabled": null,
+                  "iconPath": null,
+                  "mobile": null,
+                  "oeeEnabled": null,
+                  "parentId": null,
+                  "path": null,
+                  "processTypeId": null,
+                  "processTypeName": null,
+                  "sortOrder": null,
+                  "tagPath": null,
+                  "timeZone": null
+                },
+                "value": {
+                  "options": {
+                    "dragDrop": false,
+                    "expand": false,
+                    "multiSelect": false,
+                    "showBreadcrumb": true,
+                    "showClear": true,
+                    "showSelectedPath": false
+                  },
+                  "parentPathList": [],
+                  "persistent": false,
+                  "useSessionValue": false
+                }
+              },
+              "path": "kanoa/core/templates/selectors/assetSelector"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "lblAsset"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn not value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.assetPath"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\treturn system.kanoa.utilities.formatPath(value, {})",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "height": "25px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxAsset"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "8px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Schedule",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "evRecurring"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.params.values": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.workOrderSchedule"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "kanoa/cmms/config/recurringOptions"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "flxRecurring"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.scheduleTypeName"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value \u003d\u003d \u0027Recurring\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "gap": "5px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "dtiDueDate"
+                },
+                "position": {
+                  "basis": "170px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderInfo.dueDate"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "formattedValue": "Aug 9, 2026 5:22 PM",
+                  "placeholder": "Select due date",
+                  "style": {
+                    "height": "30px"
+                  }
+                },
+                "type": "ia.input.date-time-input"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "lblLeadTime"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.basis": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.display.lblBasis"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "Lead Time"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "numLeadTime"
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.workOrderInfo.leadTimeDays"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "align": "center",
+                      "spinner": {
+                        "enabled": false
+                      },
+                      "style": {
+                        "height": "30px"
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  },
+                  {
+                    "meta": {
+                      "name": "lblDays"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "text": "days"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "flxLeadTime",
+                  "tooltip": {
+                    "enabled": true,
+                    "location": "top",
+                    "text": "Number of days prior to the due date that "
+                  }
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "gap": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "flxOneTime"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo.scheduleTypeName"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value \u003d\u003d \u0027One Time\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "gap": "5px",
+                "padding": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "flxSchedule"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.workOrderInfo.scheduleTypeName"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value !\u003d \u0027Condition\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Condition",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "domId": "ddTriggers",
+                  "name": "ddConditions"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.conditions"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\treturn [{\u0027value\u0027:row[\u0027conditionId\u0027], \u0027label\u0027:row[\u0027displayName\u0027]} for row in value]\n\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderConditions.conditionId"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "data": {
+                    "$": [
+                      "ds",
+                      192,
+                      1594933271114
+                    ],
+                    "$columns": [
+                      {
+                        "data": [
+                          15,
+                          16,
+                          17,
+                          18,
+                          19,
+                          14,
+                          35,
+                          33,
+                          25,
+                          27,
+                          28,
+                          34,
+                          29,
+                          31,
+                          26,
+                          30,
+                          32,
+                          13,
+                          10,
+                          11,
+                          12,
+                          7,
+                          6,
+                          8,
+                          9,
+                          20,
+                          21,
+                          22,
+                          23,
+                          24,
+                          36,
+                          37,
+                          38
+                        ],
+                        "name": "Line_Id",
+                        "type": "Long"
+                      },
+                      {
+                        "data": [
+                          "DD Line 1",
+                          "DD Line 2",
+                          "DD Line 3",
+                          "DD Line 4",
+                          "RCORTO",
+                          "Root",
+                          "Dry Waste",
+                          "Oiler",
+                          "Panel Saw",
+                          "Poly Patch 1",
+                          "Poly Patch 2",
+                          "Regrade STN",
+                          "Sander",
+                          "Spec Saw",
+                          "Strapper 1",
+                          "Strapper 2",
+                          "Strapper 3",
+                          "Core System",
+                          "GE Line 1",
+                          "GE Line 2",
+                          "GE Line 3",
+                          "Cutup",
+                          "Debarker",
+                          "Vat Line 1",
+                          "Vat Line 2",
+                          "Glue Line 1",
+                          "Glue Line 2",
+                          "Glue Tanks",
+                          "Press Line 1",
+                          "Press Line 2",
+                          "Boiler",
+                          "Compressors",
+                          "Weather"
+                        ],
+                        "name": "Line_Name",
+                        "type": "String"
+                      }
+                    ]
+                  },
+                  "dropdownOptionStyle": {
+                    "classes": "kanoa/font/default"
+                  },
+                  "placeholder": {
+                    "text": "Select Condition..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "classes": "kanoa/border kanoa/font/default",
+                    "minWidth": "150px"
+                  }
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "domId": "lblName",
+                          "name": "lblName"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "every"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "domId": "numValue",
+                          "name": "numValue"
+                        },
+                        "position": {
+                          "basis": "50px",
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.enabled": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.userAction"
+                              },
+                              "overlayOptOut": true,
+                              "transforms": [
+                                {
+                                  "code": "\treturn value[\u0027canCreate\u0027]",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.custom.workOrderConditions.runHour.valueThreshold"
+                              },
+                              "overlayOptOut": true,
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "align": "center",
+                          "format": "0,0.0",
+                          "spinner": {
+                            "enabled": false
+                          },
+                          "style": {
+                            "classes": "kanoa/font/default"
+                          }
+                        },
+                        "type": "ia.input.numeric-entry-field"
+                      },
+                      {
+                        "meta": {
+                          "domId": "lblUnits",
+                          "name": "lblUnits"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "hrs"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "domId": "flxCount",
+                      "name": "flxCount"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "gap": "5px",
+                        "height": "24px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "flxRunHourSettings"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.workOrderConditions.conditionId"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\tif value is None: return False\n\tconditions \u003d {item[\u0027conditionId\u0027]: item[\u0027conditionName\u0027] for item in self.view.custom.conditions}\n\treturn conditions[value] \u003d\u003d \u0027runHour\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "gap": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "domId": "ddTriggers",
+                      "name": "ddCounter"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.userAction"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\treturn value[\u0027canCreate\u0027]",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.options": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.counters"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn [{\u0027value\u0027:row[\u0027counterId\u0027], \u0027label\u0027:row[\u0027counterName\u0027]} for row in value]\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.workOrderConditions.counter.counterId"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "data": {
+                        "$": [
+                          "ds",
+                          192,
+                          1594933271114
+                        ],
+                        "$columns": [
+                          {
+                            "data": [
+                              15,
+                              16,
+                              17,
+                              18,
+                              19,
+                              14,
+                              35,
+                              33,
+                              25,
+                              27,
+                              28,
+                              34,
+                              29,
+                              31,
+                              26,
+                              30,
+                              32,
+                              13,
+                              10,
+                              11,
+                              12,
+                              7,
+                              6,
+                              8,
+                              9,
+                              20,
+                              21,
+                              22,
+                              23,
+                              24,
+                              36,
+                              37,
+                              38
+                            ],
+                            "name": "Line_Id",
+                            "type": "Long"
+                          },
+                          {
+                            "data": [
+                              "DD Line 1",
+                              "DD Line 2",
+                              "DD Line 3",
+                              "DD Line 4",
+                              "RCORTO",
+                              "Root",
+                              "Dry Waste",
+                              "Oiler",
+                              "Panel Saw",
+                              "Poly Patch 1",
+                              "Poly Patch 2",
+                              "Regrade STN",
+                              "Sander",
+                              "Spec Saw",
+                              "Strapper 1",
+                              "Strapper 2",
+                              "Strapper 3",
+                              "Core System",
+                              "GE Line 1",
+                              "GE Line 2",
+                              "GE Line 3",
+                              "Cutup",
+                              "Debarker",
+                              "Vat Line 1",
+                              "Vat Line 2",
+                              "Glue Line 1",
+                              "Glue Line 2",
+                              "Glue Tanks",
+                              "Press Line 1",
+                              "Press Line 2",
+                              "Boiler",
+                              "Compressors",
+                              "Weather"
+                            ],
+                            "name": "Line_Name",
+                            "type": "String"
+                          }
+                        ]
+                      },
+                      "dropdownOptionStyle": {
+                        "classes": "kanoa/font/default"
+                      },
+                      "placeholder": {
+                        "text": "Select counter..."
+                      },
+                      "showClearIcon": true,
+                      "style": {
+                        "classes": "kanoa/border kanoa/font/default",
+                        "minWidth": "150px"
+                      }
+                    },
+                    "type": "ia.input.dropdown"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "domId": "lblName",
+                          "name": "lblName"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "every"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "domId": "numValue",
+                          "name": "numValue"
+                        },
+                        "position": {
+                          "basis": "50px",
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.enabled": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.userAction"
+                              },
+                              "overlayOptOut": true,
+                              "transforms": [
+                                {
+                                  "code": "\treturn value[\u0027canCreate\u0027]",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          },
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.custom.workOrderConditions.counter.valueThreshold"
+                              },
+                              "overlayOptOut": true,
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "align": "center",
+                          "spinner": {
+                            "enabled": false
+                          },
+                          "style": {
+                            "classes": "kanoa/font/default"
+                          }
+                        },
+                        "type": "ia.input.numeric-entry-field"
+                      },
+                      {
+                        "meta": {
+                          "domId": "lblUnits",
+                          "name": "lblUnits"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "counts"
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "domId": "flxCount",
+                      "name": "flxCount"
+                    },
+                    "position": {
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "gap": "5px",
+                        "height": "24px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "flxCounterSettings"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.workOrderConditions.conditionId"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\t\n\tif value is None: return False\n\tconditions \u003d {item[\u0027conditionId\u0027]: item[\u0027conditionName\u0027] for item in self.view.custom.conditions}\n\treturn conditions[value] \u003d\u003d \u0027counter\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "gap": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "flxSettings"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "gap": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "lblLastServiced "
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Last serviced  on"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "dtiLastServiced"
+                },
+                "position": {
+                  "basis": "170px"
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderConditions.lastGeneratedDate"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "formattedValue": null
+                },
+                "type": "ia.input.date-time-input"
+              },
+              {
+                "meta": {
+                  "name": "lblLastValue"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Last value"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "domId": "numValue",
+                  "name": "numValue"
+                },
+                "position": {
+                  "basis": "50px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.userAction"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\treturn value[\u0027canCreate\u0027]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.workOrderConditions.lastGeneratedValue"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "center",
+                  "spinner": {
+                    "enabled": false
+                  },
+                  "style": {
+                    "classes": "kanoa/font/default"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "flxLastGenerated"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderConditions.conditionId"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\treturn value is not None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "gap": "5px",
+                "height": "30px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "flxCondition"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.workOrderInfo.scheduleTypeName"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn value \u003d\u003d \u0027Condition\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "flex-start",
+          "direction": "column",
+          "style": {
+            "classes": "kanoa/border",
+            "gap": "5px",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lblNotify",
+              "name": "lblNotify",
+              "tooltip": {
+                "enabled": true,
+                "location": "bottom-right",
+                "tail": false,
+                "text": "If selected, an email notification will be sent to the selected email groups"
+              }
+            },
+            "position": {
+              "basis": "80px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              },
+              "text": "Notifications "
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "evAlertGroups",
+              "name": "evAlertGroups"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.params.alertGroups": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.alertGroups"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.params.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction.canCreate"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "kanoa/qds/templates/selectors/alertGroupSelector"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t\n\t\n\tsystem.perspective.openPopup(\"alertGroupEditor\", \"kanoa/core/config/alertGroupEditor\", {}, title\u003d\u0027Alert Group Editor\u0027, draggable\u003dTrue, resizable\u003dTrue, showCloseIcon\u003dTrue, viewportBound\u003dTrue)\n\t\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnEditAlertGroups",
+              "name": "btnEditAlertGroups",
+              "tooltip": {
+                "enabled": true,
+                "location": "bottom-right",
+                "text": "Edit Alert Groups"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/notifications_active"
+                }
+              },
+              "style": {
+                "classes": "kanoa/button/flatIcon"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "flxNotify",
+          "name": "flxNotify"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "gap": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Priority",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "msiPriorities"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.workOrderPriorityId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.states": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderPriorities"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\tdef buildOption(text, value, bgColor):\n\t\treturn {\n\t\t\t\t\"text\": text,\n\t\t\t\t\"value\": value,\n\t\t\t\t\"unselectedStyle\": {\"classes\": \"\"},\n\t\t\t\t\"selectedStyle\": {\"classes\": \"\", \"backgroundColor\": bgColor, \u0027color\u0027: system.kanoa.utilities.getContrastingColor(bgColor)}\n\t\t\t}\n\t\n\toptions \u003d []\n\tfor item in value:\n\t\toptions.append(buildOption(item[\u0027workOrderPriorityName\u0027], item[\u0027workOrderPriorityId\u0027], item[\u0027workOrderPriorityColor\u0027]))\n\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultSelectedStyle": {
+                "borderStyle": "none",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "defaultUnselectedStyle": {
+                "backgroundColor": "--kcSurface",
+                "borderColor": "--kcGray-10",
+                "borderStyle": "solid",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "orientation": "row"
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "flxPriority"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblTitle"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--kcSurface",
+                "color": "--kcOnPrimaryContainer",
+                "marginLeft": "3px",
+                "paddingLeft": "5px",
+                "paddingRight": "5px",
+                "position": "absolute",
+                "textAlign": "center",
+                "top": -8,
+                "width": "auto"
+              },
+              "text": "Status",
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "msiStatus"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.workOrderInfo.workOrderStatusId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicatorValue": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.controlValue"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.states": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderStatus"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\n\tdef buildOption(text, value, bgColor):\n\t\treturn {\n\t\t\t\t\"text\": text,\n\t\t\t\t\"value\": value,\n\t\t\t\t\"unselectedStyle\": {\"classes\": \"\"},\n\t\t\t\t\"selectedStyle\": {\"classes\": \"\", \"backgroundColor\": bgColor, \u0027color\u0027: system.kanoa.utilities.getContrastingColor(bgColor)}\n\t\t\t}\n\t\n\toptions \u003d []\n\tfor item in value:\n\t\toptions.append(buildOption(item[\u0027workOrderStatusName\u0027], item[\u0027workOrderStatusId\u0027], item[\u0027workOrderStatusColor\u0027]))\n\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "defaultSelectedStyle": {
+                "borderStyle": "none",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "defaultUnselectedStyle": {
+                "backgroundColor": "--kcSurface",
+                "borderColor": "--kcGray-10",
+                "borderStyle": "solid",
+                "classes": "kanoa/font/default",
+                "height": "30px",
+                "width": "90px"
+              },
+              "orientation": "row"
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "flxStatus"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.oneTime"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn not value",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/border",
+            "marginTop": "5px",
+            "overflow": "visible",
+            "padding": "12px 5px 5px 5px",
+            "position": "relative"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\n\tworkOrderId, msg \u003d self.view.getChild(\"root\").saveWorkOrder()\n\t\n\tif msg: system.kanoa.toast.show({\u0027type\u0027: \u0027warning\u0027, \u0027message\u0027: \"Couldn\u0027t save work order. %s\"%msg})\n\telse: \n\t\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027success\u0027, \u0027message\u0027: \u0027Work order has been saved\u0027})\n\t\tself.view.params.values.workOrderId \u003d workOrderId\n\t\n\tsystem.perspective.sendMessage(\"refreshWorkOrders\", {})\t\n\t\n\treturn"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnSave",
+              "name": "btnSave",
+              "tooltip": {
+                "enabled": true,
+                "location": "center-left",
+                "text": "Save"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.userAction"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027canCreate\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.workOrderInfo"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\tif value is None or not value.has_key(\u0027title\u0027): return False\n\treturn True if value[\u0027title\u0027] else False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/save"
+                }
+              },
+              "style": {
+                "classes": "kanoa/button/filled"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "flxActions",
+          "name": "flxActions"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "gap": "5px",
+            "overflow": "hidden",
+            "padding": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "lblDebug"
+        },
+        "position": {
+          "basis": "32px",
+          "display": false
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.values"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\treturn str(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "kanoa/font/default",
+        "gap": "5px",
+        "padding": "5px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "saveWorkOrder",
+          "params": [],
+          "script": "\n\tuserId \u003d self.view.custom.security.userId\n\tworkOrderInfo \u003d dict(self.view.custom.workOrderInfo)\n\t\n\tupdate \u003d True if workOrderInfo[\u0027workOrderId\u0027] else False\n\t\n\tif update:\n\t\tretVal, msg \u003d system.kanoa.cmms.updateWorkOrder(workOrderInfo, userId)\n\t\tworkOrderId \u003d workOrderInfo[\u0027workOrderId\u0027]\n\t\tsystem.perspective.print(\"updateWorkOrder() called with %s returned %s %s\"%(workOrderInfo, retVal, msg))\n\telse:\n\t\tworkOrderId, msg \u003d system.kanoa.cmms.addWorkOrder(workOrderInfo, userId)\n\t\tsystem.perspective.print(\"addWorkOrder() called with %s returned %s %s\"%(workOrderInfo,workOrderId, msg))\n\t\tself.view.params.values.workOrderId \u003d workOrderId\t\t\n\t\t\n\tif msg is None:\n\t\tif workOrderInfo[\u0027scheduleTypeName\u0027] \u003d\u003d \u0027Recurring\u0027:\n\t\t\tworkOrderScheduleInfo \u003d dict(self.view.custom.workOrderSchedule)\n\t\t\tworkOrderScheduleInfo[\u0027workOrderId\u0027] \u003d workOrderId\n\t\t\tworkOrderScheduleInfo[\u0027lastGeneratedDate\u0027] \u003d None\n\t\t\tsystem.perspective.print(\"setWorkOrderSchedule() called with %s\"%workOrderScheduleInfo)\n\t\t\tworkOrderScheduleId, msg \u003d system.kanoa.cmms.setWorkOrderSchedule(workOrderScheduleInfo, userId)\n\t\telif workOrderInfo[\u0027scheduleTypeName\u0027] \u003d\u003d \u0027Condition\u0027:\n\t\t\tworkOrderConditions \u003d self.view.custom.workOrderConditions\n\t\t\tconditions \u003d {item[\u0027conditionId\u0027]: item[\u0027conditionName\u0027] for item in self.view.custom.conditions}\n\t\t\tconditionName \u003d conditions[workOrderConditions[\u0027conditionId\u0027]]\n\t\t\t\n\t\t\tworkOrderConditionInfo \u003d {\n\t\t\t \t\t\t\t\t\t\t\u0027workOrderConditionId\u0027: workOrderConditions[\u0027workOrderConditionId\u0027],\n\t\t\t \t\t\t\t\t\t\t\u0027workOrderId\u0027: workOrderId,\n\t\t\t\t\t\t\t\t\t\t\u0027conditionId\u0027: workOrderConditions[\u0027conditionId\u0027],\n\t\t\t\t\t\t\t\t\t\t\u0027conditionInfo\u0027: system.util.jsonEncode(workOrderConditions[conditionName]),\n\t\t\t\t\t\t\t\t\t\t\u0027lastGeneratedDate\u0027: workOrderConditions[\u0027lastGeneratedDate\u0027],\n\t\t\t\t\t\t\t\t\t\t\u0027lastGeneratedValue\u0027: workOrderConditions[\u0027lastGeneratedValue\u0027]\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\n\t\t\tsystem.perspective.print(\"setWorkOrderCondition() called with %s\"%workOrderConditionInfo)\t\t\t\n\t\t\tworkOrderScheduleId, msg \u003d system.kanoa.cmms.setWorkOrderCondition(workOrderConditionInfo, userId)\n\t\telse:\n\t\t\tsystem.perspective.print(\"deleteWorkOrderSchedule() called with %s\"%workOrderInfo[\u0027workOrderId\u0027])\n\t\t\tretVal, msg \u003d system.kanoa.cmms.deleteWorkOrderSchedule(workOrderInfo[\u0027workOrderId\u0027], userId)\n\t\t\t\n\t\t\tsystem.perspective.print(\"deleteWorkOrderCondition() called with %s\"%workOrderInfo[\u0027workOrderId\u0027])\n\t\t\tretVal, msg \u003d system.kanoa.cmms.deleteWorkOrderCondition(workOrderInfo[\u0027workOrderId\u0027], userId)\t\t\t\n\telse:\n\t\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027warning\u0027, \u0027message\u0027: \"Couldn\u0027t delete this work order. %s\"%msg})\n\n\tworkOrderStates \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getWorkOrderStatus({}), \u0027workOrderStatusName\u0027, \u0027workOrderStatusId\u0027)\n\tscheduleTypes \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getScheduleTypes({}), \u0027scheduleTypeName\u0027, \u0027scheduleTypeId\u0027)\n\t\n\tif msg: system.kanoa.toast.show({\u0027type\u0027: \u0027error\u0027, \u0027message\u0027: \"Couldn\u0027t save work order. %s\"%msg})\n\telse: system.kanoa.toast.show({\u0027type\u0027: \u0027success\u0027, \u0027message\u0027: \u0027Work order has been saved.\u0027})\n\t\n\tself.view.refreshBinding(\"custom.workOrderInfo\")\t\n\n\tif workOrderInfo[\u0027scheduleTypeId\u0027] \u003d\u003d scheduleTypes[\u0027One Time\u0027] and workOrderInfo[\u0027workOrderStatusId\u0027] \u003d\u003d workOrderStates[\u0027Released\u0027] and not update:\n\t\t#We should go ahead and create the workOrder event for this.\n\t\tsystem.perspective.print(\"Creating workOrder event\")\n\t\tworkOrderEventInfo \u003d workOrderInfo\n\n\t\tserialId \u003d system.kanoa.utilities.getFieldValue(\u0027serialId\u0027, system.kanoa.cmms.getMaintenanceTypes({\u0027maintenanceTypeId\u0027: workOrderInfo[\u0027maintenanceTypeId\u0027]}))\n\t\tif serialId is None: serialId \u003d system.kanoa.utilities.getFieldValue(\u0027serialId\u0027, system.kanoa.serial.getSerialNumbers({\u0027serialName\u0027: \u0027maintenanceWorkOrder\u0027}))\n\t\tif serialId is None: serialId, msg \u003d system.kanoa.serial.addSerialNumber({\u0027enabled\u0027: True, \u0027prefix\u0027: \u0027MWO\u0027, \u0027serialName\u0027: \u0027maintenanceWorkOrder\u0027, \u0027zfill\u0027: 5}, userId)\n\t\tworkOrderEventStatusInfo \u003d system.kanoa.utilities.convertDatasetToDict(system.kanoa.cmms.getWorkOrderEventStatus({\u0027enabled\u0027: True}), \u0027workOrderEventStatusName\u0027, \u0027workOrderEventStatusId\u0027)\n\t\tworkOrderEventStatusName \u003d \u0027Assigned\u0027 if workOrderEventInfo[\u0027assignedTo\u0027] else \u0027Open\u0027\n\t\tworkOrderEventInfo[\u0027workOrderEventStatusId\u0027] \u003d workOrderEventStatusInfo[workOrderEventStatusName]\n\t\tserialNumber, msg \u003d system.kanoa.serial.getNextSerialNumber(serialId, userId)\n\t\tif msg:\n\t\t\tsystem.perspective.print(msg)\n\t\t\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027error\u0027, \u0027message\u0027: \"Couldn\u0027t save work order. %s\"%msg})\n\t\t\treturn\n\t\t\t\t\n\t\tworkOrderEventInfo[\u0027workOrderEventName\u0027] \u003d serialNumber\n\t\tworkOrderEventInfo[\u0027workOrderId\u0027] \u003d workOrderId\n\t\tworkOrderEventInfo[\u0027assetId\u0027] \u003d workOrderInfo[\u0027assetId\u0027]\n\t\tworkOrderEventId, msg \u003d system.kanoa.cmms.addWorkOrderEvent(workOrderEventInfo, userId)\n\t\tsystem.perspective.print(\"addWorkOrderEvent() called with %s returned %s %s\"%(workOrderEventInfo, workOrderEventId, msg))\n\telse:\n\t\tworkOrderEventId \u003d None\n\t\tworkOrderEventStatusName \u003d None\n\n\tsystem.perspective.sendMessage(\u0027refreshWorkOrders\u0027, {\u0027workOrderEventId\u0027: workOrderEventId, \u0027workOrderEventStatusName\u0027: workOrderEventStatusName})\n\n\tsystem.perspective.sendMessage(\u0027workOrderSelected\u0027, workOrderId)\n\n\treturn workOrderId, msg "
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "updateWOSchedule",
+          "pageScope": true,
+          "script": "\n\tsystem.perspective.print(\"updateWOSchedule() msg rcvd with %s\"%payload)\n\tself.view.custom.workOrderSchedule \u003d payload.get(\u0027values\u0027, {})\n\t\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

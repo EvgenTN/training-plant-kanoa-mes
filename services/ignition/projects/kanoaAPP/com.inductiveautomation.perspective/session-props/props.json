@@ -1,0 +1,360 @@
+{
+  "custom": {
+    "kanoa": {
+      "31c9dc4e": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "navigation": {
+          "currentIndex": 0,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": null,
+            "selectedRange": "Today",
+            "startDate": null
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      },
+      "Upload New State Events View": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "navigation": {
+          "currentIndex": 0,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": null,
+            "selectedRange": "Today",
+            "startDate": null
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      },
+      "View": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "navigation": {
+          "currentIndex": 0,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": null,
+            "selectedRange": "Today",
+            "startDate": null
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      },
+      "assetSelectorTest": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "navigation": {
+          "currentIndex": 0,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": null,
+            "selectedRange": "Today",
+            "startDate": null
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      },
+      "designer": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "itemSelection": {
+          "itemId": null,
+          "scheduleId": null,
+          "workOrderId": null
+        },
+        "navigation": {
+          "currentIndex": 2,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            },
+            {
+              "name": "Asset Nav Mobile",
+              "params": "null",
+              "path": "kanoa/mobile/assetNav",
+              "type": "view"
+            },
+            {
+              "name": "Loggers",
+              "params": "null",
+              "path": "kanoa/core/config/loggerTable",
+              "type": "view"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": {
+              "$": [
+                "ts",
+                192,
+                1785080201287
+              ],
+              "$ts": 1785135600000
+            },
+            "selectedRange": "Today",
+            "startDate": {
+              "$": [
+                "ts",
+                192,
+                1785080201287
+              ],
+              "$ts": 1785049200000
+            }
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      },
+      "security": {
+        "config": {
+          "allowGuest": "1",
+          "userSource": "default",
+          "userSources": "[\"default\"]"
+        },
+        "userCRUD": {
+          "approveQualityCheck": {
+            "assets": [],
+            "enabled": false
+          },
+          "approveWorkOrders": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureAssets": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureItems": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureLots": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureQuality": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureSecurity": {
+            "assets": [],
+            "enabled": false
+          },
+          "configureWorkOrders": {
+            "assets": [],
+            "enabled": false
+          },
+          "editOperations": {
+            "assets": [],
+            "enabled": false
+          },
+          "enterQualityCheck": {
+            "assets": [],
+            "enabled": false
+          },
+          "enterWorkOrders": {
+            "assets": [],
+            "enabled": false
+          },
+          "isGatewayAdmin": true,
+          "operateAssets": {
+            "assets": [],
+            "enabled": false
+          },
+          "scheduleOperations": {
+            "assets": [],
+            "enabled": false
+          },
+          "scheduleShifts": {
+            "assets": [],
+            "enabled": false
+          }
+        },
+        "userId": 5
+      },
+      "test": {
+        "enterpriseView": {
+          "expand": true,
+          "openState": false,
+          "selectedRange": "Today"
+        },
+        "navigation": {
+          "currentIndex": 0,
+          "history": [
+            {
+              "name": "Home",
+              "params": null,
+              "path": "/",
+              "type": "page"
+            }
+          ]
+        },
+        "selectors": {
+          "assetPath": null,
+          "dateRange": {
+            "endDate": null,
+            "selectedRange": "Today",
+            "startDate": null
+          },
+          "woInfo": {
+            "product": null,
+            "scheduleId": null,
+            "woId": null
+          }
+        }
+      }
+    }
+  },
+  "propConfig": {
+    "props.auth": {
+      "access": "PRIVATE",
+      "persistent": false
+    },
+    "props.device.accelerometer": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.identifier": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.timezone": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.type": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.userAgent": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.gateway": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.data": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.permissionGranted": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.host": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.id": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.lastActivity": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.capable": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.enabled": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.lastSynced": {
+      "access": "SYSTEM",
+      "persistent": false
+    }
+  },
+  "props": {
+    "address": "192.168.117.1",
+    "device": {},
+    "geolocation": {},
+    "locale": "en-US",
+    "offline": {},
+    "theme": "kanoa-light"
+  }
+}
