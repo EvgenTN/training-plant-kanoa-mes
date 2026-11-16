@@ -1,20 +1,20 @@
 [
   {
-    "valueSource": "memory",
+    "dataType": "String",
+    "name": "LoggerName",
+    "tagType": "AtomicTag",
+    "valueSource": "memory"
+  },
+  {
+    "dataType": "Boolean",
     "eventScripts": [
       {
         "eventid": "valueChanged",
         "script": "\t\n\tif currentValue.value:\n\t\tsystem.project.requestScan()\n\t\t\n\t\timport time\n\t\ttime.sleep(0.5)\n\t\tsystem.tag.write(tagPath, 0)\n\t\n\treturn"
       }
     ],
-    "dataType": "Boolean",
     "name": "requestScan",
-    "tagType": "AtomicTag"
-  },
-  {
-    "valueSource": "memory",
-    "dataType": "String",
-    "name": "LoggerName",
-    "tagType": "AtomicTag"
+    "tagType": "AtomicTag",
+    "valueSource": "memory"
   }
 ]

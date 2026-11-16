@@ -1,0 +1,14 @@
+.git/
+.env*
+secrets/
+**/.local/
+**/logs/
+*.log
+**/__pycache__/
+**/*.py[cod]
+node_modules/
+**/node_modules/
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db

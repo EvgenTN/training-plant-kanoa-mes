@@ -69,7 +69,7 @@ services:
 
       # Temporary volume to avoid commissioning
       - ./services/ignition/commissioning.json:/usr/local/bin/ignition/data/commissioning.json:Z
-    command: ["-n", "kanoa-local-dev", "--", "-Dperspective.websocket.max-message-size=4096"]
+    command: ["-n", "kanoa-local-dev", "-m", "2048", "--", "-Dperspective.websocket.max-message-size=4096"]
     environment:
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"

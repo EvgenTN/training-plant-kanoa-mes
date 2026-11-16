@@ -1,8 +1,8 @@
 [
   {
-    "valueSource": "memory",
     "dataType": "Boolean",
     "name": "enableDivisionLimits",
-    "tagType": "AtomicTag"
+    "tagType": "AtomicTag",
+    "valueSource": "memory"
   }
 ]

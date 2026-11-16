@@ -7,10 +7,10 @@
     "props.json"
   ],
   "attributes": {
+    "lastModificationSignature": "4f9b0eeedfefe6f8080ea7fd3647a56d1f61de631cedbea7b5c3672ecbd8a0b7",
     "lastModification": {
-      "actor": "jason",
-      "timestamp": "2026-05-25T16:20:55Z"
-    },
-    "lastModificationSignature": "9a24e6060bf3f71cd95065e046842dda2b3cc96691f375abd938748c1bc0772c"
+      "actor": "admin",
+      "timestamp": "2026-11-16T14:30:30Z"
+    }
   }
 }

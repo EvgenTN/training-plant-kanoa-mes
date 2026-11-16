@@ -61,6 +61,10 @@
     "/marquee/display/:siteCode/:location/:screenName:": {
       "title": "",
       "viewPath": "kanoa/core/dbp/marquee/marqueeViewer"
+    },
+    "/receiving-schedule": {
+      "title": "Receiving Orders Schedule",
+      "viewPath": "training/receivingOrdersSchedule"
     }
   },
   "sharedDocks": {

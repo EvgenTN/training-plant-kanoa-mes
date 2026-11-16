@@ -1,12 +1,12 @@
 {
-  "scope": "G",
+  "scope": "A",
   "version": 1,
   "restricted": false,
   "overridable": true,
   "files": [
-    "udts.json"
+    "code.py"
   ],
   "attributes": {
-    "config": {}
+    "hintScope": 2
   }
 }

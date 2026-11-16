@@ -1,0 +1,533 @@
+{
+  "custom": {
+    "errorMessage": "",
+    "pendingTransfers": [],
+    "result": null,
+    "selectedTransfer": null,
+    "submitting": false,
+    "tankAssetId": null,
+    "tankOptions": []
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "domId": "lblTitle",
+          "name": "lblTitle"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Pending Transfers",
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "domId": "lblInstructions",
+          "name": "lblInstructions"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Lots shown here currently have positive quantity at an enabled Receiving truck. Select a lot and choose its destination tank.",
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onRowClick": {
+              "config": {
+                "script": "\n\trowIndex = event.row\n\tif rowIndex is None or rowIndex < 0 or rowIndex >= len(self.props.data):\n\t\tself.view.custom.selectedTransfer = None\n\t\treturn\n\tself.view.custom.selectedTransfer = dict(self.props.data[rowIndex])"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "domId": "tblPendingTransfers",
+          "name": "tblPendingTransfers"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "path": "view.custom.pendingTransfers"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "bodyStyle": {
+            "classes": "kanoa/font/default"
+          },
+          "columns": [
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "orderNumber",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Order"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 150
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "lotName",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Lot"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 180
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "material",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Material"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 180
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "quantity",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Quantity"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 120
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "unitName",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Unit"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 80
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "truckName",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Current truck"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 220
+            }
+          ],
+          "headerStyle": {
+            "classes": "kanoa/font/default"
+          },
+          "pager": {
+            "activeOption": 100,
+            "initialOption": 100
+          }
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "domId": "lblSelection",
+          "name": "lblSelection"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.selectedTransfer.lotName"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lblTank",
+              "name": "lblTank"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "text": "Destination tank",
+              "textStyle": {
+                "classes": "kanoa/font/bodyMedium"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "ddTank",
+              "name": "ddTank"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.tankOptions"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.tankAssetId"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/font/default",
+                "height": "36px"
+              }
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tself.view.custom.selectedTransfer = None"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnRefresh",
+              "name": "btnRefresh"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "classes": "kanoa/button/flat"
+              },
+              "text": "Refresh"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tselected = self.view.custom.selectedTransfer\n\tif not selected or self.view.custom.tankAssetId is None:\n\t\tself.view.custom.errorMessage = 'Select a lot and destination tank.'\n\t\treturn\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.retryTransfer(\n\t\t\tselected.get('lotId'), self.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user, selected.get('truckAssetId')\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', '')\n\t\tself.view.custom.pendingTransfers = kanoaScripts.custom.ops.receiving.getPendingTransfers().get('data', {}).get('pendingTransfers', [])\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective pending transfer handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Transfer outcome may be uncertain. Refresh this list and verify current lot location before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnRetry",
+              "name": "btnRetry"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.submitting"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn not value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/button/primary"
+              },
+              "text": "Transfer selected lot"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(view='training/receivingOrdersSchedule')"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnBack",
+              "name": "btnBack"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "classes": "kanoa/button/flat"
+              },
+              "text": "Receiving schedule"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "pendingActions",
+          "name": "pendingActions"
+        },
+        "props": {
+          "style": {
+            "alignItems": "center",
+            "flexWrap": "wrap",
+            "gap": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "domId": "lblError",
+          "name": "lblError"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.errorMessage"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "domId": "lblResult",
+          "name": "lblResult"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.result.message"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "events": {
+      "component": {
+        "onStartup": {
+          "config": {
+            "script": "\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tassets = kanoaScripts.custom.ops.receiving.getReceivingAssets()\n\tself.view.custom.tankOptions = [{'label': a.get('assetPath') or a.get('assetName'), 'value': a.get('assetId')} for a in assets.get('data', {}).get('tanks', [])] if assets.get('status') == 'SUCCESS' else []\n\tself.view.custom.selectedTransfer = None\n\tself.view.custom.result = None"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "domId": "root",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "kanoa/container",
+        "gap": 12,
+        "padding": 20
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

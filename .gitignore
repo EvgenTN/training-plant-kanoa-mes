@@ -1,5 +1,6 @@
 # MacOS Files
 .DS_Store
+Thumbs.db
 
 # Ignition content
 **/config/local
@@ -20,6 +21,15 @@ secrets/*
 # Node
 node_modules
 
+# Python tooling and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
 # Tailwind compiled CSS
 tailwind/tailwind-compiled.css
 tailwind/node_modules
@@ -39,7 +49,10 @@ tailwind/node_modules
 **/request
 **/response
 *.tmp
+*.swp
 **/var
+.idea/
+.vscode/
 
 # Log files
 *.log
