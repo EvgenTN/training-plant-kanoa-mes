@@ -86,7 +86,7 @@
       "designer": {
         "currentView": "Home",
         "navigation": {
-          "currentIndex": 12,
+          "currentIndex": 20,
           "history": [
             {
               "name": "Schedule",
@@ -166,6 +166,54 @@
               "params": "null",
               "path": "/",
               "type": "page"
+            },
+            {
+              "name": "Dashboards",
+              "params": "null",
+              "path": "kanoa/core/dbp/dashboards/dashboardViewer",
+              "type": "view"
+            },
+            {
+              "name": "Marquee Editor",
+              "params": "null",
+              "path": "kanoa/core/dbp/marquee/marqueeTable",
+              "type": "view"
+            },
+            {
+              "name": "Dashboard Editor",
+              "params": "null",
+              "path": "kanoa/core/dbp/dashboards/dashboardEditor",
+              "type": "view"
+            },
+            {
+              "name": "Parts",
+              "params": "null",
+              "path": "kanoa/inventory/parts/partsMain",
+              "type": "view"
+            },
+            {
+              "name": "Dashboards",
+              "params": "null",
+              "path": "kanoa/core/dbp/dashboards/dashboardViewer",
+              "type": "view"
+            },
+            {
+              "name": "Home",
+              "params": "null",
+              "path": "/",
+              "type": "page"
+            },
+            {
+              "name": "Dashboards",
+              "params": "null",
+              "path": "kanoa/core/dbp/dashboards/dashboardViewer",
+              "type": "view"
+            },
+            {
+              "name": "Dashboard Editor",
+              "params": "null",
+              "path": "kanoa/core/dbp/dashboards/dashboardEditor",
+              "type": "view"
             }
           ]
         },
@@ -177,18 +225,18 @@
               "$": [
                 "ts",
                 192,
-                1794908484231
+                1794924983535
               ],
-              "$ts": 1795298400000
+              "$ts": 1795302000000
             },
             "selectedRange": "This Week",
             "startDate": {
               "$": [
                 "ts",
                 192,
-                1794908484231
+                1794924983535
               ],
-              "$ts": 1794693600000
+              "$ts": 1794697200000
             }
           }
         }
@@ -365,7 +413,7 @@
     }
   },
   "props": {
-    "address": "10.89.2.6",
+    "address": "10.89.1.4",
     "appBar": {},
     "device": {},
     "geolocation": {},

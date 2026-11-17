@@ -4,9 +4,9 @@
       "$": [
         "ts",
         192,
-        1794908186794
+        1794924983573
       ],
-      "$ts": 1795298400000
+      "$ts": 1795302000000
     },
     "errorMessage": "",
     "loading": false,
@@ -58,9 +58,9 @@
       "$": [
         "ts",
         192,
-        1794908186794
+        1794924983573
       ],
-      "$ts": 1794693600000
+      "$ts": 1794697200000
     }
   },
   "params": {},
@@ -68,7 +68,7 @@
     "custom.errorMessage": {
       "onChange": {
         "enabled": null,
-        "script": "\n\tmessage = self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({'type': 'error', 'message': message})\n\tif 'uncertain' in message.lower() or 'supervisor' in message.lower() or 'could not load' in message.lower():\n\t\tsystem.perspective.openPopup('receivingErrorDetail', 'kanoa/core/templates/displays/messagePopup', {'text': message}, title='Receiving error', modal=True)\n\treturn"
+        "script": "\n\tmessage \u003d self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027error\u0027, \u0027message\u0027: message})\n\tif \u0027uncertain\u0027 in message.lower() or \u0027supervisor\u0027 in message.lower() or \u0027could not load\u0027 in message.lower():\n\t\tsystem.perspective.openPopup(\u0027receivingErrorDetail\u0027, \u0027kanoa/core/templates/displays/messagePopup\u0027, {\u0027text\u0027: message}, title\u003d\u0027Receiving error\u0027, modal\u003dTrue)\n\treturn"
       },
       "persistent": true
     }
@@ -126,10 +126,9 @@
         "props": {
           "params": {
             "values": {
-              "showBar": false,
-              "type": "INFO",
               "text": "Loading receiving schedule...",
-              "textColor": null
+              "textColor": null,
+              "type": "INFO"
             }
           },
           "path": "kanoa/core/templates/displays/progressBar"
@@ -198,7 +197,7 @@
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\tself.view.custom.loading = True\n\tself.view.custom.errorMessage = ''\n\ttry:\n\t\tif self.view.custom.startDate is None or self.view.custom.endDate is None:\n\t\t\tself.view.custom.errorMessage = 'Choose a valid date range.'\n\t\t\treturn\n\t\tresult = kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(self.view.custom.startDate, self.view.custom.endDate)\n\t\tself.view.custom.orders = result.get('data', {}).get('orders', [])\n\t\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load schedule.')\n\t\tself.view.custom.selectedOrder = None\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Receiving schedule refresh failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Could not load the receiving schedule. Refresh the screen or contact a supervisor.'\n\tfinally:\n\t\tself.view.custom.loading = False"
+                    "script": "\tself.view.custom.loading \u003d True\n\tself.view.custom.errorMessage \u003d \u0027\u0027\n\ttry:\n\t\tif self.view.custom.startDate is None or self.view.custom.endDate is None:\n\t\t\tself.view.custom.errorMessage \u003d \u0027Choose a valid date range.\u0027\n\t\t\treturn\n\t\tresult \u003d kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(self.view.custom.startDate, self.view.custom.endDate)\n\t\tself.view.custom.orders \u003d result.get(\u0027data\u0027, {}).get(\u0027orders\u0027, [])\n\t\tself.view.custom.errorMessage \u003d \u0027\u0027 if result.get(\u0027status\u0027) \u003d\u003d \u0027SUCCESS\u0027 else result.get(\u0027message\u0027, \u0027Could not load schedule.\u0027)\n\t\tself.view.custom.selectedOrder \u003d None\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error(\u0027Receiving schedule refresh failed: %s\u0027 % str(exc))\n\t\tself.view.custom.errorMessage \u003d \u0027Could not load the receiving schedule. Refresh the screen or contact a supervisor.\u0027\n\tfinally:\n\t\tself.view.custom.loading \u003d False"
                   },
                   "scope": "G",
                   "type": "script"
@@ -241,7 +240,7 @@
           "component": {
             "onRowClick": {
               "config": {
-                "script": "\n\trowData = event.row\n\tif isinstance(rowData, dict):\n\t\tselected = dict(rowData)\n\telse:\n\t\ttry:\n\t\t\trowIndex = int(rowData)\n\t\t\tselected = dict(self.props.data[rowIndex]) if 0 <= rowIndex < len(self.props.data) else None\n\t\texcept (TypeError, ValueError):\n\t\t\tselected = None\n\tself.view.custom.selectedOrder = selected\n\tself.view.custom.errorMessage = ''"
+                "script": "\n\trowData \u003d event.row\n\tif isinstance(rowData, dict):\n\t\tselected \u003d dict(rowData)\n\telse:\n\t\ttry:\n\t\t\trowIndex \u003d int(rowData)\n\t\t\tselected \u003d dict(self.props.data[rowIndex]) if 0 \u003c\u003d rowIndex \u003c len(self.props.data) else None\n\t\texcept (TypeError, ValueError):\n\t\t\tselected \u003d None\n\tself.view.custom.selectedOrder \u003d selected\n\tself.view.custom.errorMessage \u003d \u0027\u0027"
               },
               "scope": "G",
               "type": "script"
@@ -415,7 +414,7 @@
             {
               "align": "left",
               "boolean": "checkbox",
-              "dateFormat": "yyyy-MM-dd HH:mm",
+              "dateFormat": "MM/DD/YYYY HH:mm",
               "editable": false,
               "field": "scheduledStart",
               "header": {
@@ -477,21 +476,6 @@
           "pager": {
             "activeOption": 100,
             "initialOption": 100
-          },
-          "selection": {
-            "data": [
-              {
-                "description": "RCV)1",
-                "material": "Corn Syrup",
-                "orderNumber": "0001",
-                "scheduledStart": "Tue Nov 17 2026 00:00:00 GMT+0200 (Eastern European Standard Time)",
-                "status": "Scheduled",
-                "targetQty": 10000,
-                "unitName": "kg"
-              }
-            ],
-            "selectedColumn": "description",
-            "selectedRow": 0
           }
         },
         "type": "ia.display.table"
@@ -513,7 +497,7 @@
               "overlayOptOut": true,
               "transforms": [
                 {
-                  "code": "return len(self.view.custom.orders or []) == 0 and not value",
+                  "code": "return len(self.view.custom.orders or []) \u003d\u003d 0 and not value",
                   "type": "script"
                 }
               ],
@@ -576,7 +560,7 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "script": "\n\tselected = self.view.custom.selectedOrder\n\tif not selected:\n\t\tself.view.custom.errorMessage = 'Select an order from the schedule first.'\n\t\treturn\n\tresult = kanoaScripts.custom.ops.receiving.getReceivingOrder(selected.get('workOrderId'))\n\tif result.get('status') != 'SUCCESS':\n\t\tself.view.custom.errorMessage = result.get('message', 'The order could not be confirmed.')\n\t\treturn\n\torder = result.get('data', {}).get('order', {})\n\tsystem.perspective.navigate(view='training/receiveMaterial', params={'value': {\n\t\t'workOrderId': order.get('workOrderId'),\n\t\t'scheduleBlockId': selected.get('scheduleBlockId'),\n\t\t'order': order\n\t}})"
+                "script": "\n\tselected \u003d self.view.custom.selectedOrder\n\tif not selected:\n\t\tself.view.custom.errorMessage \u003d \u0027Select an order from the schedule first.\u0027\n\t\treturn\n\tresult \u003d kanoaScripts.custom.ops.receiving.getReceivingOrder(selected.get(\u0027workOrderId\u0027))\n\tif result.get(\u0027status\u0027) !\u003d \u0027SUCCESS\u0027:\n\t\tself.view.custom.errorMessage \u003d result.get(\u0027message\u0027, \u0027The order could not be confirmed.\u0027)\n\t\treturn\n\torder \u003d result.get(\u0027data\u0027, {}).get(\u0027order\u0027, {})\n\tsystem.perspective.navigate(view\u003d\u0027training/receiveMaterial\u0027, params\u003d{\u0027value\u0027: {\n\t\t\u0027workOrderId\u0027: order.get(\u0027workOrderId\u0027),\n\t\t\u0027scheduleBlockId\u0027: selected.get(\u0027scheduleBlockId\u0027),\n\t\t\u0027order\u0027: order\n\t}})"
               },
               "scope": "G",
               "type": "script"
@@ -603,7 +587,7 @@
       "component": {
         "onStartup": {
           "config": {
-            "script": "\tstartDate = self.view.custom.startDate\n\tendDate = self.view.custom.endDate\n\tif startDate is None:\n\t\tstartDate = system.date.addDays(system.date.midnight(system.date.now()), -7)\n\tif endDate is None:\n\t\tendDate = system.date.addDays(system.date.midnight(system.date.now()), 14)\n\tself.view.custom.startDate = startDate\n\tself.view.custom.endDate = endDate\n\tself.view.custom.loading = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(startDate, endDate)\n\t\tself.view.custom.orders = result.get('data', {}).get('orders', [])\n\t\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load schedule.')\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Receiving schedule startup failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Could not load the receiving schedule. Refresh the screen or contact a supervisor.'\n\tfinally:\n\t\tself.view.custom.loading = False"
+            "script": "\tstartDate \u003d self.view.custom.startDate\n\tendDate \u003d self.view.custom.endDate\n\tif startDate is None:\n\t\tstartDate \u003d system.date.addDays(system.date.midnight(system.date.now()), -7)\n\tif endDate is None:\n\t\tendDate \u003d system.date.addDays(system.date.midnight(system.date.now()), 14)\n\tself.view.custom.startDate \u003d startDate\n\tself.view.custom.endDate \u003d endDate\n\tself.view.custom.loading \u003d True\n\ttry:\n\t\tresult \u003d kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(startDate, endDate)\n\t\tself.view.custom.orders \u003d result.get(\u0027data\u0027, {}).get(\u0027orders\u0027, [])\n\t\tself.view.custom.errorMessage \u003d \u0027\u0027 if result.get(\u0027status\u0027) \u003d\u003d \u0027SUCCESS\u0027 else result.get(\u0027message\u0027, \u0027Could not load schedule.\u0027)\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error(\u0027Receiving schedule startup failed: %s\u0027 % str(exc))\n\t\tself.view.custom.errorMessage \u003d \u0027Could not load the receiving schedule. Refresh the screen or contact a supervisor.\u0027\n\tfinally:\n\t\tself.view.custom.loading \u003d False"
           },
           "scope": "G",
           "type": "script"
