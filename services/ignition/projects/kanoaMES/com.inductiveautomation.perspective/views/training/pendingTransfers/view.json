@@ -6,7 +6,9 @@
     "selectedTransfer": null,
     "submitting": false,
     "tankAssetId": null,
-    "tankOptions": []
+    "tankOptions": [],
+    "tankPath": null,
+    "loading": false
   },
   "params": {},
   "props": {
@@ -27,10 +29,50 @@
         "props": {
           "text": "Pending Transfers",
           "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
+            "classes": "kanoa/font/titleLarge"
           }
         },
         "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "domId": "evProgressBar",
+          "name": "evProgressBar"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.values.showBar": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "values": {
+              "showBar": false,
+              "type": "INFO",
+              "text": "Loading pending transfers...",
+              "textColor": null
+            }
+          },
+          "path": "kanoa/core/templates/displays/progressBar"
+        },
+        "type": "ia.display.view"
       },
       {
         "meta": {
@@ -248,14 +290,59 @@
             }
           ],
           "headerStyle": {
-            "classes": "kanoa/font/default"
+            "classes": "kanoa/font/default",
+            "fontWeight": "bold"
           },
           "pager": {
             "activeOption": 100,
             "initialOption": 100
+          },
+          "cells": {
+            "style": {
+              "fontSize": "12px"
+            }
+          },
+          "filter": {
+            "enabled": true
+          },
+          "selection": {
+            "mode": "single"
           }
         },
         "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "domId": "lblNoPending",
+          "name": "lblNoPending"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "overlayOptOut": true,
+              "type": "property",
+              "transforms": [
+                {
+                  "code": "return len(self.view.custom.pendingTransfers or []) == 0 and not value",
+                  "type": "script"
+                }
+              ]
+            }
+          }
+        },
+        "props": {
+          "text": "No pending transfers. All received lots have been transferred to their tanks.",
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
       },
       {
         "meta": {
@@ -303,47 +390,67 @@
           },
           {
             "meta": {
-              "domId": "ddTank",
-              "name": "ddTank"
+              "domId": "evTank",
+              "name": "evTank"
             },
             "position": {
               "grow": 1,
               "shrink": 0
             },
             "propConfig": {
-              "props.options": {
+              "props.params.selectedPath": {
                 "binding": {
                   "config": {
-                    "path": "view.custom.tankOptions"
+                    "path": "view.custom.tankPath",
+                    "bidirectional": true
                   },
                   "overlayOptOut": true,
                   "type": "property"
-                }
-              },
-              "props.value": {
-                "binding": {
-                  "config": {
-                    "path": "view.custom.tankAssetId"
-                  },
-                  "overlayOptOut": true,
-                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\n\tif origin == 'Browser':\n\t\tself.view.custom.tankAssetId = system.kanoa.utilities.getFieldValue('assetId', system.kanoa.asset.getAssets({'assetPath': self.props.params.selectedPath}))\n\treturn"
                 }
               }
             },
             "props": {
+              "meta": {
+                "tooltip": {
+                  "text": "Destination tank"
+                }
+              },
+              "params": {
+                "value": {
+                  "parentPath": "Training Plant\\Bulk Storage",
+                  "showPath": true,
+                  "options": {
+                    "selectable": {
+                      "Storage Location": true,
+                      "area": false,
+                      "cell": false,
+                      "cellGroup": false,
+                      "enterprise": false,
+                      "line": false,
+                      "oeeCalculated": false,
+                      "oeeEnabled": false,
+                      "site": false
+                    }
+                  }
+                }
+              },
+              "path": "kanoa/core/templates/selectors/assetDropdownSelector",
               "style": {
-                "classes": "kanoa/font/default",
-                "height": "36px"
+                "height": 30
               }
             },
-            "type": "ia.input.dropdown"
+            "type": "ia.display.view"
           },
           {
             "events": {
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tself.view.custom.selectedTransfer = None"
+                    "script": "\n\tself.view.custom.loading = True\n\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tself.view.custom.selectedTransfer = None\n\tself.view.custom.loading = False"
                   },
                   "scope": "G",
                   "type": "script"
@@ -360,7 +467,7 @@
             "props": {
               "primary": false,
               "style": {
-                "classes": "kanoa/button/flat"
+                "classes": "kanoa/button/outlined"
               },
               "text": "Refresh"
             },
@@ -371,7 +478,7 @@
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\tselected = self.view.custom.selectedTransfer\n\tif not selected or self.view.custom.tankAssetId is None:\n\t\tself.view.custom.errorMessage = 'Select a lot and destination tank.'\n\t\treturn\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.retryTransfer(\n\t\t\tselected.get('lotId'), self.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user, selected.get('truckAssetId')\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', '')\n\t\tself.view.custom.pendingTransfers = kanoaScripts.custom.ops.receiving.getPendingTransfers().get('data', {}).get('pendingTransfers', [])\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective pending transfer handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Transfer outcome may be uncertain. Refresh this list and verify current lot location before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False"
+                    "script": "\n\tself.view.custom.loading = True\n\tselected = self.view.custom.selectedTransfer\n\tif not selected or self.view.custom.tankAssetId is None:\n\t\tself.view.custom.errorMessage = 'Select a lot and destination tank.'\n\t\treturn\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.retryTransfer(\n\t\t\tselected.get('lotId'), self.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user, selected.get('truckAssetId')\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', '')\n\t\tself.view.custom.pendingTransfers = kanoaScripts.custom.ops.receiving.getPendingTransfers().get('data', {}).get('pendingTransfers', [])\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective pending transfer handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Transfer outcome may be uncertain. Refresh this list and verify current lot location before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False\n\tself.view.custom.loading = False"
                   },
                   "scope": "G",
                   "type": "script"
@@ -404,7 +511,7 @@
             },
             "props": {
               "style": {
-                "classes": "kanoa/button/primary"
+                "classes": "kanoa/button/filled"
               },
               "text": "Transfer selected lot"
             },
@@ -448,68 +555,17 @@
             "alignItems": "center",
             "flexWrap": "wrap",
             "gap": 10
-          }
+          },
+          "wrap": "wrap"
         },
         "type": "ia.container.flex"
-      },
-      {
-        "meta": {
-          "domId": "lblError",
-          "name": "lblError"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "path": "view.custom.errorMessage"
-              },
-              "overlayOptOut": true,
-              "type": "property"
-            }
-          }
-        },
-        "props": {
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "domId": "lblResult",
-          "name": "lblResult"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "path": "view.custom.result.message"
-              },
-              "overlayOptOut": true,
-              "type": "property"
-            }
-          }
-        },
-        "props": {
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
-        },
-        "type": "ia.display.label"
       }
     ],
     "events": {
       "component": {
         "onStartup": {
           "config": {
-            "script": "\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tassets = kanoaScripts.custom.ops.receiving.getReceivingAssets()\n\tself.view.custom.tankOptions = [{'label': a.get('assetPath') or a.get('assetName'), 'value': a.get('assetId')} for a in assets.get('data', {}).get('tanks', [])] if assets.get('status') == 'SUCCESS' else []\n\tself.view.custom.selectedTransfer = None\n\tself.view.custom.result = None"
+            "script": "\tself.view.custom.loading = True\n\n\tresult = kanoaScripts.custom.ops.receiving.getPendingTransfers()\n\tself.view.custom.pendingTransfers = result.get('data', {}).get('pendingTransfers', [])\n\tself.view.custom.errorMessage = '' if result.get('status') == 'SUCCESS' else result.get('message', 'Could not load pending transfers.')\n\tassets = kanoaScripts.custom.ops.receiving.getReceivingAssets()\n\tself.view.custom.tankOptions = [{'label': a.get('assetPath') or a.get('assetName'), 'value': a.get('assetId')} for a in assets.get('data', {}).get('tanks', [])] if assets.get('status') == 'SUCCESS' else []\n\tself.view.custom.selectedTransfer = None\n\tself.view.custom.result = None\n\tself.view.custom.loading = False"
           },
           "scope": "G",
           "type": "script"
@@ -525,9 +581,27 @@
       "style": {
         "classes": "kanoa/container",
         "gap": 12,
-        "padding": 20
-      }
+        "padding": 20,
+        "flexWrap": "wrap"
+      },
+      "wrap": "wrap"
     },
     "type": "ia.container.flex"
+  },
+  "propConfig": {
+    "custom.errorMessage": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tresult = self.custom.result\n\tif result and result.get('status') in ('SUCCESS', 'TRANSFER_PENDING'):\n\t\treturn\n\tmessage = self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({'type': 'error', 'message': message})\n\tif 'uncertain' in message.lower() or 'supervisor' in message.lower() or 'could not load' in message.lower():\n\t\tsystem.perspective.openPopup('receivingErrorDetail', 'kanoa/core/templates/displays/messagePopup', {'text': message}, title='Receiving error', modal=True)\n\treturn"
+      },
+      "persistent": true
+    },
+    "custom.result": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tresult = self.custom.result\n\tif not result:\n\t\treturn\n\tstatus = result.get('status')\n\tmessage = result.get('message') or ''\n\tif status == 'SUCCESS':\n\t\tsystem.kanoa.toast.show({'type': 'success', 'message': message or 'Transfer completed. The lot is now in its destination tank.'})\n\telif status == 'TRANSFER_PENDING':\n\t\tsystem.kanoa.toast.show({'type': 'warning', 'message': message or 'Transfer pending; the lot remains at the truck. Check Pending Transfers before retrying.'})\n\treturn"
+      },
+      "persistent": true
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "custom": {
-    "actualQtyKg": null,
+    "actualQtyKg": "None",
     "errorMessage": "",
     "loading": false,
     "order": null,
@@ -9,8 +9,10 @@
     "submitting": false,
     "tankAssetId": null,
     "tankOptions": [],
+    "tankPath": null,
     "truckAssetId": null,
-    "truckOptions": []
+    "truckOptions": [],
+    "truckPath": null
   },
   "events": {
     "system": {
@@ -31,6 +33,20 @@
     }
   },
   "propConfig": {
+    "custom.errorMessage": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tresult = self.custom.result\n\tif result and result.get('status') in ('SUCCESS', 'TRANSFER_PENDING'):\n\t\treturn\n\tmessage = self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({'type': 'error', 'message': message})\n\tif 'uncertain' in message.lower() or 'supervisor' in message.lower() or 'could not load' in message.lower():\n\t\tsystem.perspective.openPopup('receivingErrorDetail', 'kanoa/core/templates/displays/messagePopup', {'text': message}, title='Receiving error', modal=True)\n\treturn"
+      },
+      "persistent": true
+    },
+    "custom.result": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tresult = self.custom.result\n\tif not result:\n\t\treturn\n\tstatus = result.get('status')\n\tmessage = result.get('message') or ''\n\tif status == 'SUCCESS':\n\t\tsystem.kanoa.toast.show({'type': 'success', 'message': message or 'Receipt completed. See the confirmation message for lot and transfer details.'})\n\telif status == 'TRANSFER_PENDING':\n\t\tsystem.kanoa.toast.show({'type': 'warning', 'message': message or 'Transfer pending; the lot remains at the truck. Check Pending Transfers before retrying.'})\n\treturn"
+      },
+      "persistent": true
+    },
     "params.value": {
       "paramDirection": "input",
       "persistent": true
@@ -54,17 +70,18 @@
         "props": {
           "text": "Receive Material",
           "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
+            "classes": "kanoa/font/titleLarge"
           }
         },
         "type": "ia.display.label"
       },
       {
         "meta": {
-          "domId": "lblLoading",
-          "name": "lblLoading"
+          "domId": "evProgressBar",
+          "name": "evProgressBar"
         },
         "position": {
+          "grow": 1,
           "shrink": 0
         },
         "propConfig": {
@@ -73,24 +90,30 @@
               "config": {
                 "path": "view.custom.loading"
               },
-              "overlayOptOut": true,
-              "transforms": [
-                {
-                  "code": "\treturn bool(value)",
-                  "type": "script"
-                }
-              ],
+              "type": "property"
+            }
+          },
+          "props.params.values.showBar": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
               "type": "property"
             }
           }
         },
         "props": {
-          "text": "Loading order and receiving assets…",
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
+          "params": {
+            "values": {
+              "showBar": false,
+              "type": "INFO",
+              "text": "Loading order and receiving data...",
+              "textColor": null
+            }
+          },
+          "path": "kanoa/core/templates/displays/progressBar"
         },
-        "type": "ia.display.label"
+        "type": "ia.display.view"
       },
       {
         "meta": {
@@ -321,33 +344,18 @@
         "children": [
           {
             "meta": {
-              "domId": "lblActual",
-              "name": "lblActual"
+              "domId": "evActualQty",
+              "name": "evActualQty"
             },
             "position": {
-              "shrink": 0
-            },
-            "props": {
-              "text": "Actual received (kg)",
-              "textStyle": {
-                "classes": "kanoa/font/bodyMedium"
-              }
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "domId": "numActualQty",
-              "name": "numActualQty"
-            },
-            "position": {
-              "basis": "220px",
+              "grow": 1,
               "shrink": 0
             },
             "propConfig": {
-              "props.value": {
+              "props.params.value": {
                 "binding": {
                   "config": {
+                    "bidirectional": true,
                     "path": "view.custom.actualQtyKg"
                   },
                   "overlayOptOut": true,
@@ -356,15 +364,14 @@
               }
             },
             "props": {
-              "inputProps": {
-                "placeholder": "Enter kg"
+              "params": {
+                "enabled": true,
+                "label": "Actual received",
+                "units": "kg"
               },
-              "style": {
-                "classes": "kanoa/font/default",
-                "height": "36px"
-              }
+              "path": "kanoa/core/templates/inputs/numberInput"
             },
-            "type": "ia.input.numeric-entry-field"
+            "type": "ia.display.view"
           }
         ],
         "meta": {
@@ -374,8 +381,10 @@
         "props": {
           "style": {
             "alignItems": "center",
+            "flexWrap": "wrap",
             "gap": 10
-          }
+          },
+          "wrap": "wrap"
         },
         "type": "ia.container.flex"
       },
@@ -399,40 +408,60 @@
           },
           {
             "meta": {
-              "domId": "ddTruck",
-              "name": "ddTruck"
+              "domId": "evTruck",
+              "name": "evTruck"
             },
             "position": {
               "grow": 1,
               "shrink": 0
             },
             "propConfig": {
-              "props.options": {
+              "props.params.selectedPath": {
                 "binding": {
                   "config": {
-                    "path": "view.custom.truckOptions"
+                    "bidirectional": true,
+                    "path": "view.custom.truckPath"
                   },
                   "overlayOptOut": true,
                   "type": "property"
-                }
-              },
-              "props.value": {
-                "binding": {
-                  "config": {
-                    "path": "view.custom.truckAssetId"
-                  },
-                  "overlayOptOut": true,
-                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\n\tif origin == 'Browser':\n\t\tself.view.custom.truckAssetId = system.kanoa.utilities.getFieldValue('assetId', system.kanoa.asset.getAssets({'assetPath': self.props.params.selectedPath}))\n\treturn"
                 }
               }
             },
             "props": {
+              "meta": {
+                "tooltip": {
+                  "text": "Receiving truck"
+                }
+              },
+              "params": {
+                "value": {
+                  "options": {
+                    "selectable": {
+                      "Storage Location": true,
+                      "area": false,
+                      "cell": false,
+                      "cellGroup": false,
+                      "enterprise": false,
+                      "line": false,
+                      "oeeCalculated": false,
+                      "oeeEnabled": false,
+                      "site": false
+                    }
+                  },
+                  "parentPath": "Training Plant\\Receiving",
+                  "showPath": true
+                }
+              },
+              "path": "kanoa/core/templates/selectors/assetDropdownSelector",
               "style": {
-                "classes": "kanoa/font/default",
-                "height": "36px"
+                "height": 30
               }
             },
-            "type": "ia.input.dropdown"
+            "type": "ia.display.view"
           },
           {
             "meta": {
@@ -452,40 +481,60 @@
           },
           {
             "meta": {
-              "domId": "ddTank",
-              "name": "ddTank"
+              "domId": "evTank",
+              "name": "evTank"
             },
             "position": {
               "grow": 1,
               "shrink": 0
             },
             "propConfig": {
-              "props.options": {
+              "props.params.selectedPath": {
                 "binding": {
                   "config": {
-                    "path": "view.custom.tankOptions"
+                    "bidirectional": true,
+                    "path": "view.custom.tankPath"
                   },
                   "overlayOptOut": true,
                   "type": "property"
-                }
-              },
-              "props.value": {
-                "binding": {
-                  "config": {
-                    "path": "view.custom.tankAssetId"
-                  },
-                  "overlayOptOut": true,
-                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\n\tif origin == 'Browser':\n\t\tself.view.custom.tankAssetId = system.kanoa.utilities.getFieldValue('assetId', system.kanoa.asset.getAssets({'assetPath': self.props.params.selectedPath}))\n\treturn"
                 }
               }
             },
             "props": {
+              "meta": {
+                "tooltip": {
+                  "text": "Destination tank"
+                }
+              },
+              "params": {
+                "value": {
+                  "options": {
+                    "selectable": {
+                      "Storage Location": true,
+                      "area": false,
+                      "cell": false,
+                      "cellGroup": false,
+                      "enterprise": false,
+                      "line": false,
+                      "oeeCalculated": false,
+                      "oeeEnabled": false,
+                      "site": false
+                    }
+                  },
+                  "parentPath": "Training Plant\\Bulk Storage",
+                  "showPath": true
+                }
+              },
+              "path": "kanoa/core/templates/selectors/assetDropdownSelector",
               "style": {
-                "classes": "kanoa/font/default",
-                "height": "36px"
+                "height": 30
               }
             },
-            "type": "ia.input.dropdown"
+            "type": "ia.display.view"
           }
         ],
         "meta": {
@@ -497,7 +546,8 @@
             "alignItems": "center",
             "flexWrap": "wrap",
             "gap": 10
-          }
+          },
+          "wrap": "wrap"
         },
         "type": "ia.container.flex"
       },
@@ -512,74 +562,7 @@
         "props": {
           "text": "Review the order, actual quantity, truck, and tank before confirming receipt.",
           "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "domId": "lblError",
-          "name": "lblError"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "path": "view.custom.errorMessage"
-              },
-              "overlayOptOut": true,
-              "type": "property"
-            }
-          }
-        },
-        "props": {
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
-        },
-        "type": "ia.display.label"
-      },
-      {
-        "meta": {
-          "domId": "lblResult",
-          "name": "lblResult"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "propConfig": {
-          "position.display": {
-            "binding": {
-              "config": {
-                "path": "view.custom.result.message"
-              },
-              "overlayOptOut": true,
-              "transforms": [
-                {
-                  "code": "\treturn bool(value)",
-                  "type": "script"
-                }
-              ],
-              "type": "property"
-            }
-          },
-          "props.text": {
-            "binding": {
-              "config": {
-                "path": "view.custom.result.message"
-              },
-              "overlayOptOut": true,
-              "type": "property"
-            }
-          }
-        },
-        "props": {
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
+            "classes": "kanoa/font/bodySmall"
           }
         },
         "type": "ia.display.label"
@@ -608,7 +591,7 @@
             "props": {
               "primary": false,
               "style": {
-                "classes": "kanoa/button/flat"
+                "classes": "kanoa/button/outlined"
               },
               "text": "Back to schedule"
             },
@@ -647,7 +630,7 @@
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\tif self.view.custom.submitting:\n\t\treturn\n\tif self.view.custom.actualQtyKg is None or self.view.custom.truckAssetId is None or self.view.custom.tankAssetId is None:\n\t\tself.view.custom.errorMessage = 'Enter actual quantity and select a receiving truck and destination tank.'\n\t\treturn\n\tself.view.custom.submitting = True\n\ttry:\n\t\tworkOrderId = self.view.custom.order.get('workOrderId')\n\t\tresult = kanoaScripts.custom.ops.receiving.receiveOrder(\n\t\t\tworkOrderId,\n\t\t\tself.view.custom.actualQtyKg,\n\t\t\tself.view.custom.truckAssetId,\n\t\t\tself.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') in ('SUCCESS', 'TRANSFER_PENDING') else result.get('message', '')\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective receive handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Receipt outcome may be uncertain. Check Pending Transfers or ask a supervisor before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False"
+                    "script": "\n\tif self.view.custom.submitting:\n\t\treturn\n\tif self.view.custom.actualQtyKg is None or self.view.custom.truckAssetId is None or self.view.custom.tankAssetId is None:\n\t\tself.view.custom.errorMessage = 'Enter actual quantity and select a receiving truck and destination tank.'\n\t\treturn\n\tmsg = 'Confirm receipt of %s kg for order %s?' % (self.view.custom.actualQtyKg, self.view.custom.order.get('orderNumber') or 'this order')\n\tsystem.perspective.openPopup('receiptConfirmPopup', 'kanoa/core/templates/inputs/confirm', {'text': msg, 'messageHandler': 'confirmReceiveOrder'}, title='Confirm receipt', modal=True)\n\treturn"
                   },
                   "scope": "G",
                   "type": "script"
@@ -680,7 +663,7 @@
             },
             "props": {
               "style": {
-                "classes": "kanoa/button/primary"
+                "classes": "kanoa/button/filled"
               },
               "text": "Confirm receipt"
             },
@@ -691,7 +674,7 @@
               "component": {
                 "onActionPerformed": {
                   "config": {
-                    "script": "\tresultData = self.view.custom.result.get('data', {}) if self.view.custom.result else {}\n\tif not resultData.get('lotId'):\n\t\tself.view.custom.errorMessage = 'The existing receipt lot is unavailable. Use Pending Transfers or ask a supervisor.'\n\t\treturn\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.retryTransfer(\n\t\t\tresultData.get('lotId'),\n\t\t\tresultData.get('tankAssetId') or self.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user,\n\t\t\tresultData.get('truckAssetId')\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') in ('SUCCESS', 'TRANSFER_PENDING') else result.get('message', '')\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective transfer retry handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Transfer outcome may be uncertain. Refresh Pending Transfers and verify current lot location before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False"
+                    "script": "\tresultData = self.view.custom.result.get('data', {}) if self.view.custom.result else {}\n\tif not resultData.get('lotId'):\n\t\tself.view.custom.errorMessage = 'The existing receipt lot is unavailable. Use Pending Transfers or ask a supervisor.'\n\t\treturn\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\tself.view.custom.loading = True\n\ttry:\n\t\tresult = kanoaScripts.custom.ops.receiving.retryTransfer(\n\t\t\tresultData.get('lotId'),\n\t\t\tresultData.get('tankAssetId') or self.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user,\n\t\t\tresultData.get('truckAssetId')\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') in ('SUCCESS', 'TRANSFER_PENDING') else result.get('message', '')\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective transfer retry handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Transfer outcome may be uncertain. Refresh Pending Transfers and verify current lot location before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False\n\tself.view.custom.loading = False"
                   },
                   "scope": "G",
                   "type": "script"
@@ -740,7 +723,7 @@
             "props": {
               "primary": false,
               "style": {
-                "classes": "kanoa/button/flat"
+                "classes": "kanoa/button/outlined"
               },
               "text": "Retry transfer"
             },
@@ -756,7 +739,8 @@
             "alignItems": "center",
             "flexWrap": "wrap",
             "gap": 10
-          }
+          },
+          "wrap": "wrap"
         },
         "type": "ia.container.flex"
       }
@@ -780,9 +764,24 @@
       "direction": "column",
       "style": {
         "classes": "kanoa/container",
+        "flexWrap": "wrap",
         "gap": 12,
         "padding": 20
-      }
+      },
+      "wrap": "wrap"
+    },
+    "scripts": {
+      "customMethods": null,
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "confirmReceiveOrder",
+          "pageScope": true,
+          "script": "\n\tif self.view.custom.submitting:\n\t\treturn\n\tself.view.custom.submitting = True\n\tself.view.custom.loading = True\n\ttry:\n\t\tworkOrderId = self.view.custom.order.get('workOrderId')\n\t\tresult = kanoaScripts.custom.ops.receiving.receiveOrder(\n\t\t\tworkOrderId,\n\t\t\tself.view.custom.actualQtyKg,\n\t\t\tself.view.custom.truckAssetId,\n\t\t\tself.view.custom.tankAssetId,\n\t\t\tself.session.props.auth.user\n\t\t)\n\t\tself.view.custom.result = result\n\t\tself.view.custom.errorMessage = '' if result.get('status') in ('SUCCESS', 'TRANSFER_PENDING') else result.get('message', '')\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error('Perspective receive handler failed: %s' % str(exc))\n\t\tself.view.custom.errorMessage = 'Receipt outcome may be uncertain. Check Pending Transfers or ask a supervisor before retrying.'\n\tfinally:\n\t\tself.view.custom.submitting = False\n\t\tself.view.custom.loading = False\n\treturn",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
     },
     "type": "ia.container.flex"
   }

@@ -3,25 +3,76 @@
     "endDate": {
       "$": [
         "ts",
-        0,
-        1794831242439
+        192,
+        1794908186794
       ],
-      "$ts": 1795993200000
+      "$ts": 1795298400000
     },
-    "errorMessage": "Could not load the receiving schedule. Refresh the screen or contact a supervisor.",
+    "errorMessage": "",
     "loading": false,
-    "orders": [],
-    "selectedOrder": null,
+    "orders": [
+      {
+        "description": "RCV)1",
+        "itemId": 1,
+        "itemUnitId": 11,
+        "material": "Corn Syrup",
+        "orderNumber": "0001",
+        "scheduleBlockId": null,
+        "scheduledEnd": null,
+        "scheduledStart": {
+          "$": [
+            "ts",
+            192,
+            1794908430522
+          ],
+          "$ts": 1794866400000
+        },
+        "status": "Scheduled",
+        "targetQty": 10000,
+        "unitName": "kg",
+        "workOrderId": 1
+      }
+    ],
+    "selectedOrder": {
+      "description": "RCV)1",
+      "itemId": 1,
+      "itemUnitId": 11,
+      "material": "Corn Syrup",
+      "orderNumber": "0001",
+      "scheduleBlockId": null,
+      "scheduledEnd": null,
+      "scheduledStart": {
+        "$": [
+          "ts",
+          192,
+          1794908432630
+        ],
+        "$ts": 1794866400000
+      },
+      "status": "Scheduled",
+      "targetQty": 10000,
+      "unitName": "kg",
+      "workOrderId": 1
+    },
     "startDate": {
       "$": [
         "ts",
-        0,
-        1794831220930
+        192,
+        1794908186794
       ],
-      "$ts": 1793487600000
+      "$ts": 1794693600000
     }
   },
   "params": {},
+  "propConfig": {
+    "custom.errorMessage": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tmessage = self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({'type': 'error', 'message': message})\n\tif 'uncertain' in message.lower() or 'supervisor' in message.lower() or 'could not load' in message.lower():\n\t\tsystem.perspective.openPopup('receivingErrorDetail', 'kanoa/core/templates/displays/messagePopup', {'text': message}, title='Receiving error', modal=True)\n\treturn"
+      },
+      "persistent": true
+    }
+  },
   "props": {
     "defaultSize": {
       "width": 1200
@@ -40,10 +91,50 @@
         "props": {
           "text": "Receiving Orders Schedule",
           "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
+            "classes": "kanoa/font/titleLarge"
           }
         },
         "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "domId": "evProgressBar",
+          "name": "evProgressBar"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.values.showBar": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "values": {
+              "showBar": false,
+              "type": "INFO",
+              "text": "Loading receiving schedule...",
+              "textColor": null
+            }
+          },
+          "path": "kanoa/core/templates/displays/progressBar"
+        },
+        "type": "ia.display.view"
       },
       {
         "meta": {
@@ -65,31 +156,25 @@
         "children": [
           {
             "meta": {
-              "domId": "lblFrom",
-              "name": "lblFrom"
+              "domId": "evDateRange",
+              "name": "evDateRange"
             },
             "position": {
-              "shrink": 0
-            },
-            "props": {
-              "text": "From",
-              "textStyle": {
-                "classes": "kanoa/font/bodyMedium"
-              }
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "domId": "dtStart",
-              "name": "dtStart"
-            },
-            "position": {
-              "basis": "220px",
+              "grow": 1,
               "shrink": 0
             },
             "propConfig": {
-              "props.value": {
+              "props.params.endDate": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.endDate"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.params.startDate": {
                 "binding": {
                   "config": {
                     "bidirectional": true,
@@ -101,59 +186,12 @@
               }
             },
             "props": {
-              "formattedValue": "Nov 1, 2026 12:00 AM",
-              "style": {
-                "classes": "kanoa/font/default",
-                "height": "34px"
-              }
+              "params": {
+                "selectedRange": "This Week"
+              },
+              "path": "kanoa/core/templates/selectors/date/dateRangeSelectorCompact"
             },
-            "type": "ia.input.date-time-input"
-          },
-          {
-            "meta": {
-              "domId": "lblTo",
-              "name": "lblTo"
-            },
-            "position": {
-              "shrink": 0
-            },
-            "props": {
-              "text": "To",
-              "textStyle": {
-                "classes": "kanoa/font/bodyMedium"
-              }
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "domId": "dtEnd",
-              "name": "dtEnd"
-            },
-            "position": {
-              "basis": "220px",
-              "shrink": 0
-            },
-            "propConfig": {
-              "props.value": {
-                "binding": {
-                  "config": {
-                    "bidirectional": true,
-                    "path": "view.custom.endDate"
-                  },
-                  "overlayOptOut": true,
-                  "type": "property"
-                }
-              }
-            },
-            "props": {
-              "formattedValue": "Nov 30, 2026 12:00 AM",
-              "style": {
-                "classes": "kanoa/font/default",
-                "height": "34px"
-              }
-            },
-            "type": "ia.input.date-time-input"
+            "type": "ia.display.view"
           },
           {
             "events": {
@@ -177,7 +215,7 @@
             "props": {
               "primary": false,
               "style": {
-                "classes": "kanoa/button/flat"
+                "classes": "kanoa/button/outlined"
               },
               "text": "Refresh schedule"
             },
@@ -193,7 +231,8 @@
             "alignItems": "center",
             "flexWrap": "wrap",
             "gap": 10
-          }
+          },
+          "wrap": "wrap"
         },
         "type": "ia.container.flex"
       },
@@ -231,6 +270,11 @@
         "props": {
           "bodyStyle": {
             "classes": "kanoa/font/default"
+          },
+          "cells": {
+            "style": {
+              "fontSize": "12px"
+            }
           },
           "columns": [
             {
@@ -423,15 +467,67 @@
               "width": 130
             }
           ],
+          "filter": {
+            "enabled": true
+          },
           "headerStyle": {
-            "classes": "kanoa/font/default"
+            "classes": "kanoa/font/default",
+            "fontWeight": "bold"
           },
           "pager": {
             "activeOption": 100,
             "initialOption": 100
+          },
+          "selection": {
+            "data": [
+              {
+                "description": "RCV)1",
+                "material": "Corn Syrup",
+                "orderNumber": "0001",
+                "scheduledStart": "Tue Nov 17 2026 00:00:00 GMT+0200 (Eastern European Standard Time)",
+                "status": "Scheduled",
+                "targetQty": 10000,
+                "unitName": "kg"
+              }
+            ],
+            "selectedColumn": "description",
+            "selectedRow": 0
           }
         },
         "type": "ia.display.table"
+      },
+      {
+        "meta": {
+          "domId": "lblNoOrders",
+          "name": "lblNoOrders"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "return len(self.view.custom.orders or []) == 0 and not value",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "No scheduled orders found for the selected date range. Adjust the dates or refresh.",
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
       },
       {
         "meta": {
@@ -476,32 +572,6 @@
         "type": "ia.display.label"
       },
       {
-        "meta": {
-          "domId": "lblError",
-          "name": "lblError"
-        },
-        "position": {
-          "shrink": 0
-        },
-        "propConfig": {
-          "props.text": {
-            "binding": {
-              "config": {
-                "path": "view.custom.errorMessage"
-              },
-              "overlayOptOut": true,
-              "type": "property"
-            }
-          }
-        },
-        "props": {
-          "textStyle": {
-            "classes": "kanoa/font/bodyMedium"
-          }
-        },
-        "type": "ia.display.label"
-      },
-      {
         "events": {
           "component": {
             "onActionPerformed": {
@@ -522,7 +592,7 @@
         },
         "props": {
           "style": {
-            "classes": "kanoa/button/primary"
+            "classes": "kanoa/button/filled"
           },
           "text": "Confirm order"
         },
@@ -548,9 +618,11 @@
       "direction": "column",
       "style": {
         "classes": "kanoa/container",
+        "flexWrap": "wrap",
         "gap": 12,
         "padding": 20
-      }
+      },
+      "wrap": "wrap"
     },
     "type": "ia.container.flex"
   }

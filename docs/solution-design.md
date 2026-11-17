@@ -542,6 +542,23 @@ Transfer lot from selected truck to selected tank
 
 Show outcome; if transfer remains pending, offer immediate retry and a Pending Transfers list on reopen
 
+### Kanoa UI Alignment
+
+The three receiving views are hosted on the single `/receiving` Perspective page, which carries
+the standard Kanoa left navigation, top header, and right options docks copied from the home page.
+In-flow actions change the current view (`system.perspective.navigate(view=...)`) rather than the
+page, so the shell stays visible across the schedule, receipt, and pending-transfer screens;
+marquee pages remain undocked.
+
+The screens reuse inherited `kanoaAPP` resources rather than local look-alikes: the compact date
+range selector, numeric input, and asset dropdown selector templates; configured Kanoa tables and
+`kanoa/font/*` / `kanoa/button/{filled,outlined,flat}` style classes; and the progress bar,
+toast, message popup, and confirmation popup for feedback and waiting states. Read-only order
+fields remain labels with Kanoa font classes. No MES table, operation payload, receiving rule, or
+vendor resource was changed; the shared `KANOA_SCRIPTS` receiving package remains the source of
+truth for the business logic. Navigation registration and all Gateway/theme checks remain
+deployment-time validation gates.
+
 ### Processing and Validation Rules
 
 1. Validate that the order still exists and is eligible for receiving immediately before posting. Do not rely on stale schedule data.
