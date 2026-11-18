@@ -1,17 +1,14 @@
 <!--
 Sync Impact Report:
-- Version change: none → 1.0.0
-- Modified principles: N/A (initial adoption)
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: none (I–V unchanged)
 - Added principles:
-  - I. Version-Controlled Gateway State
-  - II. Respect Ignition Project Boundaries
-  - III. Jython 2.7 and Ignition API Compatibility
-  - IV. API-First, Idempotent Data Operations
-  - V. Verifiable, Observable Changes (NON-NEGOTIABLE)
-- Added sections:
-  - Technology & Environment Constraints
-  - Development Workflow & Quality Gates
-- Removed sections: N/A
+  - VI. Kanoa-First: No Custom Components or Methods (NON-NEGOTIABLE)
+- Modified sections:
+  - Development Workflow & Quality Gates (Kanoa-first gate added to planning, review)
+  - Governance (compliance review now covers the Kanoa-first approval gate)
+- Added sections: none
+- Removed sections: none
 - Templates requiring updates: none; dependent templates resolve this constitution at runtime.
 - Follow-up TODOs: none.
 -->
@@ -89,6 +86,35 @@ and cause without exposing secrets. Changes that cannot be verified MUST NOT be 
 **Rationale**: The repository has limited automated coverage. Explicit verification and logging
 are the minimum controls that prevent unobserved data corruption and unreproducible fixes.
 
+### VI. Kanoa-First: No Custom Components or Methods (NON-NEGOTIABLE)
+
+Every requirement MUST first be evaluated against native KanoaMES and Ignition capability: the
+native Perspective views and templates under `kanoaAPP`, the KanoaMES `system.kanoa.*` API
+methods, and standard Ignition features. Native capability MUST be used when it satisfies the
+requirement. Custom code MUST NOT reimplement, wrap, or fork native Kanoa behavior.
+
+Creating a new custom component or method is prohibited unless explicit approval has been
+requested and granted before implementation begins. The request MUST state the requirement, list
+the native assets evaluated and why each is insufficient, propose a name and location, and state
+the ongoing maintenance cost. Approval MUST be recorded in the feature spec, plan, or pull
+request before any code is written. The absence of a native solution MUST be demonstrated, not
+assumed.
+
+For this principle, a **component** is any new Perspective view or embeddable view, Vision window
+or template, or other UI building block. A **method** is any new script function or module,
+including helpers, utilities, and wrappers. Inline event scripts that only configure bindings and
+call Kanoa APIs are configuration, but they MUST NOT hold reusable business logic that belongs in
+a Kanoa API.
+
+Approved custom code MUST be the minimum necessary, MUST delegate to `system.kanoa.*`, MUST live
+in `KANOA_SCRIPTS` unless it is strictly project-local, MUST follow Principle III conventions, and
+MUST be documented as an explicit deviation. Extending an approved custom component or method
+beyond its documented purpose requires renewed approval.
+
+**Rationale**: Native Kanoa behavior is the supported product surface and is upgraded with the
+module. Each custom component or method becomes a fork that the team must test, maintain, and
+migrate, which increases drift and regression risk as KanoaMES evolves.
+
 ## Technology & Environment Constraints
 
 - Runtime baseline: Ignition `8.3.10`, KanoaMES `1.15.11`, Embr Charts `6.0.1`, SQL Server `2022`
@@ -112,22 +138,27 @@ are the minimum controls that prevent unobserved data corruption and unreproduci
 ## Development Workflow & Quality Gates
 
 1. Before implementation, identify the owning Ignition project, the runtime scope (Gateway,
-   Designer, Perspective session, WebDev, or standalone), and the data impact.
-2. Implement reusable or client-specific logic in `KANOA_SCRIPTS`. Do not modify `kanoaAPP` for
-   client-specific behavior without the documented exception required by Principle II.
-3. Export Designer changes completely, including `resource.json`, `config.json`, project metadata,
+   Designer, Perspective session, WebDev, or standalone), the data impact, and the native KanoaMES
+   and Ignition assets evaluated under Principle VI.
+2. If native capability is insufficient, request explicit approval for each new component or
+   method before writing code, and record the approval and its justification in the spec, plan, or
+   pull request.
+3. Implement approved reusable or client-specific logic in `KANOA_SCRIPTS` and delegate to
+   `system.kanoa.*`. Do not modify `kanoaAPP` for client-specific behavior without the documented
+   exception required by Principle II.
+4. Export Designer changes completely, including `resource.json`, `config.json`, project metadata,
    and any changed scripts. Do not commit unrelated Designer re-exports.
-4. Validate scripts with the appropriate runtime check, then exercise the change against the
+5. Validate scripts with the appropriate runtime check, then exercise the change against the
    running stack. For data mutations, verify both the first run and a rerun.
-5. Record verification commands, observed results, and any manual Gateway checks in the pull
+6. Record verification commands, observed results, and any manual Gateway checks in the pull
    request Testing section. If the existing checklist item "Tests pass" is not applicable, state
    why and provide the manual evidence instead.
-6. Reviewers MUST verify constitution compliance, secret safety, pinned versions, project
-   boundaries, idempotency, error handling, logging, and rollback or migration notes for breaking
-   changes.
-7. Feature plans MUST include a Constitution Check against these principles. Any violation MUST be
+7. Reviewers MUST verify constitution compliance, secret safety, pinned versions, project
+   boundaries, the Kanoa-first approval gate, idempotency, error handling, logging, and rollback or
+   migration notes for breaking changes.
+8. Feature plans MUST include a Constitution Check against these principles. Any violation MUST be
    recorded with its justification and the simpler alternative that was rejected.
-8. Update `README.md`, `.env.example`, or operational documentation whenever configuration,
+9. Update `README.md`, `.env.example`, or operational documentation whenever configuration,
    startup behavior, access methods, or required environment variables change.
 
 ## Governance
@@ -145,7 +176,8 @@ adoption is version `1.0.0`.
 
 All pull requests and reviews MUST verify compliance with this constitution. Complexity or
 deviations MUST be justified in the pull request or in the plan's Complexity Tracking section.
-Runtime procedures belong in `README.md` and `.env.example`; this document defines governance and
-non-negotiable engineering standards.
+Compliance review MUST confirm that every new custom component and method has prior explicit
+approval recorded under Principle VI. Runtime procedures belong in `README.md` and `.env.example`;
+this document defines governance and non-negotiable engineering standards.
 
-**Version**: 1.0.0 | **Ratified**: 2026-11-13 | **Last Amended**: 2026-11-13
+**Version**: 1.1.0 | **Ratified**: 2026-11-13 | **Last Amended**: 2026-11-18

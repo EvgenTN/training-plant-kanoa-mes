@@ -1,0 +1,12 @@
+jvm 1    | 2026/11/18 15:57:32 | W [KanoaLogger                   ] [15:57:32.577]: com.kanoa.mes.GatewayOpsLotModule - getLotEvents exception: Traceback (most recent call last):
+jvm 1    | 2026/11/18 15:57:32 | Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'enabled'.
+jvm 1    | 2026/11/18 15:57:32 | W [c.k.m.GatewayOpsLotModule     ] [15:57:32.578]: getLotEvents() exception called with: paramsDict: {'lotOperationName': 'Receive', 'itemSourceName': 'output', 'enabled': True, 'workOrderId': 4} component=root, view=training/receiveMaterial@C, project-name=kanoaMES
+jvm 1    | 2026/11/18 15:57:44 | W [KanoaLogger                   ] [15:57:44.044]: com.kanoa.mes.GatewayOpsLotModule - getLotEvents exception: Traceback (most recent call last):
+jvm 1    | 2026/11/18 15:57:44 | Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'enabled'.
+jvm 1    | 2026/11/18 15:57:44 | W [c.k.m.GatewayOpsLotModule     ] [15:57:44.044]: getLotEvents() exception called with: paramsDict: {'lotOperationName': 'Receive', 'itemSourceName': 'output', 'enabled': True, 'workOrderId': 4}
+jvm 1    | 2026/11/18 15:57:44 | W [KanoaLogger                   ] [15:57:44.178]: com.kanoa.mes.GatewayOpsLotModule - getLotEvents exception: Traceback (most recent call last):
+jvm 1    | 2026/11/18 15:57:44 | Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'enabled'.
+jvm 1    | 2026/11/18 15:57:44 | W [c.k.m.GatewayOpsLotModule     ] [15:57:44.178]: getLotEvents() exception called with: paramsDict: {'lotOperationName': 'Receive', 'itemSourceName': 'output', 'enabled': True, 'workOrderId': 4}
+jvm 1    | 2026/11/18 15:58:34 | W [KanoaLogger                   ] [15:58:34.769]: com.kanoa.mes.GatewayOpsLotModule - getLotEvents exception: Traceback (most recent call last):
+jvm 1    | 2026/11/18 15:58:34 | Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: Invalid column name 'enabled'.
+jvm 1    | 2026/11/18 15:58:34 | W [c.k.m.GatewayOpsLotModule     ] [15:58:34.769]: getLotEvents() exception called with: paramsDict: {'lotOperationName': 'Receive', 'itemSourceName': 'output', 'enabled': True, 'workOrderId': 4} component=root, view=training/receiveMaterial@C, project-name=kanoaMES
