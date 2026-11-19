@@ -454,8 +454,7 @@ def getReceivedQtyForOrder(workOrderId):
 		events = _datasetRows(system.kanoa.lot.getLotEvents({
 			'workOrderId': int(workOrderId),
 			'lotOperationName': 'Receive',
-			'itemSourceName': 'output',
-			'enabled': True
+			'itemSourceName': 'output'
 		}))
 		totalQty = Decimal('0')
 		for event in events:
@@ -573,8 +572,7 @@ def checkReceiptAttempt(workOrderId, lotName):
 			'workOrderId': int(workOrderId),
 			'lotName': lotName,
 			'lotOperationName': 'Receive',
-			'itemSourceName': 'output',
-			'enabled': True
+			'itemSourceName': 'output'
 		}))
 	except Exception as exc:
 		getLogger().error('checkReceiptAttempt() failed workOrderId=%s lotName=%s: %s' %
