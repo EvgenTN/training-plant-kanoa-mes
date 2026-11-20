@@ -1,0 +1,81 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 933
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Thermometer"
+        },
+        "position": {
+          "height": 215,
+          "width": 102,
+          "x": 137,
+          "y": 132
+        },
+        "props": {
+          "intervals": [
+            {
+              "color": "#47A9E5",
+              "high": 25,
+              "low": 0
+            },
+            {
+              "color": "#B394EF",
+              "high": 75,
+              "low": 25
+            },
+            {
+              "color": "#DB3939",
+              "high": 100,
+              "low": 75
+            }
+          ]
+        },
+        "type": "ia.display.thermometer"
+      },
+      {
+        "meta": {
+          "name": "Markdown"
+        },
+        "position": {
+          "height": 200,
+          "width": 200,
+          "x": 196,
+          "y": 476
+        },
+        "props": {
+          "source": "Welcome to _Markdown_"
+        },
+        "type": "ia.display.markdown"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "height": 200,
+          "rotate": {
+            "anchor": "0% 0%"
+          },
+          "width": 200,
+          "x": 407,
+          "y": 167
+        },
+        "props": {
+          "selected": true
+        },
+        "type": "ia.input.toggle-switch"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

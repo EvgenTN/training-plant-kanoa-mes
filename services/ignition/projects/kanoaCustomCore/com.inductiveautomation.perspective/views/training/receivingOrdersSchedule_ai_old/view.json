@@ -1,0 +1,3248 @@
+{
+  "custom": {
+    "endDate": {
+      "$": [
+        "ts",
+        192,
+        1795003759694
+      ],
+      "$ts": 1795302000000
+    },
+    "errorMessage": "",
+    "info": {
+      "showBar": true,
+      "text": "Formatting records",
+      "type": "INFO"
+    },
+    "loading": false,
+    "orders": [
+      {
+        "description": "RCV Corn Syrup",
+        "itemId": 1,
+        "itemUnitId": 11,
+        "material": "Corn Syrup",
+        "orderNumber": "RCV000001",
+        "scheduleBlockId": null,
+        "scheduledEnd": null,
+        "scheduledStart": {
+          "$": [
+            "ts",
+            192,
+            1794999606981
+          ],
+          "$ts": 1794783600000
+        },
+        "status": "Scheduled",
+        "targetQty": 20000,
+        "unitName": "kg",
+        "workOrderId": 1
+      },
+      {
+        "description": "Sugar Syrup",
+        "itemId": 2,
+        "itemUnitId": 11,
+        "material": "Sugar Syrup",
+        "orderNumber": "RCV000002",
+        "scheduleBlockId": null,
+        "scheduledEnd": null,
+        "scheduledStart": {
+          "$": [
+            "ts",
+            192,
+            1794999606981
+          ],
+          "$ts": 1794783600000
+        },
+        "status": "In Progress",
+        "targetQty": 30000,
+        "unitName": "kg",
+        "workOrderId": 2
+      },
+      {
+        "description": "RCV000005 Title",
+        "itemId": 3,
+        "itemUnitId": 11,
+        "material": "Vegetable Oil",
+        "orderNumber": "RCV000005",
+        "scheduleBlockId": null,
+        "scheduledEnd": null,
+        "scheduledStart": {
+          "$": [
+            "ts",
+            192,
+            1794999606981
+          ],
+          "$ts": 1794870000000
+        },
+        "status": "Scheduled",
+        "targetQty": 11000,
+        "unitName": "kg",
+        "workOrderId": 3
+      },
+      {
+        "description": "qawer",
+        "itemId": 3,
+        "itemUnitId": 11,
+        "material": "Vegetable Oil",
+        "orderNumber": "RCV000003",
+        "scheduleBlockId": null,
+        "scheduledEnd": null,
+        "scheduledStart": {
+          "$": [
+            "ts",
+            192,
+            1794999606981
+          ],
+          "$ts": 1794870000000
+        },
+        "status": "Scheduled",
+        "targetQty": 12000,
+        "unitName": "kg",
+        "workOrderId": 4
+      }
+    ],
+    "selectedOrder": {
+      "description": "qawer",
+      "itemId": 3,
+      "itemUnitId": 11,
+      "material": "Vegetable Oil",
+      "orderNumber": "RCV000003",
+      "scheduleBlockId": null,
+      "scheduledEnd": null,
+      "scheduledStart": {
+        "$": [
+          "ts",
+          192,
+          1794998122109
+        ],
+        "$ts": 1794870000000
+      },
+      "status": "Scheduled",
+      "targetQty": 12000,
+      "unitName": "kg",
+      "workOrderId": 4
+    },
+    "selectedOrderIndex": null,
+    "startDate": {
+      "$": [
+        "ts",
+        192,
+        1795003759695
+      ],
+      "$ts": 1794697200000
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.errorMessage": {
+      "onChange": {
+        "enabled": null,
+        "script": "\n\tmessage \u003d self.custom.errorMessage\n\tif not message:\n\t\treturn\n\tsystem.kanoa.toast.show({\u0027type\u0027: \u0027error\u0027, \u0027message\u0027: message})\n\tif \u0027uncertain\u0027 in message.lower() or \u0027supervisor\u0027 in message.lower() or \u0027could not load\u0027 in message.lower():\n\t\tsystem.perspective.openPopup(\u0027receivingErrorDetail\u0027, \u0027kanoa/core/templates/displays/messagePopup\u0027, {\u0027text\u0027: message}, title\u003d\u0027Receiving error\u0027, modal\u003dTrue)\n\treturn"
+      },
+      "persistent": true
+    },
+    "custom.selectedOrderIndex": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "domId": "lblTitle",
+          "name": "lblTitle"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Receiving Orders Schedule",
+          "textStyle": {
+            "classes": "kanoa/font/titleLarge"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "domId": "evProgressBar",
+          "name": "evProgressBar"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.values.showBar": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loading"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "values": {
+              "text": "Loading receiving schedule...",
+              "textColor": null,
+              "type": "INFO"
+            }
+          },
+          "path": "kanoa/core/templates/displays/progressBar"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "domId": "lblInstructions",
+          "name": "lblInstructions"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Select a scheduled order, review the canonical order, then confirm to open receiving.",
+          "textStyle": {
+            "classes": "kanoa/font/bodyMedium"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "evDateRange",
+              "name": "evDateRange"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.endDate": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.endDate"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              },
+              "props.params.startDate": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.startDate"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "selectedRange": "This Week"
+              },
+              "path": "kanoa/core/templates/selectors/date/dateRangeSelectorCompact"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.loading \u003d True\n\tself.view.custom.errorMessage \u003d \u0027\u0027\n\ttry:\n\t\tif self.view.custom.startDate is None or self.view.custom.endDate is None:\n\t\t\tself.view.custom.errorMessage \u003d \u0027Choose a valid date range.\u0027\n\t\t\treturn\n\t\tresult \u003d kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(self.view.custom.startDate, self.view.custom.endDate)\n\t\tself.view.custom.orders \u003d result.get(\u0027data\u0027, {}).get(\u0027orders\u0027, [])\n\t\tself.view.custom.errorMessage \u003d \u0027\u0027 if result.get(\u0027status\u0027) \u003d\u003d \u0027SUCCESS\u0027 else result.get(\u0027message\u0027, \u0027Could not load schedule.\u0027)\n\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error(\u0027Receiving schedule refresh failed: %s\u0027 % str(exc))\n\t\tself.view.custom.errorMessage \u003d \u0027Could not load the receiving schedule. Refresh the screen or contact a supervisor.\u0027\n\tfinally:\n\t\tself.view.custom.loading \u003d False"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "domId": "btnRefresh",
+              "name": "btnRefresh"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "classes": "kanoa/button/outlined"
+              },
+              "text": "Refresh schedule"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "domId": "dateRange",
+          "name": "dateRange"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "alignItems": "center",
+            "flexWrap": "nowrap",
+            "gap": 10
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "domId": "Progress",
+                      "name": "Progress"
+                    },
+                    "position": {
+                      "basis": "10px",
+                      "display": false,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "bar": {
+                        "color": "--kcBlue-50"
+                      },
+                      "mode": "indeterminate",
+                      "track": {
+                        "indeterminate": {
+                          "style": {
+                            "borderStyle": "none"
+                          }
+                        }
+                      }
+                    },
+                    "type": "ia.display.progress"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tself.view.custom.filter.showFilter \u003d not self.view.custom.filter.showFilter"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnFilter",
+                      "name": "btnFilter",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Show filters"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "display": false,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.filter.showActive"
+                          },
+                          "enabled": false,
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\treturn not value",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.image.icon.color": {
+                        "binding": {
+                          "config": {
+                            "path": ".../WorkOrder Filter.props.params.filterStates"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn \u0027--kcOrange-40\u0027 if len(value) !\u003d 6 else \u0027--icon\u0027",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/filter_alt"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tself.view.custom.loading \u003d True\n\tself.view.custom.errorMessage \u003d \u0027\u0027\n\ttry:\n\t\tif self.view.custom.startDate is None or self.view.custom.endDate is None:\n\t\t\tself.view.custom.errorMessage \u003d \u0027Choose a valid date range.\u0027\n\t\t\treturn\n\t\tresult \u003d kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(self.view.custom.startDate, self.view.custom.endDate)\n\t\tself.view.custom.orders \u003d result.get(\u0027data\u0027, {}).get(\u0027orders\u0027, [])\n\t\tself.view.custom.errorMessage \u003d \u0027\u0027 if result.get(\u0027status\u0027) \u003d\u003d \u0027SUCCESS\u0027 else result.get(\u0027message\u0027, \u0027Could not load schedule.\u0027)\n\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error(\u0027Receiving schedule refresh failed: %s\u0027 % str(exc))\n\t\tself.view.custom.errorMessage \u003d \u0027Could not load the receiving schedule. Refresh the screen or contact a supervisor.\u0027\n\tfinally:\n\t\tself.view.custom.loading \u003d False"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnGetData",
+                      "name": "btnGetData",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Get data"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/motion_photos_on"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\n\tself.view.getChild(\"root\").clearData()"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnClear",
+                      "name": "btnClear",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Clear table"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.table.data"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\treturn len(value) \u003e 0",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/not_interested"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\n\tself.view.custom.table.selection.row \u003d None\n\tself.view.custom.table.selection.col \u003d None\n\t\n\treturn\n"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnClearSelection",
+                      "name": "btnClearSelection",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Clear selection"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.table.selection.row"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn value is not None",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/blur_off"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\n\tmsg \u003d \"Are you sure you want to delete the selected Production Orders?\"\n\tsystem.perspective.openPopup(\"UserConfirmPopup\", \"kanoa/core/templates/inputs/confirm\",  {\u0027text\u0027:msg, \u0027messageHandler\u0027:\u0027userResponseDelete\u0027}, title\u003d\u0027Delete Production Order\u0027, modal\u003dTrue, overlayDismiss\u003dTrue)\n#\tself.view.getChild(\"root\").deleteEntry()"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnDelete",
+                      "name": "btnDelete",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Delete"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "action": "{view.custom.userAction}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn value[\u0027action\u0027][\u0027canDelete\u0027]",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "--kcRed-60",
+                          "path": "material/delete_forever"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\n\tself.view.getChild(\"root\").openEditor()\n\t\n\treturn"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnEdit",
+                      "name": "btnEdit",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Edit"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "action": "{view.custom.userAction}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn value[\u0027action\u0027][\u0027canUpdate\u0027]",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/edit"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\n\tsystem.kanoa.utilities.exportToExcel(\u0027Work Orders\u0027, self.view.custom.table.data)\n\treturn"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnExport",
+                      "name": "btnExport",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Export data"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "data": "{view.custom.table.data}",
+                              "userId": "{view.custom.security.userId}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\treturn value[\u0027data\u0027].rowCount \u003e 0 and value[\u0027userId\u0027] !\u003d -1",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/save_alt"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\t\n\tsystem.perspective.openPopup(\"Production Order Editor\", \"kanoa/mes/workOrders/woEditor\", {\u0027woId\u0027:None}, title\u003d\u0027Add Production Order\u0027, resizable\u003dTrue, draggable\u003dTrue, overlayDismiss\u003dTrue)\n\t\n\treturn"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnAdd",
+                      "name": "btnAdd",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Add"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "action": "{view.custom.userAction}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn value[\u0027action\u0027][\u0027canCreate\u0027]",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/add"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\t\n\tself.view.getChild(\"root\").checkERP()"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "domId": "btnCheckERP",
+                      "name": "btnCheckERP",
+                      "tooltip": {
+                        "delay": 0,
+                        "enabled": true,
+                        "location": "center-right",
+                        "text": "Query ERP"
+                      }
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "struct": {
+                              "action": "{view.custom.userAction}"
+                            },
+                            "waitOnAll": true
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\t\n\treturn value[\u0027action\u0027][\u0027canCreate\u0027]",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr-struct"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "path": "material/cloud_download"
+                        }
+                      },
+                      "style": {
+                        "classes": "kanoa/button/flatIcon",
+                        "width": "30px"
+                      },
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  }
+                ],
+                "meta": {
+                  "domId": "flxAction",
+                  "name": "flxAction"
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "alignItems": "center",
+                  "direction": "column",
+                  "style": {
+                    "gap": "5px",
+                    "padding": "5px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "domId": "WorkOrder-Filter",
+                  "name": "WorkOrder Filter"
+                },
+                "position": {
+                  "display": false,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.filter.showFilter"
+                      },
+                      "enabled": false,
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  },
+                  "props.params.filterStates": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.filter.statusList"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "kanoa/mes/workOrders/woFilter"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "domId": "flxActions",
+              "name": "flxActions"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "justify": "center",
+              "style": {
+                "classes": "kanoa/container",
+                "minWidth": "35px",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onRowDoubleClick": {
+                      "config": {
+                        "script": "\t\n\tif self.view.custom.userAction.canUpdate: self.view.getChild(\"root\").openEditor()\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "domId": "tblWorkOrders",
+                  "name": "tblWorkOrders"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.columns[0].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Id\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[10].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Actual Qty\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[10].visible": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.filter.showActual"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[11].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Asset\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[12].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YYYY\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[13].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Status\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[14].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YYYY\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[14].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Start\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[15].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YY hh:mm a\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[15].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027End\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[16].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Notes\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[17].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD hh:mma\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[17].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Created\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[19].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD hh:mma\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[1].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Source\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[21].dateFormat": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.locale"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn system.kanoa.date.localizeDateFormat(\"MM/DD/YY hh:mma\", value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.columns[3].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Order\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[4].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Product\u0027)"
+                      },
+                      "overlayOptOut": true,
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[5].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Product Description\u0027)"
+                      },
+                      "overlayOptOut": true,
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[6].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Mode\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[7].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Reqd Qty\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[8].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Units\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[9].header.title": {
+                    "binding": {
+                      "config": {
+                        "expression": "translate(\u0027Sched Qty\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.columns[9].visible": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.filter.showActual"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  },
+                  "props.data": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.orders"
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\n\tdef buildElement(value, fontWeight, bgColor):\n\t\n\t\tstyle \u003d {}\n\t\tif fontWeight is not None:\tstyle.update({\"fontWeight\": fontWeight})\t\n\t\tif bgColor is not None:\n\t\t\tstyle.update({\"backgroundColor\": bgColor})\t\n\t\t\tstyle.update({\"color\": bgColorDict[bgColor]})\n\t\t\tstyle.update({\"borderBottomRightRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderTopLeftRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderTopRightRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderBottomLeftRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"margin\": \u00274px\u0027})\n\t\t\n\t\treturn {\"value\": value, \"style\":style}\n\n\tself.view.custom.info \u003d {\"showBar\": True, \"text\": \"Formatting records\", \"type\": \"INFO\"}\t\n\n\tdata \u003d value\n\t\n\tbgColors \u003d []\n\tfor row in data:\n\t\tbgColors.append(row[\u0027statusColor\u0027])\n\t\tbgColors.append(row[\u0027itemColor\u0027] or row[\u0027itemClassColor\u0027])\n\t\tbgColors.append(row[\u0027modeColor\u0027])\n\t\n\tbgColors \u003d list(set(bgColors))\n\tbgColorDict \u003d {}\n\tfor bgColor in bgColors:\n\t\tbgColorDict[bgColor] \u003d system.kanoa.utilities.getContrastingColor(bgColor)\n\t\n\tfor row in data:\n\t\trow[\u0027workOrderStatusName\u0027] \u003d buildElement(row[\u0027workOrderStatusName\u0027], None, row[\u0027statusColor\u0027])\n\t\trow[\u0027itemName\u0027] \u003d buildElement(row[\u0027itemName\u0027], None, row[\u0027itemColor\u0027] or row[\u0027itemClassColor\u0027])\n\t\trow[\u0027modeName\u0027] \u003d buildElement(row[\u0027modeName\u0027], None, row[\u0027modeColor\u0027])\n\t\trow[\u0027lastUpdated\u0027] \u003d row[\u0027changedDate\u0027] or row[\u0027createdDate\u0027]\n\n\tself.view.custom.info \u003d {\"showBar\": False, \"text\": \"\", \"type\": \"INFO\"}\t\n\t\n\treturn data",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.filter.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "now(0)"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn \u0027\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.pager.bottom": {
+                    "binding": {
+                      "config": {
+                        "path": "this.props.data"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\ttry:\n\t\treturn len(value) \u003e self.props.pager.initialOption\n\texcept:\n\t\tpass",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.selection.data": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.table.selection.data"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  },
+                  "props.selection.selectedColumn": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.table.selection.col"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  },
+                  "props.selection.selectedRow": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.table.selection.row"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "cells": {
+                    "style": {
+                      "fontSize": "12px"
+                    }
+                  },
+                  "columns": [
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "workOrderId",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "left",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "view",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": 30
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "workOrderSourceName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": 65
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "workOrderName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": ""
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "workOrderTitle",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "itemName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "itemDescription",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "modeName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "reqdQty",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "right",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "right",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": false,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "itemUnitName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": false,
+                      "strictWidth": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": 60
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "schedQty",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "right",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "right",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "actualQty",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "right",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "right",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "assetPath",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "dueDate",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": "Due Date"
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD/YYYY",
+                      "editable": false,
+                      "field": "workOrderStatusName",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "startDate",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "endDate",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "date",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "hh:mm a",
+                      "editable": false,
+                      "field": "note",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "createdDate",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        }
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD hh:mma",
+                      "editable": false,
+                      "field": "createdByUser",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": "Created By"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "changedDate",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": "Changed"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "dateFormat": "MM/DD hh:mma",
+                      "editable": false,
+                      "field": "changedByUser",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": "Changed By"
+                      },
+                      "justify": "auto",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": false,
+                      "width": ""
+                    },
+                    {
+                      "align": "center",
+                      "boolean": "checkbox",
+                      "editable": false,
+                      "field": "lastUpdated",
+                      "footer": {
+                        "align": "center",
+                        "justify": "left",
+                        "style": {
+                          "classes": ""
+                        },
+                        "title": ""
+                      },
+                      "header": {
+                        "align": "center",
+                        "justify": "center",
+                        "style": {
+                          "classes": "kanoa/font/default"
+                        },
+                        "title": "Last Updated"
+                      },
+                      "justify": "center",
+                      "number": "value",
+                      "numberFormat": "0,0.##",
+                      "progressBar": {
+                        "bar": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "track": {
+                          "color": "",
+                          "style": {
+                            "classes": ""
+                          }
+                        },
+                        "value": {
+                          "enabled": true,
+                          "format": "0,0.##",
+                          "justify": "center",
+                          "style": {
+                            "classes": ""
+                          }
+                        }
+                      },
+                      "render": "auto",
+                      "resizable": true,
+                      "sort": "none",
+                      "sortable": true,
+                      "strictWidth": false,
+                      "style": {
+                        "classes": ""
+                      },
+                      "toggleSwitch": {
+                        "color": {
+                          "selected": "",
+                          "unselected": ""
+                        }
+                      },
+                      "viewParams": {},
+                      "viewPath": "",
+                      "visible": true,
+                      "width": ""
+                    }
+                  ],
+                  "dragOrderable": false,
+                  "filter": {
+                    "enabled": true,
+                    "style": {
+                      "classes": "kanoa/font/default"
+                    }
+                  },
+                  "headerGroups": [
+                    []
+                  ],
+                  "headerStyle": {
+                    "fontWeight": "bold"
+                  },
+                  "nullFormat": {
+                    "includeNullStrings": true
+                  },
+                  "pager": {
+                    "activeOption": 50,
+                    "initialOption": 50
+                  },
+                  "rows": {
+                    "striped": {
+                      "enabled": false
+                    },
+                    "style": {
+                      "classes": "kanoa/border",
+                      "gap": "5px",
+                      "margin": "2px",
+                      "padding": "2px"
+                    },
+                    "subview": {
+                      "enabled": true,
+                      "viewPath": "kanoa/mes/workOrders/woViewer"
+                    }
+                  },
+                  "selection": {
+                    "mode": "multiple interval"
+                  },
+                  "style": {
+                    "borderStyle": "none"
+                  },
+                  "virtualized": false
+                },
+                "type": "ia.display.table"
+              }
+            ],
+            "meta": {
+              "domId": "flxTable",
+              "name": "flxTable"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "kanoa/border"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "domId": "flxMain",
+          "name": "flxMain"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "gap": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onRowClick": {
+              "config": {
+                "script": "\n\trowData \u003d event.row\n\tif isinstance(rowData, dict):\n\t\tselected \u003d dict(rowData)\n\telse:\n\t\ttry:\n\t\t\trowIndex \u003d int(rowData)\n\t\t\tselected \u003d dict(self.props.data[rowIndex]) if 0 \u003c\u003d rowIndex \u003c len(self.props.data) else None\n\t\texcept (TypeError, ValueError):\n\t\t\tselected \u003d None\n\tself.view.custom.selectedOrder \u003d selected\n\tself.view.custom.errorMessage \u003d \u0027\u0027"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "domId": "tblOrders",
+          "name": "tblOrders_0"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.data": {
+            "binding": {
+              "config": {
+                "path": "view.custom.orders"
+              },
+              "overlayOptOut": true,
+              "transforms": [
+                {
+                  "code": "\n\tdef buildElement(value, fontWeight, bgColor):\n\t\n\t\tstyle \u003d {}\n\t\tif fontWeight is not None:\tstyle.update({\"fontWeight\": fontWeight})\t\n\t\tif bgColor is not None:\n\t\t\tstyle.update({\"backgroundColor\": bgColor})\t\n\t\t\tstyle.update({\"color\": bgColorDict[bgColor]})\n\t\t\tstyle.update({\"borderBottomRightRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderTopLeftRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderTopRightRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"borderBottomLeftRadius\": \u00275px\u0027})\n\t\t\tstyle.update({\"margin\": \u00274px\u0027})\n\t\t\n\t\treturn {\"value\": value, \"style\":style}\n\n\tself.view.custom.info \u003d {\"showBar\": True, \"text\": \"Formatting records\", \"type\": \"INFO\"}\t\n\n\tdata \u003d value\n\t\n#\tbgColors \u003d []\n#\tfor row in data:\n#\t\tbgColors.append(row[\u0027statusColor\u0027])\n#\t\tbgColors.append(row[\u0027itemColor\u0027] or row[\u0027itemClassColor\u0027])\n#\t\tbgColors.append(row[\u0027modeColor\u0027])\n#\t\n#\tbgColors \u003d list(set(bgColors))\n#\tbgColorDict \u003d {}\n#\tfor bgColor in bgColors:\n#\t\tbgColorDict[bgColor] \u003d system.kanoa.utilities.getContrastingColor(bgColor)\n#\t\n#\tfor row in data:\n#\t\trow[\u0027workOrderStatusName\u0027] \u003d buildElement(row[\u0027workOrderStatusName\u0027], None, row[\u0027statusColor\u0027])\n#\t\trow[\u0027itemName\u0027] \u003d buildElement(row[\u0027itemName\u0027], None, row[\u0027itemColor\u0027] or row[\u0027itemClassColor\u0027])\n#\t\trow[\u0027modeName\u0027] \u003d buildElement(row[\u0027modeName\u0027], None, row[\u0027modeColor\u0027])\n#\t\trow[\u0027lastUpdated\u0027] \u003d row[\u0027changedDate\u0027] or row[\u0027createdDate\u0027]\n#\n#\tself.view.custom.info \u003d {\"showBar\": False, \"text\": \"\", \"type\": \"INFO\"}\t\n#\t\n\treturn data",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "bodyStyle": {
+            "classes": "kanoa/font/default"
+          },
+          "cells": {
+            "style": {
+              "fontSize": "12px"
+            }
+          },
+          "columns": [
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "orderNumber",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Order"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 150
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "description",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Description"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "ascending",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 260
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "material",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Material"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 190
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "targetQty",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Target"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 120
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "unitName",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Unit"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 80
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY HH:mm",
+              "editable": false,
+              "field": "scheduledStart",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Scheduled start"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 180
+            },
+            {
+              "align": "left",
+              "boolean": "checkbox",
+              "dateFormat": "yyyy-MM-dd HH:mm",
+              "editable": false,
+              "field": "status",
+              "header": {
+                "align": "left",
+                "justify": "left",
+                "style": {
+                  "classes": "kanoa/font/default"
+                },
+                "title": "Status"
+              },
+              "justify": "left",
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "render": "auto",
+              "resizable": true,
+              "sort": "none",
+              "sortable": true,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "width": 130
+            }
+          ],
+          "filter": {
+            "enabled": true
+          },
+          "headerStyle": {
+            "classes": "kanoa/font/default",
+            "fontWeight": "bold"
+          },
+          "pager": {
+            "activeOption": 100,
+            "initialOption": 100
+          },
+          "sortOrder": [
+            "description"
+          ]
+        },
+        "type": "ia.display.table"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "lblSelection",
+              "name": "lblSelection"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 0,
+                  "name": "sm",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 0,
+                  "name": "md",
+                  "order": 0,
+                  "rowIndex": 0,
+                  "span": 2
+                },
+                {
+                  "colIndex": 0,
+                  "name": "lg",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 2
+                }
+              ],
+              "height": 40,
+              "shrink": 0
+            },
+            "props": {
+              "text": "Selected order:",
+              "textStyle": {
+                "classes": "kanoa/font/bodyMedium"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "domId": "lblSelectedOrder",
+              "name": "lblSelectedOrder"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 0,
+                  "name": "sm",
+                  "order": 1,
+                  "rowIndex": 1,
+                  "span": 1
+                },
+                {
+                  "colIndex": 2,
+                  "name": "md",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 2
+                },
+                {
+                  "colIndex": 2,
+                  "name": "lg",
+                  "order": 1.5,
+                  "rowIndex": 0,
+                  "span": 2
+                }
+              ],
+              "height": 40,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.selectedOrder.orderNumber"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\t\n\treturn \"\" if value is None else value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "kanoa/font/bodyMedium"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "ColumnContainer"
+        },
+        "position": {
+          "basis": "040px",
+          "shrink": 0
+        },
+        "props": {
+          "currentBreakpoint": "md"
+        },
+        "type": "ia.container.column"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\n\tselected \u003d self.view.custom.selectedOrder\n\tif not selected:\n\t\tself.view.custom.errorMessage \u003d \u0027Select an order from the schedule first.\u0027\n\t\treturn\n\tresult \u003d kanoaScripts.custom.ops.receiving.getReceivingOrder(selected.get(\u0027workOrderId\u0027))\n\tif result.get(\u0027status\u0027) !\u003d \u0027SUCCESS\u0027:\n\t\tself.view.custom.errorMessage \u003d result.get(\u0027message\u0027, \u0027The order could not be confirmed.\u0027)\n\t\treturn\n\torder \u003d result.get(\u0027data\u0027, {}).get(\u0027order\u0027, {})\n\tsystem.perspective.navigate(view\u003d\u0027training/receiveMaterial\u0027, params\u003d{\u0027value\u0027: {\n\t\t\u0027workOrderId\u0027: order.get(\u0027workOrderId\u0027),\n\t\t\u0027scheduleBlockId\u0027: selected.get(\u0027scheduleBlockId\u0027),\n\t\t\u0027order\u0027: order\n\t}})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "domId": "btnConfirm",
+          "name": "btnConfirm"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "kanoa/button/filled"
+          },
+          "text": "Confirm order"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "events": {
+      "component": {
+        "onStartup": {
+          "config": {
+            "script": "\tstartDate \u003d self.view.custom.startDate\n\tendDate \u003d self.view.custom.endDate\n\tif startDate is None:\n\t\tstartDate \u003d system.date.addDays(system.date.midnight(system.date.now()), -7)\n\tif endDate is None:\n\t\tendDate \u003d system.date.addDays(system.date.midnight(system.date.now()), 14)\n\tself.view.custom.startDate \u003d startDate\n\tself.view.custom.endDate \u003d endDate\n\tself.view.custom.loading \u003d True\n\ttry:\n\t\tresult \u003d kanoaScripts.custom.ops.receiving.getScheduledReceivingOrders(startDate, endDate)\n\t\tself.view.custom.orders \u003d result.get(\u0027data\u0027, {}).get(\u0027orders\u0027, [])\n\t\tself.view.custom.errorMessage \u003d \u0027\u0027 if result.get(\u0027status\u0027) \u003d\u003d \u0027SUCCESS\u0027 else result.get(\u0027message\u0027, \u0027Could not load schedule.\u0027)\n\texcept Exception as exc:\n\t\tkanoaScripts.custom.ops.receiving.getLogger().error(\u0027Receiving schedule startup failed: %s\u0027 % str(exc))\n\t\tself.view.custom.errorMessage \u003d \u0027Could not load the receiving schedule. Refresh the screen or contact a supervisor.\u0027\n\tfinally:\n\t\tself.view.custom.loading \u003d False"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "domId": "root",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "kanoa/container",
+        "flexWrap": "nowrap",
+        "gap": 12,
+        "padding": 20
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

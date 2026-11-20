@@ -1,0 +1,45 @@
+{
+  "pages": {
+    "/": {
+      "docks": {
+        "left": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "NavBar",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 260,
+            "viewParams": {},
+            "viewPath": "kanoa/core/docks/navigation/navigation"
+          }
+        ],
+        "top": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "hide",
+            "iconUrl": "",
+            "id": "",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 50,
+            "viewParams": {},
+            "viewPath": "kanoa/core/docks/header/header"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "kanoa/core/dbp/dashboards/dashboardViewer"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

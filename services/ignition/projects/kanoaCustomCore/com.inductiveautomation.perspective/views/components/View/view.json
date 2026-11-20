@@ -1,0 +1,166 @@
+{
+  "custom": {
+    "obj": {}
+  },
+  "params": {
+    "enabled": true,
+    "label": "label text",
+    "type": "text",
+    "value": "input value"
+  },
+  "propConfig": {
+    "custom.obj": {
+      "persistent": true
+    },
+    "custom.obj.showNum": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.type}\u003d\"num\""
+        },
+        "type": "expr"
+      }
+    },
+    "custom.obj.showText": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.type}\u003d\"text\""
+        },
+        "type": "expr"
+      }
+    },
+    "params.enabled": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 801
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "33.333%",
+          "grow": 4
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Roboto"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "obj": {
+            "showNum": false,
+            "showText": false
+          }
+        },
+        "meta": {
+          "name": "TextField",
+          "tooltip": {
+            "location": "top"
+          }
+        },
+        "position": {
+          "basis": "66.666%",
+          "grow": 8
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.obj.showText"
+              },
+              "type": "property"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.enabled"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "basis": "150px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.obj.showNum"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.numeric-entry-field"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center",
+      "style": {
+        "marginBottom": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 0,
+        "paddingBottom": 2,
+        "paddingLeft": 2,
+        "paddingRight": 2,
+        "paddingTop": 2
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

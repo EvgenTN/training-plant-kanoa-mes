@@ -1,0 +1,30 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Link"
+        },
+        "position": {
+          "basis": "24px"
+        },
+        "props": {
+          "target": "self",
+          "text": "Link",
+          "url": "http://inductiveautomation.com"
+        },
+        "type": "ia.navigation.link"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}
