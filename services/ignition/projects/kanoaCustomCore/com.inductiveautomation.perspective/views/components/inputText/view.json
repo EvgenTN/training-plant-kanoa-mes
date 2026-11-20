@@ -1,0 +1,102 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 429,
+      "width": 948
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 4
+            }
+          ],
+          "height": 40
+        },
+        "props": {
+          "text": "Label"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 4,
+              "name": "sm",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 8
+            },
+            {
+              "colIndex": 4,
+              "name": "md",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 8
+            },
+            {
+              "colIndex": 4,
+              "name": "lg",
+              "order": 2,
+              "rowIndex": 0,
+              "span": 8
+            }
+          ],
+          "height": 40
+        },
+        "type": "ia.input.text-field"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoints": [
+        {
+          "minWidth": 0,
+          "name": "sm"
+        },
+        {
+          "minWidth": 0,
+          "name": "md"
+        },
+        {
+          "minWidth": 0,
+          "name": "lg"
+        }
+      ],
+      "currentBreakpoint": "sm"
+    },
+    "type": "ia.container.column"
+  }
+}

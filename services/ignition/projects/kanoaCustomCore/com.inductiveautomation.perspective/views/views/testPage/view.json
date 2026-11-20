@@ -1,0 +1,86 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 1
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 0,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 1
+            }
+          ],
+          "height": 40
+        },
+        "props": {
+          "path": "components/inputText"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView_0"
+        },
+        "position": {
+          "breakpoints": [
+            {
+              "colIndex": 0,
+              "name": "sm",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 1
+            },
+            {
+              "colIndex": 0,
+              "name": "md",
+              "order": 0,
+              "rowIndex": 1,
+              "span": 6
+            },
+            {
+              "colIndex": 0,
+              "name": "lg",
+              "order": 1,
+              "rowIndex": 0,
+              "span": 1
+            }
+          ],
+          "height": 40
+        },
+        "props": {
+          "path": "components/inputText"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "currentBreakpoint": "md"
+    },
+    "type": "ia.container.column"
+  }
+}
